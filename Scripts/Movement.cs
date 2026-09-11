@@ -16,7 +16,7 @@ public partial class Movement : CharacterBody3D
 	[Export]
 	public Node3D Head { get; set; }
 
-	private Camera3D camera;
+		private Camera3D camera;
 
 	[Export]
 	public CollisionShape3D Collider { get; set; }
