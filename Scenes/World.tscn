@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://ccojhkcos43g1"]
+
+[ext_resource type="PackedScene" uid="uid://dodpev3657a8c" path="res://Scenes/Player.tscn" id="1_5cjrv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_j0p05"]
+sky_material = SubResource("ProceduralSkyMaterial_5cjrv")
+
+[sub_resource type="Environment" id="Environment_5nsto"]
+background_mode = 2
+sky = SubResource("Sky_j0p05")
+glow_enabled = true
+
+[node name="World" type="Node3D" unique_id=1422076585]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1297473127]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=26450683]
+environment = SubResource("Environment_5nsto")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2016720015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1.2888974, 1.5)
+use_collision = true
+size = Vector3(39, 0.001, 30)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=203243849]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.70302, 0, 14.988045)
+size = Vector3(20, 1, 0.001)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=518288519]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.70302, 0, 14.988045)
+size = Vector3(20, 1, 0.001)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D" unique_id=772164403]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2030201, 2.5, 14.488544)
+size = Vector3(39, 6, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D" unique_id=1918264401]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.40604, 2.7445679, -0.5239105)
+size = Vector3(1, 5.4891357, 30)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D" unique_id=1528275740]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9785156, 0.14428711, -1.9145508)
+size = Vector3(2.9570313, 1.2885742, 4.8291016)
+
+[node name="Player" parent="." unique_id=1512899030 instance=ExtResource("1_5cjrv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15129495, 0)
+
+[node name="Label" type="Label" parent="." unique_id=555306583]
+offset_right = 43.0
+offset_bottom = 23.0
+text = "pharm-sim demo"
