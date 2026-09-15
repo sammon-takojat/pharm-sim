@@ -1,15 +1,13 @@
 extends GdUnitTestSuite
 
 var runner:GdUnitSceneRunner
-var player:CharacterBody3D
 var camera:Camera3D
 var start_dir:Vector3
 
 func before_test():
 	# Create a scene
 	runner = scene_runner("res://Scenes/World.tscn")
-	player = runner.find_child("Player")
-	camera = player.find_child("Camera3D")
+	camera = runner.find_child("Camera3D")
 	start_dir = camera.global_rotation_degrees
 
 func test_mouse_up():
