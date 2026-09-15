@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites id="2026-09-15" name="report_1" tests="5" failures="0" skipped="0" flaky="0" time="0.000">
+	<testsuite id="0" name="test_movement" package="test" timestamp="2026-09-15T07:38:53" hostname="localhost" tests="5" failures="0" errors="0" skipped="0" flaky="0" time="6.679">
+		<testcase name="test_move_right" classname="test_movement" time="1.464">
+		</testcase>
+		<testcase name="test_move_left" classname="test_movement" time="1.533">
+		</testcase>
+		<testcase name="test_move_fwd" classname="test_movement" time="1.533">
+		</testcase>
+		<testcase name="test_move_back" classname="test_movement" time="1.529">
+		</testcase>
+		<testcase name="test_jump" classname="test_movement" time="0.560">
+		</testcase>
+	</testsuite>
+</testsuites>
