@@ -1,26 +1,25 @@
-name: "godot-staging-ci export"
-on:
-  pull_request:
-    types:
-      - opened
-    branches:
-      - "dev"
+name: Deploy Staging
 
-env:
-  GODOT_VERSION: 4.7
-  EXPORT_NAME: pharm-sim-staging
-  PROJECT_PATH: .
+on:
+  push:
+    branches:
+      - dev
 
 permissions:
   contents: read
-  checks: write
+
+env:
+  GODOT_VERSION: "4.7"
+  PROJECT_PATH: .
 
 jobs:
   export-web:
-    name: Web Export
+    name: Build Web Export
     runs-on: ubuntu-24.04
+
     container:
       image: barichello/godot-ci:4.7
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,31 +38,31 @@ jobs:
             libxinerama1 \
             libxi6
 
-
       - name: Mark workspace as safe for git
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
-      - name: GdUnit4 - Test Runner Action
-        uses: godot-gdunit-labs/gdUnit4-action@v1.3.2
-        with:
-          godot-version: "4.7.2"
-          paths: "res://test"
-
-      - name: Setup
+      - name: Setup export templates
         run: |
-          mkdir -v -p ~/.local/share/godot/export_templates/
-          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+          mkdir -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable \
+             ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+
       - name: Web Build
         run: |
-          mkdir -v -p WebDeploy/build
-          EXPORT_DIR="$(readlink -f build)"
-          cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Web" "$EXPORT_DIR/index.html"
+          mkdir -p WebDeploy/build
+          godot \
+            --headless \
+            --verbose \
+            --export-release \
+            "Web" \
+            "WebDeploy/build/index.html"
+
       - name: Login to Docker Hub
         uses: docker/login-action@v4
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:

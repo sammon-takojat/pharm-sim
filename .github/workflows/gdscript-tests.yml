@@ -1,0 +1,47 @@
+name: GDScript Tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+  checks: write
+
+env:
+  GODOT_VERSION: "4.7"
+
+jobs:
+  test:
+    name: GDScript Tests
+    runs-on: ubuntu-24.04
+
+    container:
+      image: barichello/godot-ci:4.7
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Install dependencies
+        run: |
+          apt-get update
+          apt-get install -y \
+            xvfb \
+            libfontconfig1 \
+            libxcursor1 \
+            libwayland-cursor0 \
+            libxkbcommon0 \
+            libxinerama1 \
+            libxi6
+
+      - name: Mark workspace as safe for git
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Run GdUnit4 tests
+        uses: godot-gdunit-labs/gdUnit4-action@v1.3.2
+        with:
+          godot-version: "4.7"
+          paths: "res://test"
