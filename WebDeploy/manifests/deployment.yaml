@@ -4,20 +4,20 @@ metadata:
   annotations:
     alpha.image.policy.openshift.io/resolve-names: "*"
     image.openshift.io/triggers: >-
-      [{"from":{"kind":"ImageStreamTag", "name":"pharma-sim:staging", "namespace":"excaperoom-ohtu-s2026"},"fieldPath":"spec.template.spec.containers[?(@.name==\"pharma-sim\")].image","pause":"false"}]
-  name: pharma-sim-dep
+      [{"from":{"kind":"ImageStreamTag", "name":"pharm-sim:staging", "namespace":"excaperoom-ohtu-s2026"},"fieldPath":"spec.template.spec.containers[?(@.name==\"pharma-sim\")].image","pause":"false"}]
+  name: pharm-sim-dep
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pharma-sim
+      app: pharm-sim
   template:
     metadata:
       labels:
-        app: pharma-sim
+        app: pharm-sim
     spec:
       containers:
-        - name: pharma-sim
+        - name: pharm-sim
           image: dominicnygard/pharm-sim
           imagePullPolicy: Always
           ports:

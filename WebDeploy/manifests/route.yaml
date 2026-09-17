@@ -1,16 +1,16 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: pharma-sim-route
+  name: pharm-sim-route
   namespace: excaperoom-ohtu-s2026
   labels:
-    app: pharma-sim
+    app: pharm-sim
     type: external
 spec:
-  host: excaperoom-ohtu-s2026-pharma-sim.apps.okd-cs-test-0.k8s.cs.helsinki.fi
+  host: excaperoom-ohtu-s2026-pharm-sim.apps.okd-cs-test-0.k8s.cs.helsinki.fi
   to:
     kind: Service
-    name: pharma-sim-svc
+    name: pharm-sim-svc
   port:
     targetPort: 8080
   tls:
