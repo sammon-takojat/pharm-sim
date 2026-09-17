@@ -61,6 +61,29 @@ jobs:
             "Web" \
             "WebDeploy/build/index.html"
 
+      - name: Upload Web export
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-build
+          path: WebDeploy/build/
+
+  docker:
+    name: Build and Push Docker Image
+    runs-on: ubuntu-24.04
+    needs: export-web
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Download Web export
+        uses: actions/download-artifact@v4
+        with:
+          name: web-build
+          path: WebDeploy/build/
+
       - name: Login to Docker Hub
         uses: docker/login-action@v4
         with:
