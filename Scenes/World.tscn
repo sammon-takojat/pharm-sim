@@ -14,6 +14,12 @@ background_mode = 2
 sky = SubResource("Sky_j0p05")
 glow_enabled = true
 
+[sub_resource type="BoxMesh" id="BoxMesh_wkjni"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5cjrv"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
 [node name="World" type="Node3D" unique_id=1422076585]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1297473127]
@@ -55,3 +61,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 offset_right = 43.0
 offset_bottom = 23.0
 text = "pharm-sim demo"
+
+[node name="PickableCube" type="RigidBody3D" parent="." unique_id=1137818442 groups=["pickable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.923379, -0.25784683, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PickableCube" unique_id=758475162]
+mesh = SubResource("BoxMesh_wkjni")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickableCube" unique_id=1793279497]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_5cjrv")
