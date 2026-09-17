@@ -9,6 +9,8 @@ extends Node3D
 @onready var reticle : ColorRect = $"../Reticle"
 @onready var pickup_ui : Label = $"../PickUpUi"
 
+
+
 var rotation_vector = Vector3()
 var sens = 0.12
 var is_picked_up = false
