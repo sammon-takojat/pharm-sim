@@ -1,0 +1,19 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+
+metadata:
+  name: pharma-sim
+  labels:
+    app: pharma-sim
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+    - name: staging
+      from:
+        kind: DockerImage
+        name: dominicnygard/pharma-sim:staging
+      importPolicy:
+        scheduled: true
+      referencePolicy:
+        type: Local
