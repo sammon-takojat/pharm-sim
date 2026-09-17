@@ -4,9 +4,11 @@ extends Node3D
 @onready var head = $"."
 @onready var player = $".."
 @onready var raycast = $Camera3D/RayCast3D
-@onready var hand = $Hand
+@onready var camera = $Camera3D
 
 var held_object : RigidBody3D
+const follow_distance = 2.0
+const follow_speed = 8.0
 
 @onready var reticle : ColorRect = $"../Reticle"
 @onready var pickup_ui : Label = $"../PickUpUi"
@@ -15,9 +17,7 @@ var held_object : RigidBody3D
 
 var rotation_vector = Vector3()
 var sens = 0.12
-var is_picked_up = false
 
-# Called when the node enters the scene tree for the first time.
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -26,22 +26,8 @@ func _process(delta):
 	head.rotation_degrees.x = rotation_vector.x
 	player.rotation_degrees.y = rotation_vector.y
 	
-	pickup_ui.visible = false
-	
-	if raycast.is_colliding():
-		reticle.visible = true
-		var object = raycast.get_collider()
-		
-		if object.is_in_group("pickable"):
-			pickup_ui.visible = true
-			
-			if Input.is_action_pressed("Interact"):
-				object.global_position = hand.global_position
-				object.global_rotation = hand.global_rotation
-				
-				pickup_ui.visible = false
-	else:
-		reticle.visible = false
+	handle_object_holding()
+	handle_ui()
 
 
 func _input(event):
@@ -49,3 +35,34 @@ func _input(event):
 		rotation_vector.y -= (event.relative.x * sens)
 		rotation_vector.x -= (event.relative.y * sens)
 		rotation_vector.x = clamp(rotation_vector.x,-90,90)
+
+func set_held_object(body):
+	if body is RigidBody3D && body.is_in_group("pickable"):
+		held_object = body
+
+func drop_held_object():
+	held_object = null
+
+func handle_object_holding():
+	if Input.is_action_just_pressed("Interact"):
+		if held_object != null:
+			drop_held_object()
+		elif raycast.is_colliding():
+			set_held_object(raycast.get_collider())
+	
+	if held_object != null:
+		var target_pos = camera.global_transform.origin + (camera.global_basis * Vector3(0, 0, -follow_distance))
+		var object_pos = held_object.global_transform.origin
+		held_object.linear_velocity = (target_pos - object_pos) * follow_speed
+
+func handle_ui():
+	if held_object != null:
+		reticle.visible = false
+		pickup_ui.visible = false
+	elif raycast.is_colliding():
+		reticle.visible = true
+		if raycast.get_collider().is_in_group("pickable"):
+			pickup_ui.visible = true
+	else:
+		reticle.visible = false
+		pickup_ui.visible = false
