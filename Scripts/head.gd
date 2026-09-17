@@ -9,6 +9,7 @@ extends Node3D
 var held_object : RigidBody3D
 const follow_distance = 2.0
 const follow_speed = 8.0
+const object_rotation_damping = 100.0
 
 @onready var reticle : ColorRect = $"../Reticle"
 @onready var pickup_ui : Label = $"../PickUpUi"
@@ -26,8 +27,10 @@ func _process(delta):
 	head.rotation_degrees.x = rotation_vector.x
 	player.rotation_degrees.y = rotation_vector.y
 	
-	handle_object_holding()
 	handle_ui()
+
+func _physics_process(delta):
+	handle_object_holding(delta)
 
 
 func _input(event):
@@ -43,7 +46,7 @@ func set_held_object(body):
 func drop_held_object():
 	held_object = null
 
-func handle_object_holding():
+func handle_object_holding(delta):
 	if Input.is_action_just_pressed("Interact"):
 		if held_object != null:
 			drop_held_object()
@@ -54,11 +57,12 @@ func handle_object_holding():
 		var target_pos = camera.global_transform.origin + (camera.global_basis * Vector3(0, 0, -follow_distance))
 		var object_pos = held_object.global_transform.origin
 		held_object.linear_velocity = (target_pos - object_pos) * follow_speed
+		held_object.angular_velocity = held_object.angular_velocity.move_toward(Vector3.ZERO, delta * object_rotation_damping)
 
 func handle_ui():
 	if held_object != null:
 		reticle.visible = false
-		pickup_ui.visible = false
+		pickup_ui.visible = false	
 	elif raycast.is_colliding():
 		reticle.visible = true
 		if raycast.get_collider().is_in_group("pickable"):
