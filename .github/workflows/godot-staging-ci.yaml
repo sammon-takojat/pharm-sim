@@ -44,7 +44,7 @@ jobs:
       - name: Web Build
         run: |
           mkdir -v -p WebDeploy/build
-          EXPORT_DIR="$(readlink -f build)"
+          EXPORT_DIR="$(readlink -f WebDeploy/build)"
           cd $PROJECT_PATH
           godot --headless --verbose --export-release "Web" "$EXPORT_DIR/index.html"
       - name: Login to Docker Hub
