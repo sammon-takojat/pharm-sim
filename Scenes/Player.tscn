@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dodpev3657a8c"]
 
-[ext_resource type="Script" uid="uid://bnbe7wfv3xtic" path="res://Scripts/player_movement.gd" id="1_kyqiw"]
+[ext_resource type="Script" uid="uid://brha7p50a0y7a" path="res://Scripts/player.gd" id="1_kyqiw"]
+[ext_resource type="Script" uid="uid://cohctm352188g" path="res://Scripts/head.gd" id="2_kyqiw"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_wkjni"]
 
@@ -18,6 +19,7 @@ shape = SubResource("ConvexPolygonShape3D_kyqiw")
 
 [node name="Head" type="Node3D" parent="." unique_id=1096982568]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8167428, 0)
+script = ExtResource("2_kyqiw")
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1587618206]
 

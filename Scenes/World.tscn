@@ -67,7 +67,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 [node name="Label" type="Label" parent="." unique_id=555306583]
 offset_right = 43.0
 offset_bottom = 23.0
-text = "pharm-sim demo"
+text = "pharm-sim demo v0.0.1"
 
 [node name="PickableBall" type="RigidBody3D" parent="." unique_id=1614094833 groups=["pickable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.923379, -0.26014948, -1.2714767)
