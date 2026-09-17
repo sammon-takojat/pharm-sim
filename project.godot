@@ -26,6 +26,16 @@ window/stretch/aspect="expand"
 
 project/assembly_name="pharm-sim"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg")
+
+[gdunit4]
+
+settings/common/update_notification_enabled=false
+settings/test/test_discovery=true
+ui/toolbar/run_overall=true
+
 [input]
 
 Up={
