@@ -23,11 +23,16 @@ jobs:
         with:
           lfs: true
 
+      - name: Install xvfb
+        run: |
+          apt-get update
+          apt-get install -y xvfb
+
       - name: GdUnit4 - Test Runner Action
         uses: godot-gdunit-labs/gdUnit4-action@v1.3.2
         with:
           godot-version: "4.7.2"
-          paths: "res://tests"
+          paths: "res://test"
 
       - name: Setup
         run: |
