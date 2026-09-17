@@ -23,11 +23,18 @@ jobs:
         with:
           lfs: true
 
-      - name: Install xvfb
+      - name: Install dependencies
         run: |
           apt-get update
-          apt-get install -y xvfb
-          apt-get install -y xvfb libfontconfig1 libxcursor1 libwayland-cursor0
+          apt-get install -y \
+            xvfb \
+            libfontconfig1 \
+            libxcursor1 \
+            libwayland-cursor0 \
+            libxkbcommon0 \
+            libxinerama1 \
+            libxi6
+
 
       - name: Mark workspace as safe for git
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
