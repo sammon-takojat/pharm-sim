@@ -95,4 +95,4 @@ jobs:
         with:
           context: WebDeploy
           push: true
-          tags: ${{ vars.DOCKERHUB_USERNAME }}/pharma-sim:staging
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/pharm-sim:staging
