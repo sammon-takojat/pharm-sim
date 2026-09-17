@@ -6,6 +6,8 @@ extends Node3D
 @onready var raycast = $Camera3D/RayCast3D
 @onready var hand = $Hand
 
+var held_object : RigidBody3D
+
 @onready var reticle : ColorRect = $"../Reticle"
 @onready var pickup_ui : Label = $"../PickUpUi"
 
