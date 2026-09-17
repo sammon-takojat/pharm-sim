@@ -11,6 +11,10 @@ env:
   EXPORT_NAME: pharm-sim-staging
   PROJECT_PATH: .
 
+permissions:
+  contents: read
+  checks: write
+
 jobs:
   export-web:
     name: Web Export
