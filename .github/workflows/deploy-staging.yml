@@ -1,0 +1,98 @@
+name: Deploy Staging
+
+on:
+  push:
+    branches:
+      - dev
+
+permissions:
+  contents: read
+
+env:
+  GODOT_VERSION: "4.7"
+  PROJECT_PATH: .
+
+jobs:
+  export-web:
+    name: Build Web Export
+    runs-on: ubuntu-24.04
+
+    container:
+      image: barichello/godot-ci:4.7
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Install dependencies
+        run: |
+          apt-get update
+          apt-get install -y \
+            xvfb \
+            libfontconfig1 \
+            libxcursor1 \
+            libwayland-cursor0 \
+            libxkbcommon0 \
+            libxinerama1 \
+            libxi6
+
+      - name: Mark workspace as safe for git
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Setup export templates
+        run: |
+          mkdir -p ~/.local/share/godot/export_templates/
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable \
+             ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+
+      - name: Disable test addon
+        run: |
+          rm -rf addons/gdUnit4
+
+      - name: Web Build
+        run: |
+          mkdir -p WebDeploy/build
+          godot \
+            --headless \
+            --verbose \
+            --export-release \
+            "Web" \
+            "WebDeploy/build/index.html"
+
+      - name: Upload Web export
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-build
+          path: WebDeploy/build/
+
+  docker:
+    name: Build and Push Docker Image
+    runs-on: ubuntu-24.04
+    needs: export-web
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Download Web export
+        uses: actions/download-artifact@v4
+        with:
+          name: web-build
+          path: WebDeploy/build/
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v4
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: WebDeploy
+          push: true
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/pharma-sim:staging
