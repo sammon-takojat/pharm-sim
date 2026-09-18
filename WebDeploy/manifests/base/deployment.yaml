@@ -1,11 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    alpha.image.policy.openshift.io/resolve-names: "*"
-    image.openshift.io/triggers: >-
-      [{"from":{"kind":"ImageStreamTag", "name":"pharm-sim:staging", "namespace":"excaperoom-ohtu-s2026"},"fieldPath":"spec.template.spec.containers[?(@.name==\"pharm-sim\")].image","pause":"false"}]
-  name: pharm-sim-dep
+  name: pharm-sim
+  labels:
+    app: pharm-sim
 spec:
   replicas: 1
   selector:
@@ -18,7 +16,7 @@ spec:
     spec:
       containers:
         - name: pharm-sim
-          image: dominicnygard/pharm-sim
+          image: dominicnygard/pharm-sim:staging
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
