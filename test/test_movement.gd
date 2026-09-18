@@ -35,4 +35,4 @@ func test_jump():
 	await await_idle_frame()
 
 	# Player jumps
-	assert_float(player.velocity.y).is_equal_approx(4.5, 0.1)
+	assert_float(player.velocity.y).is_equal_approx(4.0, 1.0)

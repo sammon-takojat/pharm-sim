@@ -1,0 +1,30 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+
+metadata:
+  name: pharm-sim
+  labels:
+    app: pharm-sim
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+    - name: staging
+      from:
+        kind: DockerImage
+        name: dominicnygard/pharm-sim:staging
+      importPolicy:
+        scheduled: true
+      referencePolicy:
+        type: Local
+
+    - name: release
+      from:
+        kind: DockerImage
+        name: dominicnygard/pharm-sim:release
+
+      importPolicy:
+        scheduled: true
+
+      referencePolicy:
+        type: Local

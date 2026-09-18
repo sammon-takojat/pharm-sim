@@ -14,6 +14,19 @@ background_mode = 2
 sky = SubResource("Sky_j0p05")
 glow_enabled = true
 
+[sub_resource type="SphereMesh" id="SphereMesh_1oa5i"]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_j0p05"]
+points = PackedVector3Array(-0.03645677, -0.19565594, 0.018509217, 0.036877938, 0.19556469, 0.018500678, 0.036885343, 0.19560418, -0.018104397, -0.19548908, 0.036662966, -0.018112341, 0.0549565, -0.03649163, -0.18847355, 0.109662406, -0.03040411, 0.16437456, 0.19589728, -0.030534599, -0.024243018, -0.10321194, 0.012154902, 0.17048293, -0.10309531, 0.01819276, -0.1698909, -0.13886383, -0.13300274, -0.054198176, 0.08506045, -0.17583664, -0.04223024, 0.0846168, 0.108562894, -0.14456314, -0.10884035, 0.16354153, -0.036121488, 0.12666717, 0.12043056, 0.09655953, -0.04837185, 0.12749632, 0.14591551, -0.10841807, -0.102569014, 0.1329386, 0.08463091, -0.14478731, 0.108781025, -0.030155184, -0.13355516, -0.14552766, 0.15776545, 0.11511771, -0.0422098, -0.017971927, 0.12134885, -0.15756874, 0.0308315, -0.0183482, 0.19627239, 0.1520087, -0.024274174, -0.12729649, -0.16290817, 0.07854478, 0.08476338, -0.18183947, -0.04855146, 0.06692498, 0.1829265, -0.012135972, 0.07935095, 0.15805061, -0.121411845, -0.011933589, 0.09664829, -0.12058871, -0.12643327, -0.011934059, -0.12141655, 0.15805672, -0.16945739, -0.05451511, -0.09068383, -0.14477573, 0.08456285, -0.10855072, 0.05475784, 0.10915369, 0.15787067, -0.07845567, 0.17546844, 0.054633494)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wkjni"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5cjrv"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
 [node name="World" type="Node3D" unique_id=1422076585]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1297473127]
@@ -54,4 +67,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 [node name="Label" type="Label" parent="." unique_id=555306583]
 offset_right = 43.0
 offset_bottom = 23.0
-text = "pharm-sim demo"
+text = "pharm-sim demo v0.0.1"
+
+[node name="PickableBall" type="RigidBody3D" parent="." unique_id=1614094833 groups=["pickable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.923379, -0.26014948, -1.2714767)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PickableBall" unique_id=533958717]
+mesh = SubResource("SphereMesh_1oa5i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickableBall" unique_id=2078437106]
+shape = SubResource("ConvexPolygonShape3D_j0p05")
+
+[node name="PickableCube" type="RigidBody3D" parent="." unique_id=1137818442 groups=["pickable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.923379, -0.25784683, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PickableCube" unique_id=758475162]
+mesh = SubResource("BoxMesh_wkjni")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickableCube" unique_id=1793279497]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_5cjrv")
