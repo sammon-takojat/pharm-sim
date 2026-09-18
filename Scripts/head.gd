@@ -34,6 +34,8 @@ func _physics_process(delta):
 
 
 func _input(event):
+	if event is InputEventMouseButton and event.pressed:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event is InputEventMouseMotion:
 		rotation_vector.y -= (event.relative.x * sens)
 		rotation_vector.x -= (event.relative.y * sens)
