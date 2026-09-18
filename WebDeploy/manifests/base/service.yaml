@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: pharm-sim-svc
+  name: pharm-sim
 spec:
   selector:
     app: pharm-sim
   ports:
-    - protocol: TCP
+    - name: http
       port: 8080
       targetPort: 8080
   type: ClusterIP

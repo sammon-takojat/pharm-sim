@@ -17,3 +17,14 @@ spec:
         scheduled: true
       referencePolicy:
         type: Local
+
+    - name: release
+      from:
+        kind: DockerImage
+        name: dominicnygard/pharm-sim:release
+
+      importPolicy:
+        scheduled: true
+
+      referencePolicy:
+        type: Local
