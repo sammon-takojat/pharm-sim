@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ccojhkcos43g1"]
 
 [ext_resource type="PackedScene" uid="uid://dodpev3657a8c" path="res://Scenes/Player.tscn" id="1_5cjrv"]
+[ext_resource type="PackedScene" uid="uid://y5m6i88xx7s4" path="res://Scenes/pH-paper.tscn" id="2_j0p05"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -26,6 +27,16 @@ size = Vector3(0.3, 0.3, 0.3)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5cjrv"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_k2oyj"]
+top_radius = 0.1586914
+bottom_radius = 0.1586914
+height = 0.5371704
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjpho"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5nsto"]
+points = PackedVector3Array(0.14435565, 0.2583844, -0.065494716, -0.1531504, -0.25633615, -0.04099704, -0.14467147, -0.25556457, -0.06482004, 0.15151359, -0.25678208, 0.04716444, -0.06551958, 0.2583637, 0.14434402, -0.1122, 0.25433725, -0.1122, 0.039182562, -0.25708497, -0.153595, -0.04143875, -0.25935653, 0.15304215, 0.09496207, 0.25577596, 0.12692311, -0.14541987, 0.25689536, 0.06322119, 0.039182562, 0.25708497, -0.153595, 0.12603536, -0.25400028, -0.09616826, -0.13730067, -0.2567325, 0.07926556, -0.06480912, -0.25552088, -0.14467658, 0.047164436, -0.25678208, 0.15151359, 0.15151359, 0.25678208, 0.04716444, -0.1531504, 0.25633615, -0.04099704, 0.047164436, 0.25678208, 0.15151359, -0.04096905, 0.25634772, -0.15315725, 0.15303521, -0.25934482, -0.04146707, 0.12693721, -0.25580418, 0.09494292, 0.1028677, 0.25554937, -0.12072079, -0.153595, -0.25708497, 0.03918257, -0.11310757, -0.25641212, 0.111205995, -0.11310757, 0.25641212, 0.111205995, 0.079252616, -0.25669107, -0.1373085, -0.1122, -0.25433725, -0.1122, -0.04143875, 0.25935653, 0.15304215, 0.13680972, 0.25933185, 0.08007773, 0.15303521, 0.25934482, -0.04146707, 0.09496207, -0.25577596, 0.12692311, -0.04096905, -0.25634772, -0.15315725)
 
 [node name="World" type="Node3D" unique_id=1422076585]
 
@@ -87,3 +98,18 @@ mesh = SubResource("BoxMesh_wkjni")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickableCube" unique_id=1793279497]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_5cjrv")
+
+[node name="FakeDecanter" type="RigidBody3D" parent="." unique_id=1472239780 groups=["pickable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0266707, 0.18873191, 1.0597247)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FakeDecanter" unique_id=633778989]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29440963, 0)
+mesh = SubResource("CylinderMesh_k2oyj")
+surface_material_override/0 = SubResource("StandardMaterial3D_gjpho")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FakeDecanter" unique_id=2026318522]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29440963, 0)
+shape = SubResource("ConvexPolygonShape3D_5nsto")
+
+[node name="pH-paper" parent="." unique_id=2062769386 groups=["pickable"] instance=ExtResource("2_j0p05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0400085, 0, 1.342104)
