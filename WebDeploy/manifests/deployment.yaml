@@ -4,7 +4,7 @@ metadata:
   annotations:
     alpha.image.policy.openshift.io/resolve-names: "*"
     image.openshift.io/triggers: >-
-      [{"from":{"kind":"ImageStreamTag", "name":"pharm-sim:staging", "namespace":"excaperoom-ohtu-s2026"},"fieldPath":"spec.template.spec.containers[?(@.name==\"pharma-sim\")].image","pause":"false"}]
+      [{"from":{"kind":"ImageStreamTag", "name":"pharm-sim:staging", "namespace":"excaperoom-ohtu-s2026"},"fieldPath":"spec.template.spec.containers[?(@.name==\"pharm-sim\")].image","pause":"false"}]
   name: pharm-sim-dep
 spec:
   replicas: 1
