@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://docloeepwuhy"]
+
+[resource]
+resource_name = "Material.001"
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 0.19999999)
+roughness = 0.099999994
+refraction_enabled = true

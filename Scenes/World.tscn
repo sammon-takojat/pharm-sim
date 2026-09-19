@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ccojhkcos43g1"]
 
 [ext_resource type="PackedScene" uid="uid://dodpev3657a8c" path="res://Scenes/Player.tscn" id="1_5cjrv"]
+[ext_resource type="ArrayMesh" uid="uid://7goh66uhmekh" path="res://assets/beaker.glb" id="2_j0p05"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -26,6 +27,9 @@ size = Vector3(0.3, 0.3, 0.3)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5cjrv"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5nsto"]
+points = PackedVector3Array(0.049664278, 0.08395258, -0.009296173, -0.052445237, 0.0764636, -0.0068074036, -0.052445237, 0.0764636, 0.0056264494, 0.024756594, -0.07044524, 0.0106139835, -0.007617401, -0.057979204, -0.046647705, -0.01508371, -0.05549848, 0.04546675, 0.02225783, 0.08894524, 0.04795552, -0.01259494, 0.08894524, -0.05163524, -0.042480163, -0.060459927, -0.014283707, 0.03471167, -0.057979204, -0.031705096, 0.03720044, -0.057979204, 0.028045366, -0.030026322, 0.08894524, 0.04297798, 0.024756594, 0.08894524, -0.046647705, -0.03749263, -0.057979204, 0.028045366, -0.03749263, 0.08894524, -0.03668263, 0.047165513, 0.08892964, 0.020569062, 0.044676743, -0.057979204, 0.008125214, 0.012302751, -0.060459927, 0.04546675, -0.030026322, -0.057979204, -0.03668263, -0.01508371, 0.08393698, 0.050454285, 0.009813981, -0.057979204, -0.046647705, -0.025048783, -0.07044524, -0.009306168, -0.044968933, 0.08894524, 0.025556596, -0.01259494, -0.06794891, 0.035501678, 0.042187974, 0.08892964, -0.02922632, 0.0073252115, -0.06794891, -0.03668263, 0.042187974, -0.060459927, -0.016772477, -0.044968933, -0.057979204, 0.0056264494, -0.047457702, 0.08644891, -0.021750016, 0.012302751, 0.08393698, -0.05163524, 0.042187974, 0.08643331, 0.030534135, 0.024756594, -0.057979204, 0.04048921)
 
 [node name="World" type="Node3D" unique_id=1422076585]
 
@@ -87,3 +91,14 @@ mesh = SubResource("BoxMesh_wkjni")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickableCube" unique_id=1793279497]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_5cjrv")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=117573211 groups=["pickable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.028314, -0.3820356, 0.86246985)
+
+[node name="Beaker" type="MeshInstance3D" parent="RigidBody3D" unique_id=59242422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0024764538, 0.0027699769, -0.0014660358)
+mesh = ExtResource("2_j0p05")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=228107585]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0024764538, 0.0027699769, -0.0014660358)
+shape = SubResource("ConvexPolygonShape3D_5nsto")
