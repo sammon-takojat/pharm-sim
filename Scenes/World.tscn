@@ -78,10 +78,6 @@ shape = SubResource("ConvexPolygonShape3D_j0p05")
 [node name="pH-paper" parent="." unique_id=2062769386 groups=["pickable"] instance=ExtResource("2_j0p05")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0400085, -0.42507586, 1.342104)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PickableCube" unique_id=1793279497]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_5cjrv")
-
 [node name="Beaker" parent="." unique_id=616135636 groups=["pickable"] instance=ExtResource("2_j0p05")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5528488, 0, 0)
 
