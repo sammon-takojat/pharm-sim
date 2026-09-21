@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dodpev3657a8c" path="res://Scenes/Player.tscn" id="1_5cjrv"]
 [ext_resource type="PackedScene" uid="uid://y5m6i88xx7s4" path="res://Scenes/pH-paper.tscn" id="2_j0p05"]
 [ext_resource type="PackedScene" uid="uid://bns0g1yp8sxjy" path="res://Scenes/pasteur-pipette.tscn" id="3_5nsto"]
+[ext_resource type="PackedScene" uid="uid://ui8xi7bokueq" path="res://Scenes/Scale.tscn" id="4_gjpho"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,6 +16,9 @@ sky_material = SubResource("ProceduralSkyMaterial_5cjrv")
 background_mode = 2
 sky = SubResource("Sky_j0p05")
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjpho"]
+albedo_color = Color(0.36451605, 0.2336728, 0.10652482, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_1oa5i"]
 radius = 0.2
@@ -56,6 +60,7 @@ size = Vector3(1, 5.4891357, 30)
 [node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D" unique_id=1528275740]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9785156, 0.14428711, -1.9145508)
 size = Vector3(2.9570313, 1.2885742, 4.8291016)
+material = SubResource("StandardMaterial3D_gjpho")
 
 [node name="Player" parent="." unique_id=1512899030 instance=ExtResource("1_5cjrv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
@@ -79,3 +84,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0400085, -0.42507586, 1.34
 
 [node name="Pasteur-pipette" parent="." unique_id=436470815 groups=["pickable"] instance=ExtResource("3_5nsto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0744793, -0.37183145, 0.71221876)
+
+[node name="Scale" parent="." unique_id=358667536 instance=ExtResource("4_gjpho")]
+transform = Transform3D(0.004825649, 0, 0.9999884, 0, 1, 0, -0.9999884, 0, 0.004825649, -2.120271, -0.41365373, -2.1929803)

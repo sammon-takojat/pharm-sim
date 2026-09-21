@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://ui8xi7bokueq"]
+
+[ext_resource type="Script" uid="uid://cxd6r7ifv2hef" path="res://Scripts/Scale/ScaleArea.gd" id="1_17cfx"]
+[ext_resource type="Script" uid="uid://dhe2xv0jw8sax" path="res://Scripts/Scale/ScaleLabel.gd" id="2_n66ht"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wkjni"]
+size = Vector3(1, 0.25512695, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_unab1"]
+points = PackedVector3Array(0.48269513, 0.1276, 0.48269507, -0.47805804, -0.1276, -0.47805798, -0.47805804, -0.1276, 0.47805798, -0.48269513, 0.1276, -0.48269507, 0.47805804, -0.1276, -0.47805798, -0.48269513, 0.1276, 0.48269507, 0.48269513, 0.1276, -0.48269507, 0.47805804, -0.1276, 0.47805798)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bptmg"]
+points = PackedVector3Array(0.48269513, 0.1276, 0.48269507, -0.47805804, -0.1276, -0.47805798, -0.47805804, -0.1276, 0.47805798, -0.48269513, 0.1276, -0.48269507, 0.47805804, -0.1276, -0.47805798, -0.48269513, 0.1276, 0.48269507, 0.48269513, 0.1276, -0.48269507, 0.47805804, -0.1276, 0.47805798)
+
+[node name="Scale" type="Node3D" unique_id=358667536]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2011070467]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=909860165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040893555, 0)
+mesh = SubResource("BoxMesh_wkjni")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=664674960]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040893555, 0)
+shape = SubResource("ConvexPolygonShape3D_unab1")
+
+[node name="Area3D" type="Area3D" parent="StaticBody3D" unique_id=1103004088]
+script = ExtResource("1_17cfx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D" unique_id=487436157]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06413415, 0)
+shape = SubResource("ConvexPolygonShape3D_bptmg")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=580652122]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04415506, 0.5054145)
+text = "Weight:
+"
+script = ExtResource("2_n66ht")
