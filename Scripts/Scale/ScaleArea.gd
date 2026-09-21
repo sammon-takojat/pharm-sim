@@ -10,10 +10,12 @@ func _ready() -> void:
 	body_entered.connect(addWeight)
 	body_exited.connect(loseWeight)
 
-func addWeight(body: RigidBody3D):
-	weight += body.mass
-	weight_changed.emit(weight)
+func addWeight(body: Node3D) -> void:
+	if body is RigidBody3D:
+		weight += body.mass
+		weight_changed.emit(weight)
 
-func loseWeight(body:RigidBody3D):
-	weight -= body.mass
-	weight_changed.emit(weight)
+func loseWeight(body: Node3D) -> void:
+	if body is RigidBody3D:
+		weight -= body.mass
+		weight_changed.emit(weight)

@@ -23,7 +23,7 @@ var sens = 0.12
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-func _process(delta):
+func _process(_delta):
 	head.rotation_degrees.x = rotation_vector.x
 	player.rotation_degrees.y = rotation_vector.y
 	
