@@ -7,7 +7,7 @@ extends Node3D
 @onready var camera = $Camera3D
 
 var held_object : RigidBody3D
-const follow_distance = 2.0
+var follow_distance = 2.0
 const follow_speed = 8.0
 const object_rotation_damping = 100.0
 
@@ -34,10 +34,18 @@ func _physics_process(delta):
 
 
 func _input(event):
+	if event is InputEventMouseButton and event.pressed:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event is InputEventMouseMotion:
 		rotation_vector.y -= (event.relative.x * sens)
 		rotation_vector.x -= (event.relative.y * sens)
 		rotation_vector.x = clamp(rotation_vector.x,-90,90)
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			follow_distance = min(follow_distance + 0.1 , 5.0)
+		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			follow_distance = max(follow_distance - 0.1, 0.7)
+		
 
 func set_held_object(body):
 	if body is RigidBody3D && body.is_in_group("pickable"):
@@ -50,6 +58,7 @@ func handle_object_holding(delta):
 	if Input.is_action_just_pressed("Interact"):
 		if held_object != null:
 			drop_held_object()
+			follow_distance = 2.0
 		elif raycast.is_colliding():
 			set_held_object(raycast.get_collider())
 	
