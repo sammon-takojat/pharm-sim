@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ccojhkcos43g1"]
 
 [ext_resource type="PackedScene" uid="uid://dodpev3657a8c" path="res://Scenes/Player.tscn" id="1_5cjrv"]
+[ext_resource type="PackedScene" uid="uid://c2ypk0urkfe5w" path="res://Scenes/Rod.tscn" id="2_j0p05"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -87,3 +88,6 @@ mesh = SubResource("BoxMesh_wkjni")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickableCube" unique_id=1793279497]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_5cjrv")
+
+[node name="GlassRod" parent="." unique_id=1332309341 groups=["pickable"] instance=ExtResource("2_j0p05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6208116, -0.49534202, 1.551667)
