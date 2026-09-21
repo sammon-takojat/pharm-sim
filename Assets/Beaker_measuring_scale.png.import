@@ -2,11 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cot2cq00pks0f"
+uid="uid://x7833a4qalil"
 path.s3tc="res://.godot/imported/Beaker_measuring_scale.png-35e8489a4c1857bd7366906999db62ab.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
+}
+generator_parameters={
+"md5": "47537f6317e7f66bd62a716e1b25c56e"
 }
 
 [deps]

@@ -89,4 +89,5 @@ mesh = SubResource("BoxMesh_wkjni")
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_5cjrv")
 
-[node name="Beaker" parent="." unique_id=597047071 groups=["pickable"] instance=ExtResource("2_j0p05")]
+[node name="Beaker" parent="." unique_id=616135636 groups=["pickable"] instance=ExtResource("2_j0p05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5528488, 0, 0)
