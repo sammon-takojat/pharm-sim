@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3xtx883jy8id"
-path.s3tc="res://.godot/imported/Beaker2_measuring_scale.png-4447fe0b338e22453e905c505aa73e82.s3tc.ctex"
+uid="uid://cot2cq00pks0f"
+path.s3tc="res://.godot/imported/Beaker_measuring_scale.png-35e8489a4c1857bd7366906999db62ab.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "47537f6317e7f66bd62a716e1b25c56e"
-}
 
 [deps]
 
-source_file="res://Assets/Beaker2_measuring_scale.png"
-dest_files=["res://.godot/imported/Beaker2_measuring_scale.png-4447fe0b338e22453e905c505aa73e82.s3tc.ctex"]
+source_file="res://Assets/Beaker_measuring_scale.png"
+dest_files=["res://.godot/imported/Beaker_measuring_scale.png-35e8489a4c1857bd7366906999db62ab.s3tc.ctex"]
 
 [params]
 
