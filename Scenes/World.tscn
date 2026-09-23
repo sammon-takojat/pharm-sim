@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://y5m6i88xx7s4" path="res://Scenes/pH-paper.tscn" id="2_j0p05"]
 [ext_resource type="PackedScene" uid="uid://bns0g1yp8sxjy" path="res://Scenes/pasteur-pipette.tscn" id="3_5nsto"]
 [ext_resource type="PackedScene" uid="uid://c2ypk0urkfe5w" path="res://Scenes/Rod.tscn" id="4_gjpho"]
+[ext_resource type="PackedScene" uid="uid://bi485r3ft02em" path="res://Scenes/Beaker.tscn" id="4_gjpho"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -86,3 +87,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0744793, -0.37183145, 0.71
 
 [node name="GlassRod2" parent="." unique_id=137772675 groups=["pickable"] instance=ExtResource("4_gjpho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8198223, -0.49534225, 0.7125288)
+[node name="Beaker" parent="." unique_id=76055100 groups=["pickable"] instance=ExtResource("4_gjpho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.846281, -0.410551, 1.4481254)
