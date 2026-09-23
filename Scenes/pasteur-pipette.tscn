@@ -7,6 +7,7 @@ height = 0.15
 radius = 0.003
 
 [node name="Pasteur-pipette" type="RigidBody3D" unique_id=436470815]
+mass = 0.01
 continuous_cd = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=719203356]

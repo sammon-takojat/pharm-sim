@@ -2,37 +2,57 @@
 
 [ext_resource type="Script" uid="uid://cxd6r7ifv2hef" path="res://Scripts/Scale/ScaleArea.gd" id="1_17cfx"]
 [ext_resource type="Script" uid="uid://dhe2xv0jw8sax" path="res://Scripts/Scale/ScaleLabel.gd" id="2_n66ht"]
+[ext_resource type="ArrayMesh" uid="uid://djgfno4hqvca1" path="res://Assets/Scale.glb" id="2_x3eyo"]
+[ext_resource type="Script" uid="uid://cabfx5s77j8w4" path="res://Scripts/Button.gd" id="4_x3eyo"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_wkjni"]
-size = Vector3(1, 0.25512695, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_7omye"]
+size = Vector3(0.22563225, 0.07500001, 0.21933596)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_unab1"]
-points = PackedVector3Array(0.48269513, 0.1276, 0.48269507, -0.47805804, -0.1276, -0.47805798, -0.47805804, -0.1276, 0.47805798, -0.48269513, 0.1276, -0.48269507, 0.47805804, -0.1276, -0.47805798, -0.48269513, 0.1276, 0.48269507, 0.48269513, 0.1276, -0.48269507, 0.47805804, -0.1276, 0.47805798)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6obsj"]
+points = PackedVector3Array(-0.12818946, -0.028386947, 0.116009615, 0.12557027, -0.0236741, 0.12006843, 0.11644272, -0.023652347, 0.15613276, -0.10078716, 0.0426, -0.09563556, 0.12454258, -0.0324, -0.10011737, 0.10324725, 0.0426, 0.10403671, -0.12643783, -0.0324, -0.10011737, -0.10078716, 0.0426, 0.10403671, 0.10324725, 0.0426, -0.09563556, -0.10850363, -0.0324, 0.18671738, 0.10660838, -0.0324, 0.18671738, -0.11979646, 0.0034131948, -0.102979906, 0.12591523, -0.014691659, -0.10168612, -0.1091506, -0.028119953, 0.18758005, 0.107255355, -0.028119953, 0.18758005, -0.12907742, -0.024048284, -0.10313406, -0.11865166, 0.0034351766, 0.11119758, 0.12591523, -0.014691659, 0.10668176, 0.12454258, -0.0324, 0.119444855, -0.10735632, 0.030080851, 0.109799355, -0.12643783, -0.0324, 0.11500869, -0.1278261, -0.023757804, 0.11125997, 0.11187301, -0.023641836, 0.17418891, 0.11107965, -0.0324, 0.1732685)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bptmg"]
-points = PackedVector3Array(0.48269513, 0.1276, 0.48269507, -0.47805804, -0.1276, -0.47805798, -0.47805804, -0.1276, 0.47805798, -0.48269513, 0.1276, -0.48269507, 0.47805804, -0.1276, -0.47805798, -0.48269513, 0.1276, 0.48269507, 0.48269513, 0.1276, -0.48269507, 0.47805804, -0.1276, 0.47805798)
+[sub_resource type="CylinderMesh" id="CylinderMesh_k2oyj"]
+height = 0.27526855
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x3eyo"]
+albedo_color = Color(0, 0.7778113, 0.9207217, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_n66ht"]
+height = 0.49456787
+radius = 0.65625
 
 [node name="Scale" type="Node3D" unique_id=358667536]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2011070467]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=909860165]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040893555, 0)
-mesh = SubResource("BoxMesh_wkjni")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=664674960]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040893555, 0)
-shape = SubResource("ConvexPolygonShape3D_unab1")
-
 [node name="Area3D" type="Area3D" parent="StaticBody3D" unique_id=1103004088]
 script = ExtResource("1_17cfx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D" unique_id=487436157]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06413415, 0)
-shape = SubResource("ConvexPolygonShape3D_bptmg")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D/Area3D" unique_id=1061272505]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00046512485, 0.016510006, 0.002993673)
+shape = SubResource("BoxShape3D_7omye")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=983213789]
+mesh = ExtResource("2_x3eyo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1902689253]
+shape = SubResource("ConvexPolygonShape3D_6obsj")
 
 [node name="Label3D" type="Label3D" parent="." unique_id=580652122]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04415506, 0.5054145)
-text = "Weight:
+transform = Transform3D(0.19999999, 0, 0, 0, 0.120534346, 0.1595978, 0, -0.1595978, 0.120534346, -0.05268818, -0.002750352, 0.15425825)
+text = "0.000
 "
 script = ExtResource("2_n66ht")
+
+[node name="Button" type="StaticBody3D" parent="." unique_id=411366429]
+transform = Transform3D(1, 0, 0, 0, 0.99722517, -0.07444352, 0, 0.07444352, 0.99722517, 0.05613311, 0.041925445, 0.1553807)
+script = ExtResource("4_x3eyo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Button" unique_id=1173352695]
+transform = Transform3D(0.05, 0, 0, 0, 0.042567626, -0.0262297, 0, 0.0262297, 0.042567626, 0, -0.043118287, 0)
+mesh = SubResource("CylinderMesh_k2oyj")
+surface_material_override/0 = SubResource("StandardMaterial3D_x3eyo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button" unique_id=344071562]
+transform = Transform3D(0.05, 0, 0, 0, 0.0425677, -0.02622968, 0, 0.02622968, 0.0425677, 0, -0.038450763, 0.002876088)
+shape = SubResource("CylinderShape3D_n66ht")

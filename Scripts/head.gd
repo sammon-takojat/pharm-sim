@@ -47,10 +47,6 @@ func _input(event):
 			follow_distance = max(follow_distance - 0.1, 0.7)
 		
 
-func set_held_object(body):
-	if body is RigidBody3D && body.is_in_group("pickable"):
-		held_object = body
-
 func drop_held_object():
 	held_object = null
 
@@ -60,13 +56,19 @@ func handle_object_holding(delta):
 			drop_held_object()
 			follow_distance = 2.0
 		elif raycast.is_colliding():
-			set_held_object(raycast.get_collider())
+			handle_interactions(raycast.get_collider())
 	
 	if held_object != null:
 		var target_pos = camera.global_transform.origin + (camera.global_basis * Vector3(0, 0, -follow_distance))
 		var object_pos = held_object.global_transform.origin
 		held_object.linear_velocity = (target_pos - object_pos) * follow_speed
 		held_object.angular_velocity = held_object.angular_velocity.move_toward(Vector3.ZERO, delta * object_rotation_damping)
+
+func handle_interactions(body):
+	if body is Button3D:
+		body.emit_signal("pressed")
+	elif body is RigidBody3D && body.is_in_group("pickable"):
+		held_object = body
 
 func handle_ui():
 	if held_object != null:
