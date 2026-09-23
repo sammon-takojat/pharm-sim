@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c1kmairclhic0"]
+
+[ext_resource type="ArrayMesh" uid="uid://da53cgqjyc175" path="res://Assets/spoon.glb" id="1_djb70"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ygefg"]
+size = Vector3(0.11100132, 0.008926271, 0.01709413)
+
+[node name="spoon" type="RigidBody3D" unique_id=2005104949]
+
+[node name="Spoon" type="MeshInstance3D" parent="." unique_id=1062766935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009442478, 0, 0.0015021861)
+mesh = ExtResource("1_djb70")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1434018516]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003827054, 0.00095770066, 0.0015021861)
+shape = SubResource("BoxShape3D_ygefg")
