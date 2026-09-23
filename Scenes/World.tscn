@@ -1,9 +1,9 @@
-  [gd_scene format=3 uid="uid://ccojhkcos43g1"]
+[gd_scene format=3 uid="uid://ccojhkcos43g1"]
 
 [ext_resource type="PackedScene" uid="uid://dodpev3657a8c" path="res://Scenes/Player.tscn" id="1_5cjrv"]
-[ext_resource type="PackedScene" uid="uid://c2ypk0urkfe5w" path="res://Scenes/Rod.tscn" id="2_j0p05"]
 [ext_resource type="PackedScene" uid="uid://y5m6i88xx7s4" path="res://Scenes/pH-paper.tscn" id="2_j0p05"]
 [ext_resource type="PackedScene" uid="uid://bns0g1yp8sxjy" path="res://Scenes/pasteur-pipette.tscn" id="3_5nsto"]
+[ext_resource type="PackedScene" uid="uid://c2ypk0urkfe5w" path="res://Scenes/Rod.tscn" id="4_gjpho"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -80,5 +80,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0400085, -0.42507586, 1.34
 
 [node name="GlassRod" parent="." unique_id=1332309341 groups=["pickable"] instance=ExtResource("2_j0p05")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6208116, -0.49534202, 1.551667)
+
 [node name="Pasteur-pipette" parent="." unique_id=436470815 groups=["pickable"] instance=ExtResource("3_5nsto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0744793, -0.37183145, 0.71221876)
+
+[node name="GlassRod2" parent="." unique_id=137772675 groups=["pickable"] instance=ExtResource("4_gjpho")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8198223, -0.49534225, 0.7125288)
