@@ -27,6 +27,12 @@ script = ExtResource("2_kyqiw")
 target_position = Vector3(0, 0, -2.2)
 collision_mask = 3
 
+[node name="Hand" type="Node3D" parent="Head/Camera3D" unique_id=69514727]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4742924, -0.18477803, -0.7192115)
+
+[node name="DropPoint" type="Node3D" parent="Head/Camera3D" unique_id=732680082]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2734088)
+
 [node name="PickUpUi" type="Label" parent="." unique_id=1706431594]
 offset_left = 900.0
 offset_top = 600.0
