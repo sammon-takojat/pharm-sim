@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c2becs3fsshs5"]
+
+[ext_resource type="PackedScene" uid="uid://d3nfby5ygi1mj" path="res://Assets/mikrolusikka.glb" id="1_exwcx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_exwcx"]
+size = Vector3(0.37751096, 0.21848641, 4.2346244)
+
+[node name="Microspoon" unique_id=371284041 instance=ExtResource("1_exwcx")]
+continuous_cd = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=1325226976]
+transform = Transform3D(0.109771974, 0, 0, 0, 0.109771974, 0, 0, 0, 0.10977192, -0.00018377928, -0.00095145404, -0.18378149)
+shape = SubResource("BoxShape3D_exwcx")
