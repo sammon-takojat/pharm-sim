@@ -76,20 +76,17 @@ mesh = SubResource("SphereMesh_1oa5i")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickableBall" unique_id=2078437106]
 shape = SubResource("ConvexPolygonShape3D_j0p05")
 
-[node name="pH-paper" parent="." unique_id=2062769386 groups=["pickable"] instance=ExtResource("2_j0p05")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0400085, -0.42507586, 1.342104)
-
-[node name="GlassRod" parent="." unique_id=1332309341 groups=["hand", "pickable"] instance=ExtResource("2_j0p05")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6208116, -0.49534202, 1.551667)
-
-[node name="Pasteur-pipette" parent="." unique_id=436470815 groups=["pickable"] instance=ExtResource("3_5nsto")]
+[node name="Pasteur-pipette" parent="." unique_id=436470815 groups=["hand", "pickable"] instance=ExtResource("3_5nsto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0744793, -0.37183145, 0.71221876)
 
-[node name="GlassRod2" parent="." unique_id=137772675 groups=["pickable"] instance=ExtResource("4_gjpho")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8198223, -0.49534225, 0.7125288)
-
 [node name="Beaker" parent="." unique_id=76055100 groups=["pickable"] instance=ExtResource("4_gjpho")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.846281, -0.410551, 1.4481254)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.051269, -0.410551, 1.079288)
 
 [node name="Spoon" parent="." unique_id=415315235 groups=["pickable"] instance=ExtResource("5_p70al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7908369, -0.4668528, 1.6530423)
+
+[node name="pH-paper" parent="." unique_id=2062769386 groups=["hand", "pickable"] instance=ExtResource("2_j0p05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9098294, -0.5003234, 0.39822897)
+
+[node name="pH-paper2" parent="." unique_id=526044348 groups=["hand", "pickable"] instance=ExtResource("2_j0p05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8845546, -0.5003233, 0.016878396)

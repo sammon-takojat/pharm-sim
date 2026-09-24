@@ -15,6 +15,7 @@ const object_rotation_damping = 100.0
 
 @onready var reticle : ColorRect = $"../Reticle"
 @onready var pickup_ui : Label = $"../PickUpUi"
+@onready var use_ui : Label = $"../UseUi"
 
 
 
@@ -67,6 +68,8 @@ func handle_object_holding(delta):
 	if held_object != null:
 		var target_pos : Vector3
 		if held_object.is_in_group("hand"):
+			if Input.is_action_just_pressed("Use"):
+				use_held_object()
 			held_object.global_position = hand.global_position
 			held_object.global_rotation = hand.global_rotation
 		else:
@@ -83,6 +86,10 @@ func handle_interactions(body):
 
 func handle_ui():
 	if held_object != null:
+		if raycast.is_colliding():
+			use_ui.visible = true
+		else:
+			use_ui.visible = false
 		reticle.visible = false
 		pickup_ui.visible = false	
 	elif raycast.is_colliding():
@@ -90,5 +97,10 @@ func handle_ui():
 		if raycast.get_collider().is_in_group("pickable"):
 			pickup_ui.visible = true
 	else:
+		use_ui.visible = false
 		reticle.visible = false
 		pickup_ui.visible = false
+
+func use_held_object():
+	var object_in_los = raycast.get_collider()
+	held_object.use(object_in_los)

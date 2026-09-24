@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bns0g1yp8sxjy"]
 
 [ext_resource type="ArrayMesh" uid="uid://ca2qtmo1ss0as" path="res://Assets/pasteur-pipette.glb" id="1_cvwdy"]
+[ext_resource type="Script" uid="uid://b6dub8xby0c5v" path="res://Scripts/Items/pasteur_pipette.gd" id="1_sak04"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_cvwdy"]
 height = 0.15
@@ -9,6 +10,7 @@ radius = 0.0048828125
 [node name="Pasteur-pipette" type="RigidBody3D" unique_id=436470815]
 mass = 0.01
 continuous_cd = true
+script = ExtResource("1_sak04")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=719203356]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
