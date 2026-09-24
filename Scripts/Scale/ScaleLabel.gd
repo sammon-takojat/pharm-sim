@@ -4,8 +4,8 @@ extends Label3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var area = $"../StaticBody3D/Area3D"
-	area.weight_changed.connect(changeText)
+	area.weight_changed.connect(change_text)
 
 
-func changeText(new_weight: float):
+func change_text(new_weight: float):
 	text = "%.3f" % new_weight

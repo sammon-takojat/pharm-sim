@@ -4,7 +4,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_cvwdy"]
 height = 0.15
-radius = 0.003
+radius = 0.0048828125
 
 [node name="Pasteur-pipette" type="RigidBody3D" unique_id=436470815]
 mass = 0.01
@@ -14,6 +14,6 @@ continuous_cd = true
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 mesh = ExtResource("1_cvwdy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=16257266]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1332391310]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.3969839e-09, 0.021507919, 0)
 shape = SubResource("CylinderShape3D_cvwdy")

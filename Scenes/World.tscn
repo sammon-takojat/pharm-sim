@@ -37,7 +37,7 @@ shadow_enabled = true
 environment = SubResource("Environment_5nsto")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2016720015]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1.2888974, 1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9858239, -1.3383807, 1.1710184)
 use_collision = true
 size = Vector3(39, 0.001, 30)
 
@@ -79,10 +79,10 @@ mesh = SubResource("SphereMesh_1oa5i")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickableBall" unique_id=2078437106]
 shape = SubResource("ConvexPolygonShape3D_j0p05")
 
-[node name="pH-paper" parent="." unique_id=2062769386 groups=["pickable"] instance=ExtResource("2_j0p05")]
+[node name="pH-paper" parent="." unique_id=2062769386 groups=["hand", "pickable"] instance=ExtResource("2_j0p05")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0400085, -0.42507586, 1.342104)
 
-[node name="Pasteur-pipette" parent="." unique_id=436470815 groups=["pickable"] instance=ExtResource("3_5nsto")]
+[node name="Pasteur-pipette" parent="." unique_id=436470815 groups=["hand", "pickable"] instance=ExtResource("3_5nsto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0744793, -0.37183145, 0.71221876)
 
 [node name="Scale" parent="." unique_id=358667536 instance=ExtResource("4_gjpho")]

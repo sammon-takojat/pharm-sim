@@ -5,10 +5,12 @@ extends Node3D
 @onready var player = $".."
 @onready var raycast = $Camera3D/RayCast3D
 @onready var camera = $Camera3D
+@onready var hand = $Camera3D/Hand
+@onready var drop_point = $Camera3D/DropPoint
 
 var held_object : RigidBody3D
-var follow_distance = 2.0
-const follow_speed = 8.0
+var follow_distance = 1.3
+var follow_speed = 8.0
 const object_rotation_damping = 100.0
 
 @onready var reticle : ColorRect = $"../Reticle"
@@ -48,21 +50,30 @@ func _input(event):
 		
 
 func drop_held_object():
+	if held_object.is_in_group("hand"):
+		held_object.global_position = drop_point.global_position
+		held_object.linear_velocity = Vector3.ZERO
 	held_object = null
 
 func handle_object_holding(delta):
 	if Input.is_action_just_pressed("Interact"):
 		if held_object != null:
 			drop_held_object()
-			follow_distance = 2.0
+			follow_distance = 1.3
+			follow_speed = 8.0
 		elif raycast.is_colliding():
 			handle_interactions(raycast.get_collider())
 	
 	if held_object != null:
-		var target_pos = camera.global_transform.origin + (camera.global_basis * Vector3(0, 0, -follow_distance))
-		var object_pos = held_object.global_transform.origin
-		held_object.linear_velocity = (target_pos - object_pos) * follow_speed
-		held_object.angular_velocity = held_object.angular_velocity.move_toward(Vector3.ZERO, delta * object_rotation_damping)
+		var target_pos : Vector3
+		if held_object.is_in_group("hand"):
+			held_object.global_position = hand.global_position
+			held_object.global_rotation = hand.global_rotation
+		else:
+			target_pos = camera.global_transform.origin + (camera.global_basis * Vector3(0, 0, -follow_distance))
+			var object_pos = held_object.global_transform.origin
+			held_object.linear_velocity = (target_pos - object_pos) * follow_speed
+			held_object.angular_velocity = held_object.angular_velocity.move_toward(Vector3.ZERO, delta * object_rotation_damping)
 
 func handle_interactions(body):
 	if body is Button3D:
