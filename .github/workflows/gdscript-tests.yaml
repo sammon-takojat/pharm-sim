@@ -72,4 +72,4 @@ jobs:
 
       - name: Run Code Analysis
         run: |
-          ./Godot_v4.7-stable_linux.x86_64 --headless --path . --script res://addons/gdscript-linter/analyzer/analyze-cli.gd -- --clickable
+          godot --headless --path . --script res://addons/gdscript-linter/analyzer/analyze-cli.gd -- --clickable
