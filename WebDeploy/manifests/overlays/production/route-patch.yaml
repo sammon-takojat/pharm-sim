@@ -1,8 +1,0 @@
-apiVersion: route.openshift.io/v1
-kind: Route
-
-metadata:
-  name: pharm-sim
-
-spec:
-  host: excaperoom-ohtu-s2026-pharm-sim.apps.okd-cs-prod-0.k8s.cs.helsinki.fi

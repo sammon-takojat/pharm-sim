@@ -103,4 +103,5 @@ func handle_ui():
 
 func use_held_object():
 	var object_in_los = raycast.get_collider()
-	held_object.use(object_in_los)
+	if held_object.has_method("use"):
+		held_object.use(object_in_los)
