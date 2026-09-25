@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bns0g1yp8sxjy" path="res://Scenes/pasteur-pipette.tscn" id="3_5nsto"]
 [ext_resource type="PackedScene" uid="uid://bi485r3ft02em" path="res://Scenes/Beaker.tscn" id="4_gjpho"]
 [ext_resource type="PackedScene" uid="uid://c1kmairclhic0" path="res://Scenes/Spoon.tscn" id="5_p70al"]
+[ext_resource type="PackedScene" uid="uid://ui8xi7bokueq" path="res://Scenes/Scale.tscn" id="6_45d1s"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -90,3 +91,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9098294, -0.5003234, 0.398
 
 [node name="pH-paper2" parent="." unique_id=526044348 groups=["hand", "pickable"] instance=ExtResource("2_j0p05")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8845546, -0.5003233, 0.016878396)
+
+[node name="Scale" parent="." unique_id=358667536 instance=ExtResource("6_45d1s")]
+transform = Transform3D(-0.003468431, 0, 0.999994, 0, 1, 0, -0.999994, 0, -0.003468431, -1.8049638, -0.46788785, -2.1086023)
