@@ -45,3 +45,21 @@ jobs:
         with:
           godot-version: "4.7"
           paths: "res://test"
+    
+  lint:
+    name: GDScript Lint
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download Godot
+        run: |
+          wget -q https://github.com/godotengine/godot/releases/download/4.7-stable/Godot_v4.7-stable_linux.x86_64.zip
+          unzip -q Godot_v4.7-stable_linux.x86_64.zip
+          chmod +x Godot_v4.7-stable_linux.x86_64
+
+      - name: Run Code Analysis
+        run: |
+          ./Godot_v4.7-stable_linux.x86_64 --headless --path . --script res://addons/gdscript-linter/analyzer/analyze-cli.gd -- --clickable
