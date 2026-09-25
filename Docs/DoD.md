@@ -4,7 +4,7 @@
 
 - Koodikatselmointi on tehty. 
 
-- Koonnin- tai ajonaikaisia virheitä ei löydy. 
+- Ei löydy koonnin- eikä ajonaikaisia virheitä.
 
 - User story on mahdollisuuksien mukaan testattu joko automatisoidusti tai manuaalisesti.
 
