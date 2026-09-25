@@ -62,13 +62,9 @@ jobs:
       - name: Mark workspace as safe for git
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
-      - name: Debug linter files
+      - name: Check Godot project
         run: |
-          echo "=== GDLint classes ==="
-          grep -R "class_name GDLint" addons/gdscript-linter || true
-
-          echo "=== Linter files ==="
-          find addons/gdscript-linter -type f | sort
+          godot --headless --path . --editor --quit
 
       - name: Run Code Analysis
         run: |
