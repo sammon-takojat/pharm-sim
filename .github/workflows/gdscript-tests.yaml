@@ -50,15 +50,25 @@ jobs:
     name: GDScript Lint
     runs-on: ubuntu-24.04
 
+    container:
+      image: barichello/godot-ci:4.7
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          lfs: true
 
-      - name: Download Godot
+      - name: Mark workspace as safe for git
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Debug linter files
         run: |
-          wget -q https://github.com/godotengine/godot/releases/download/4.7-stable/Godot_v4.7-stable_linux.x86_64.zip
-          unzip -q Godot_v4.7-stable_linux.x86_64.zip
-          chmod +x Godot_v4.7-stable_linux.x86_64
+          echo "=== GDLint classes ==="
+          grep -R "class_name GDLint" addons/gdscript-linter || true
+
+          echo "=== Linter files ==="
+          find addons/gdscript-linter -type f | sort
 
       - name: Run Code Analysis
         run: |
