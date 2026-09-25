@@ -4,10 +4,10 @@
 
 - Koodikatselmointi on tehty. 
 
-- Koonnin- tai ajonaikaisia virheitä ei löydy. 
+- Ei löydy koonnin- eikä ajonaikaisia virheitä.
 
-- Haarat yksikkätestattu 100 % ja muu koodi 70%. 
+- User story on mahdollisuuksien mukaan testattu joko automatisoidusti tai manuaalisesti.
+
+- Testeistä on laadittu asianmukainen testausdokumentti josta selviää mitä testataan, miten testataan ja kuka testit on laatinut.
 
 - Koodi on dokumentoitu valitun ohjelmointikielen hyvien käytänteiden mukaan. 
-
-- Jokainen user story on manuaalisesti testattu. 
