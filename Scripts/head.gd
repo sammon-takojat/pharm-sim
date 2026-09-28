@@ -15,6 +15,7 @@ const object_rotation_damping = 100.0
 
 @onready var reticle : ColorRect = $"../Reticle"
 @onready var pickup_ui : Label = $"../PickUpUi"
+@onready var use_ui : Label = $"../UseUi"
 
 
 
@@ -67,28 +68,43 @@ func handle_object_holding(delta):
 	if held_object != null:
 		var target_pos : Vector3
 		if held_object.is_in_group("hand"):
+			if Input.is_action_just_pressed("Use"):
+				use_held_object()
 			held_object.global_position = hand.global_position
 			held_object.global_rotation = hand.global_rotation
 		else:
 			target_pos = camera.global_transform.origin + (camera.global_basis * Vector3(0, 0, -follow_distance))
 			var object_pos = held_object.global_transform.origin
 			held_object.linear_velocity = (target_pos - object_pos) * follow_speed
-			held_object.angular_velocity = held_object.angular_velocity.move_toward(Vector3.ZERO, delta * object_rotation_damping)
+			held_object.global_rotation = Vector3(0, head.global_rotation.y, 0)
 
 func handle_interactions(body):
 	if body is Button3D:
-		body.emit_signal("pressed")
+		body.press()
 	elif body is RigidBody3D && body.is_in_group("pickable"):
 		held_object = body
 
 func handle_ui():
 	if held_object != null:
+		if raycast.is_colliding():
+			use_ui.visible = true
+		else:
+			use_ui.visible = false
 		reticle.visible = false
 		pickup_ui.visible = false	
 	elif raycast.is_colliding():
 		reticle.visible = true
+		use_ui.visible = false
 		if raycast.get_collider().is_in_group("pickable"):
 			pickup_ui.visible = true
+		else:
+			pickup_ui.visible = false
 	else:
+		use_ui.visible = false
 		reticle.visible = false
 		pickup_ui.visible = false
+
+func use_held_object():
+	var object_in_los = raycast.get_collider()
+	if held_object.has_method("use"):
+		held_object.use(object_in_los)

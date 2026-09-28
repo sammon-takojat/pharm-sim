@@ -53,3 +53,10 @@ offset_bottom = 2.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 1, 1, 1)
+
+[node name="UseUi" type="Label" parent="." unique_id=1347342716]
+offset_left = 900.0
+offset_top = 601.0
+offset_right = 1031.0
+offset_bottom = 624.0
+text = "Press F to use item"
