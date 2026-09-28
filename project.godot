@@ -28,7 +28,7 @@ project/assembly_name="pharm-sim"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg")
+enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg", "res://addons/gdscript-linter/plugin.cfg")
 
 [gdunit4]
 

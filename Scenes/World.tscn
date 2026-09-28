@@ -96,7 +96,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.846281, -0.410551, 1.44812
 [node name="Spoon" parent="." unique_id=415315235 groups=["pickable"] instance=ExtResource("5_p70al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7908369, -0.4668528, 1.6530423)
 
-[node name="Microspoon" parent="." unique_id=371284041 instance=ExtResource("6_p70al")]
+[node name="Microspoon" parent="." unique_id=371284041 groups=["pickable"] instance=ExtResource("6_p70al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0494366, -0.49472764, -1.1374061)
 
 [node name="Spatula" parent="." unique_id=508627173 groups=["pickable"] instance=ExtResource("7_y7y61")]

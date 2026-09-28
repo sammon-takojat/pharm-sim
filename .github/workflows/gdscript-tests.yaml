@@ -45,3 +45,27 @@ jobs:
         with:
           godot-version: "4.7"
           paths: "res://test"
+    
+  lint:
+    name: GDScript Lint
+    runs-on: ubuntu-24.04
+
+    container:
+      image: barichello/godot-ci:4.7
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Mark workspace as safe for git
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Check Godot project
+        run: |
+          godot --headless --path . --editor --quit
+
+      - name: Run Code Analysis
+        run: |
+          godot --headless --path . --script res://addons/gdscript-linter/analyzer/analyze-cli.gd -- --clickable
