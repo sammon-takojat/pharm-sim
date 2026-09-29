@@ -88,9 +88,10 @@ func handle_ui():
 	if held_object != null:
 		if raycast.is_colliding():
 			use_ui.visible = true
+			reticle.visible = true
 		else:
 			use_ui.visible = false
-		reticle.visible = false
+			reticle.visible = false
 		pickup_ui.visible = false	
 	elif raycast.is_colliding():
 		reticle.visible = true

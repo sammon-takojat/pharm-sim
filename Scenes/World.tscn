@@ -1,14 +1,12 @@
 [gd_scene format=3 uid="uid://ccojhkcos43g1"]
 
 [ext_resource type="PackedScene" uid="uid://dodpev3657a8c" path="res://Scenes/Player.tscn" id="1_5cjrv"]
-[ext_resource type="Script" uid="uid://kdqp7h0yqkj8" path="res://Scripts/label.gd" id="2_7yo87"]
 [ext_resource type="PackedScene" uid="uid://y5m6i88xx7s4" path="res://Scenes/pH-paper.tscn" id="2_j0p05"]
 [ext_resource type="PackedScene" uid="uid://bns0g1yp8sxjy" path="res://Scenes/pasteur-pipette.tscn" id="3_5nsto"]
-[ext_resource type="PackedScene" uid="uid://bi485r3ft02em" path="res://Scenes/Beaker.tscn" id="4_gjpho"]
 [ext_resource type="PackedScene" uid="uid://c1kmairclhic0" path="res://Scenes/Spoon.tscn" id="5_p70al"]
 [ext_resource type="PackedScene" uid="uid://c2becs3fsshs5" path="res://Scenes/Microspoon.tscn" id="6_p70al"]
 [ext_resource type="PackedScene" uid="uid://bjv605u7u5288" path="res://Scenes/Spatula.tscn" id="7_y7y61"]
-[ext_resource type="Script" uid="uid://7py51ub4weq3" path="res://Scripts/Items/beaker.gd" id="8_q2d71"]
+[ext_resource type="Script" uid="uid://b6xgd6wi0srv5" path="res://Scripts/Items/beaker_liquid.gd" id="9_kn06e"]
 [ext_resource type="Shader" uid="uid://c420kic421m2g" path="res://Shaders/liquid.gdshader" id="9_uo7di"]
 [ext_resource type="PackedScene" uid="uid://buquofvaax58p" path="res://Scenes/BeakerLiquid.tscn" id="10_kn06e"]
 
@@ -120,7 +118,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 offset_right = 43.0
 offset_bottom = 23.0
 text = "pharm-sim demo v0.0.1"
-script = ExtResource("2_7yo87")
 
 [node name="PickableBall" type="RigidBody3D" parent="." unique_id=1614094833 groups=["pickable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.923379, -0.3046676, -1.2714767)
@@ -140,9 +137,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6208116, -0.49534202, 1.55
 [node name="Pasteur-pipette" parent="." unique_id=436470815 groups=["hand", "pickable"] instance=ExtResource("3_5nsto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0744793, -0.37183145, 0.71221876)
 
-[node name="GlassRod2" parent="." unique_id=137772675 groups=["pickable"] instance=ExtResource("4_gjpho")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8198223, -0.49534225, 0.7125288)
-
 [node name="Spoon" parent="." unique_id=415315235 groups=["pickable"] instance=ExtResource("5_p70al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7908369, -0.4668528, 1.6530423)
 
@@ -154,10 +148,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6010475, -0.49094036, -0.6
 
 [node name="pH-paper2" parent="." unique_id=685241084 groups=["hand", "pickable"] instance=ExtResource("2_j0p05")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1606812, -0.50032353, 0.32046473)
-
-[node name="Beaker" parent="." unique_id=76055100 instance=ExtResource("4_gjpho")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7967727, -0.410551, -0.3512087)
-script = ExtResource("8_q2d71")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1356270344]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5952384, 0, 0)
@@ -183,5 +173,6 @@ surface_material_override/0 = SubResource("ShaderMaterial_nt33t")
 transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_kn06e")
 
-[node name="Beaker2" parent="." unique_id=1201259814 groups=["pickable"] instance=ExtResource("10_kn06e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6724273, -0.4105512, 0.41944516)
+[node name="Beaker" parent="." unique_id=76055100 groups=["pickable"] instance=ExtResource("10_kn06e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7063596, -0.41055113, 0.5426972)
+script = ExtResource("9_kn06e")
