@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ccojhkcos43g1"]
 
 [ext_resource type="PackedScene" uid="uid://dodpev3657a8c" path="res://Scenes/Player.tscn" id="1_5cjrv"]
+[ext_resource type="Script" uid="uid://kdqp7h0yqkj8" path="res://Scripts/label.gd" id="2_7yo87"]
 [ext_resource type="PackedScene" uid="uid://y5m6i88xx7s4" path="res://Scenes/pH-paper.tscn" id="2_j0p05"]
 [ext_resource type="PackedScene" uid="uid://bns0g1yp8sxjy" path="res://Scenes/pasteur-pipette.tscn" id="3_5nsto"]
 [ext_resource type="PackedScene" uid="uid://bi485r3ft02em" path="res://Scenes/Beaker.tscn" id="4_gjpho"]
@@ -119,6 +120,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 offset_right = 43.0
 offset_bottom = 23.0
 text = "pharm-sim demo v0.0.1"
+script = ExtResource("2_7yo87")
 
 [node name="PickableBall" type="RigidBody3D" parent="." unique_id=1614094833 groups=["pickable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.923379, -0.3046676, -1.2714767)
