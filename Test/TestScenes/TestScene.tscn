@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://btbysfbnjei52"]
+
+[ext_resource type="PackedScene" uid="uid://dodpev3657a8c" path="res://Scenes/Player.tscn" id="1_dracy"]
+
+[sub_resource type="Environment" id="Environment_c2evf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c2evf"]
+size = Vector3(292.7566, 0.001, 258.93292)
+
+[node name="TestScene" type="Node3D" unique_id=520771639]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=951124756]
+environment = SubResource("Environment_c2evf")
+
+[node name="Player" parent="." unique_id=230790486 instance=ExtResource("1_dracy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1878660288]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1153960204]
+transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0, 0, 0)
+shape = SubResource("BoxShape3D_c2evf")
