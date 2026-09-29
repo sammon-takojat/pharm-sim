@@ -3,10 +3,9 @@ extends GdUnitTestSuite
 var runner:GdUnitSceneRunner
 var player_head:Node3D
 var cube:RigidBody3D
+var cube_hand_pos:Vector3
 
 func before_test():
-	#var scene:Node3D = auto_free(Node3D.new())
-	#scene.add_child(WorldEnvironment.new())
 	
 	var cube_init:RigidBody3D = auto_free(RigidBody3D.new())
 	cube_init.name = "Cube"
@@ -17,15 +16,10 @@ func before_test():
 	mesh.mesh = BoxMesh.new()
 	cube_init.add_child(mesh)
 	
-	
 	var scene = auto_free(load("res://Test/TestScenes/TestScene.tscn").instantiate())
 	scene.add_child(cube_init)
 	cube_init.transform.origin = Vector3(2, 0.5, 0)
 	cube_init.add_to_group("pickable")
-	
-	#var player_inst = auto_free(load("res://Scenes/Player.tscn").instantiate())
-	#scene.add_child(player_inst)
-	#player_inst.transform.origin = Vector3(0, 0, 0)
 	
 	runner = scene_runner(scene)
 	
@@ -48,21 +42,88 @@ func test_set_down_object():
 
 func test_move_object_up():
 	player_head.held_object = cube
-	runner.simulate_mouse_move_relative(Vector2(0, -100))
 	await await_millis(500)
-	assert_that(cube.global_position.y).is_greater(1)
+	cube_hand_pos = cube.global_position
+	runner.simulate_mouse_move_relative(Vector2(0, -200))
+	await await_millis(500)
+	assert_that(cube.global_position.y).is_greater(cube_hand_pos.y)
 
 func test_move_object_down():
-	pass
+	player_head.held_object = cube
+	await await_millis(500)
+	cube_hand_pos = cube.global_position
+	runner.simulate_mouse_move_relative(Vector2(0, 200))
+	await await_millis(500)
+	assert_that(cube.global_position.y).is_less(cube_hand_pos.y)
 
 func test_move_object_left():
-	pass
+	player_head.held_object = cube
+	await await_millis(500)
+	cube_hand_pos = cube.global_position
+	runner.simulate_mouse_move_relative(Vector2(-200, 0))
+	await await_millis(500)
+	assert_that(cube.global_position.x).is_less(cube_hand_pos.x)
 
 func test_move_object_right():
-	pass
+	player_head.held_object = cube
+	await await_millis(500)
+	cube_hand_pos = cube.global_position
+	runner.simulate_mouse_move_relative(Vector2(200, 0))
+	await await_millis(500)
+	assert_that(cube.global_position.x).is_greater(cube_hand_pos.x)
 
 func test_move_object_forward():
-	pass
+	player_head.held_object = cube
+	await await_millis(500)
+	cube_hand_pos = cube.global_position
+	for i in range(2):
+		runner.simulate_mouse_button_press(MOUSE_BUTTON_WHEEL_UP)
+		await await_millis(500)
+		runner.simulate_mouse_button_release(MOUSE_BUTTON_WHEEL_UP)
+	assert_that(cube.global_position.z).is_less(cube_hand_pos.z)
 
 func test_move_object_back():
-	pass
+	player_head.held_object = cube
+	await await_millis(500)
+	cube_hand_pos = cube.global_position
+	for i in range(2):
+		runner.simulate_mouse_button_press(MOUSE_BUTTON_WHEEL_DOWN)
+		await await_millis(500)
+		runner.simulate_mouse_button_release(MOUSE_BUTTON_WHEEL_DOWN)
+	assert_that(cube.global_position.z).is_greater(cube_hand_pos.z)
+
+func test_move_object_with_player_right():
+	player_head.held_object = cube
+	await await_millis(500)
+	cube_hand_pos = cube.global_position
+	runner.simulate_key_press(KEY_D)
+	await await_millis(500)
+	runner.simulate_key_release(KEY_D)
+	assert_that(cube.global_position.x).is_greater(cube_hand_pos.x)
+
+func test_move_object_with_player_left():
+	player_head.held_object = cube
+	await await_millis(500)
+	cube_hand_pos = cube.global_position
+	runner.simulate_key_press(KEY_A)
+	await await_millis(500)
+	runner.simulate_key_release(KEY_A)
+	assert_that(cube.global_position.x).is_less(cube_hand_pos.x)
+
+func test_move_object_with_player_forward():
+	player_head.held_object = cube
+	await await_millis(500)
+	cube_hand_pos = cube.global_position
+	runner.simulate_key_press(KEY_W)
+	await await_millis(500)
+	runner.simulate_key_release(KEY_W)
+	assert_that(cube.global_position.z).is_less(cube_hand_pos.z)
+
+func test_move_object_with_player_back():
+	player_head.held_object = cube
+	await await_millis(500)
+	cube_hand_pos = cube.global_position
+	runner.simulate_key_press(KEY_S)
+	await await_millis(500)
+	runner.simulate_key_release(KEY_S)
+	assert_that(cube.global_position.z).is_greater(cube_hand_pos.z)
