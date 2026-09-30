@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://y5m6i88xx7s4"]
 
-[ext_resource type="Script" uid="uid://iiy7xq4wnqk" path="res://Scripts/p_h_paper.gd" id="1_oe6p4"]
+[ext_resource type="Script" uid="uid://iiy7xq4wnqk" path="res://Scripts/pH_paper.gd" id="1_oe6p4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_wkjni"]
 size = Vector3(0.22956085, 0.001, 0.074279785)
@@ -8,10 +8,11 @@ size = Vector3(0.22956085, 0.001, 0.074279785)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blby1"]
 albedo_color = Color(1, 0.57254905, 0, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_6ixkw"]
-size = Vector3(0.3874645, 0.15990227, 0.2980482)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_oe6p4"]
+points = PackedVector3Array(0.116622224, 0.0013222224, 0.037611112, -0.116622224, -0.002322222, -0.03892222, -0.116622224, 0.0013222224, -0.03892222, 0.116622224, -0.002322222, -0.03892222, -0.116622224, -0.002322222, 0.037611112, -0.116622224, 0.0013222224, 0.037611112, 0.116622224, 0.0013222224, -0.03892222, 0.116622224, -0.002322222, 0.037611112)
 
 [node name="pH-paper" type="RigidBody3D" unique_id=2062769386]
+continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 4
 script = ExtResource("1_oe6p4")
@@ -21,6 +22,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0738945, 0.0064738095, 0.01
 mesh = SubResource("BoxMesh_wkjni")
 surface_material_override/0 = SubResource("StandardMaterial3D_blby1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1903966733]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05830787, 0.0047034677, 0.012954086)
-shape = SubResource("BoxShape3D_6ixkw")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=260854586]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0738945, 0.0064738095, 0.017425537)
+shape = SubResource("ConvexPolygonShape3D_oe6p4")
