@@ -36,3 +36,11 @@ func change_fill_amount(amount_ml: float):
 		EMPTY_MASS + FULL_LIQUID_MASS,
 		fill_percent
 	)
+	
+func change_pH(amount_ml: float, molarity: float):
+	var moles_h = (amount_ml / 1000) * molarity
+	var total_volume = (fill_amount_ml / 1000)+(amount_ml / 1000)
+	var h_final = moles_h / total_volume
+	pH = -log(h_final) / log(10)
+	
+	
