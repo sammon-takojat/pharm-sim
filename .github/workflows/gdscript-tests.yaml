@@ -45,7 +45,6 @@ jobs:
         with:
           godot-version: "4.7"
           paths: "res://Test"
-          paths: "res://test"
     
   lint:
     name: GDScript Lint
