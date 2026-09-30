@@ -18,7 +18,8 @@ func before_test():
 	
 	var scene = auto_free(load("res://Test/TestScenes/TestScene.tscn").instantiate())
 	scene.add_child(cube_init)
-	cube_init.transform.origin = Vector3(2, 0.5, 0)
+	var player = scene.find_child("Player")
+	cube_init.transform.origin = player.global_position + Vector3(0, 1, -2)
 	cube_init.add_to_group("pickable")
 	
 	runner = scene_runner(scene)
