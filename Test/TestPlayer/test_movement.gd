@@ -32,7 +32,7 @@ func test_jump():
 	# Simulate input for key SPACE
 	await await_millis(500)
 	runner.simulate_action_pressed("Jump")
-	await await_idle_frame()
+	await runner.await_input_processed()
 
 	# Player jumps
 	assert_float(player.velocity.y).is_equal_approx(4.0, 1.0)
