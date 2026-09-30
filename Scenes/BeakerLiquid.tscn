@@ -4,7 +4,12 @@
 [ext_resource type="Shader" uid="uid://c420kic421m2g" path="res://Shaders/liquid.gdshader" id="2_e7go6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7go6"]
-transparency = 1
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+blend_mode = 1
+cull_mode = 2
+albedo_color = Color(0.20875, 0.20875, 0.20875, 0.5019608)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8owyr"]
 resource_name = "glass"
@@ -71,8 +76,7 @@ radius = 1.2102966
 
 [node name="Beaker" unique_id=76055100 instance=ExtResource("1_gceea")]
 
-[node name="Circle" parent="." index="0" unique_id=541509397]
-transparency = 0.86
+[node name="Circle" parent="." index="0" unique_id=1612455317]
 surface_material_override/0 = SubResource("StandardMaterial3D_e7go6")
 
 [node name="Circle2" type="MeshInstance3D" parent="." index="1" unique_id=50160122]
