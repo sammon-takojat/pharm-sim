@@ -176,3 +176,4 @@ shape = SubResource("ConvexPolygonShape3D_kn06e")
 [node name="Beaker" parent="." unique_id=76055100 groups=["pickable"] instance=ExtResource("10_kn06e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7063596, -0.41055113, 0.5426972)
 script = ExtResource("9_kn06e")
+fill_amount_ml = 240.0
