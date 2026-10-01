@@ -58,7 +58,6 @@ func change_pH(amount_ml: float, molarity: float, is_base: bool):
 		pH = 14.0 - pOH
 	else:
 		pH = 7.0
-	print(pH)
 
 	
 	
