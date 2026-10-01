@@ -12,6 +12,7 @@ points = PackedVector3Array(1.0744832, 1.6626287, 0.50911015, -1.3083286, 1.4718
 
 [node name="Beaker" unique_id=76055100 instance=ExtResource("1_igkwn")]
 
+[node name="Circle" parent="." index="0" unique_id=1528783554]
 [node name="Circle" parent="." index="0" unique_id=1612455317]
 surface_material_override/0 = SubResource("StandardMaterial3D_5x1r3")
 

@@ -33,7 +33,7 @@ func _process(_delta):
 	handle_ui()
 
 func _physics_process(delta):
-	handle_object_holding(delta)
+	handle_object_holding()
 
 
 func _input(event):
@@ -56,7 +56,7 @@ func drop_held_object():
 		held_object.linear_velocity = Vector3.ZERO
 	held_object = null
 
-func handle_object_holding(delta):
+func handle_object_holding():
 	if Input.is_action_just_pressed("Interact"):
 		if held_object != null:
 			drop_held_object()
