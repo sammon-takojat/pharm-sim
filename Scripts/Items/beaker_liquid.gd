@@ -9,11 +9,12 @@ var net_h_moles: float
 @export var EMPTY_MASS := 0.100
 var FULL_LIQUID_MASS := MAX_FILL_ML / 1000.0
 
-@onready var material := $Circle2.get_surface_override_material(0) as ShaderMaterial
+@onready var material := $Circle2.get_surface_override_material(0).duplicate() as ShaderMaterial
 
 #Fill amount clamp (0.462, 0.538)
 
 func _ready():
+	$Circle2.set_surface_override_material(0, material)
 	var fill_percent = inverse_lerp(0.0, MAX_FILL_ML, fill_amount_ml)
 	var start_fill_amount = lerp(0.461, 0.538, fill_percent)
 	material.set_shader_parameter("fill_amount", start_fill_amount)
@@ -51,8 +52,8 @@ func add_reagent(amount_ml: float, molarity: float, is_base: bool):
 		net_h_moles -= added_moles
 	else:
 		net_h_moles += added_moles
-		
-	fill_amount_ml += amount_ml
+	
+	change_fill_amount(amount_ml)
 	
 	update_pH()
 	
@@ -64,7 +65,7 @@ func remove_liquid(amount_ml: float) -> Dictionary:
 	var removed_moles = net_h_moles * fraction
 	
 	net_h_moles -= removed_moles
-	fill_amount_ml -= removed_amount
+	change_fill_amount(-amount_ml)
 	
 	update_pH()
 	
@@ -83,7 +84,7 @@ func update_pH():
 	
 	var kw = 1.0e-14
 	var h_concentration = (
-		net_concentration + sqrt(net_concentration + net_concentration + 4.0 * kw)
+		net_concentration + sqrt(net_concentration * net_concentration + 4.0 * kw)
 	) / 2.0
 	
 	pH = -log(h_concentration) / log(10.0)

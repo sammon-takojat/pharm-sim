@@ -136,6 +136,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6208116, -0.49534202, 1.55
 
 [node name="Pasteur-pipette" parent="." unique_id=436470815 groups=["hand", "pickable"] instance=ExtResource("3_5nsto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0744793, -0.37183145, 0.71221876)
+capacity_ml = 5.0
 
 [node name="Spoon" parent="." unique_id=415315235 groups=["pickable"] instance=ExtResource("5_p70al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7908369, -0.4668528, 1.6530423)
@@ -176,4 +177,10 @@ shape = SubResource("ConvexPolygonShape3D_kn06e")
 [node name="Beaker" parent="." unique_id=76055100 groups=["pickable"] instance=ExtResource("10_kn06e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7063596, -0.41055113, 0.5426972)
 script = ExtResource("9_kn06e")
-fill_amount_ml = 240.0
+fill_amount_ml = 150.0
+
+[node name="Beaker2" parent="." unique_id=649671115 groups=["pickable"] instance=ExtResource("10_kn06e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7063596, -0.41055113, -0.2793074)
+script = ExtResource("9_kn06e")
+pH = 1.0
+fill_amount_ml = 50.0
