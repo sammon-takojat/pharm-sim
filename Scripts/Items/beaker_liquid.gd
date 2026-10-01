@@ -1,4 +1,5 @@
 extends RigidBody3D
+class_name LiquidContainer
 
 @export var pH := 7.0
 
@@ -10,6 +11,8 @@ var net_h_moles: float
 var FULL_LIQUID_MASS := MAX_FILL_ML / 1000.0
 
 @onready var material := $Circle2.get_surface_override_material(0).duplicate() as ShaderMaterial
+
+signal mass_changed
 
 #Fill amount clamp (0.462, 0.538)
 
@@ -44,6 +47,7 @@ func change_fill_amount(amount_ml: float):
 		EMPTY_MASS + FULL_LIQUID_MASS,
 		fill_percent
 	)
+	emit_signal("mass_changed")
 	
 func add_reagent(amount_ml: float, molarity: float, is_base: bool):
 	var added_moles = (amount_ml / 1000.0) * molarity
@@ -56,6 +60,7 @@ func add_reagent(amount_ml: float, molarity: float, is_base: bool):
 	change_fill_amount(amount_ml)
 	
 	update_pH()
+	change_fill_amount(amount_ml)
 	
 func remove_liquid(amount_ml: float) -> Dictionary:
 	var removed_amount = min(amount_ml, fill_amount_ml)
@@ -68,6 +73,7 @@ func remove_liquid(amount_ml: float) -> Dictionary:
 	change_fill_amount(-amount_ml)
 	
 	update_pH()
+	change_fill_amount(-amount_ml)
 	
 	return {
 		"volume_ml": removed_amount,
