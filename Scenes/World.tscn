@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bjv605u7u5288" path="res://Scenes/Spatula.tscn" id="7_y7y61"]
 [ext_resource type="PackedScene" uid="uid://c2ypk0urkfe5w" path="res://Scenes/Rod.tscn" id="9_7yo87"]
 [ext_resource type="Script" uid="uid://b6xgd6wi0srv5" path="res://Scripts/Items/beaker_liquid.gd" id="9_kn06e"]
+[ext_resource type="PackedScene" uid="uid://ca2dfwd4ovlna" path="res://Scenes/Table.tscn" id="9_uo7di"]
 [ext_resource type="PackedScene" uid="uid://buquofvaax58p" path="res://Scenes/BeakerLiquid.tscn" id="10_kn06e"]
 [ext_resource type="PackedScene" uid="uid://ui8xi7bokueq" path="res://Scenes/Scale.tscn" id="10_ti1bm"]
 
@@ -99,6 +100,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1606812, -0.50032353, 0.32
 [node name="Beaker" parent="." unique_id=76055100 groups=["pickable"] instance=ExtResource("10_kn06e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7063596, -0.41055113, 0.5426972)
 script = ExtResource("9_kn06e")
+
+[node name="Table" parent="." unique_id=400582641 instance=ExtResource("9_uo7di")]
+transform = Transform3D(0.655, 0, 0, 0, 0.655, 0, 0, 0, 0.655, 3, -0.63299406, 0)
 
 [node name="GlassRod" parent="." unique_id=1332309341 groups=["hand", "pickable"] instance=ExtResource("9_7yo87")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7511977, -0.4953425, 1.4013458)
