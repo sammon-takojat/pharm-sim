@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ccojhkcos43g1"]
 
 [ext_resource type="PackedScene" uid="uid://dodpev3657a8c" path="res://Scenes/Player.tscn" id="1_5cjrv"]
+[ext_resource type="Environment" uid="uid://b8euxjply07lx" path="res://Assets/Environments/Indoor_Windowless_Env.tres" id="1_ti1bm"]
 [ext_resource type="PackedScene" uid="uid://y5m6i88xx7s4" path="res://Scenes/pH-paper.tscn" id="2_j0p05"]
 [ext_resource type="PackedScene" uid="uid://bns0g1yp8sxjy" path="res://Scenes/pasteur-pipette.tscn" id="3_5nsto"]
 [ext_resource type="PackedScene" uid="uid://c1kmairclhic0" path="res://Scenes/Spoon.tscn" id="5_p70al"]
@@ -10,55 +11,15 @@
 [ext_resource type="Script" uid="uid://b6xgd6wi0srv5" path="res://Scripts/Items/beaker_liquid.gd" id="9_kn06e"]
 [ext_resource type="PackedScene" uid="uid://buquofvaax58p" path="res://Scenes/BeakerLiquid.tscn" id="10_kn06e"]
 [ext_resource type="PackedScene" uid="uid://ui8xi7bokueq" path="res://Scenes/Scale.tscn" id="10_ti1bm"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_j0p05"]
-sky_material = SubResource("ProceduralSkyMaterial_5cjrv")
-
-[sub_resource type="Environment" id="Environment_5nsto"]
-background_mode = 2
-sky = SubResource("Sky_j0p05")
-glow_enabled = true
+[ext_resource type="PackedScene" uid="uid://b6gjdmiam8olr" path="res://Scenes/Room.tscn" id="12_op4cu"]
 
 [node name="World" type="Node3D" unique_id=1422076585]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1297473127]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=26450683]
-environment = SubResource("Environment_5nsto")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2016720015]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9848778, -1.2888976, 1.4952312)
-use_collision = true
-size = Vector3(39, 0.001, 30)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=203243849]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.70302, 0, 14.988045)
-size = Vector3(20, 1, 0.001)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=518288519]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.70302, 0, 14.988045)
-size = Vector3(20, 1, 0.001)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D" unique_id=772164403]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2030201, 2.5, 14.488544)
-size = Vector3(39, 6, 1)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D" unique_id=1918264401]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.40604, 2.7445679, -0.5239105)
-size = Vector3(1, 5.4891357, 30)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D" unique_id=1528275740]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9785156, 0.14428711, -1.9145508)
-size = Vector3(2.9570313, 1.2885742, 4.8291016)
+environment = ExtResource("1_ti1bm")
 
 [node name="Player" parent="." unique_id=1512899030 instance=ExtResource("1_5cjrv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
 
 [node name="Label" type="Label" parent="." unique_id=555306583]
 offset_right = 43.0
@@ -66,29 +27,31 @@ offset_bottom = 23.0
 text = "pharm-sim demo v0.0.1"
 
 [node name="pH-paper" parent="." unique_id=2062769386 groups=["pickable"] instance=ExtResource("2_j0p05")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0400085, -0.42507586, 1.342104)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0400085, 0.5749241, 1.342104)
 
 [node name="Pasteur-pipette" parent="." unique_id=436470815 groups=["hand", "pickable"] instance=ExtResource("3_5nsto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0744793, -0.37183145, 0.71221876)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0744793, 0.6281686, 0.71221876)
 
 [node name="Spoon" parent="." unique_id=415315235 groups=["pickable"] instance=ExtResource("5_p70al")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7908369, -0.4668528, 1.6530423)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7908369, 0.5331472, 1.6530423)
 
 [node name="Microspoon" parent="." unique_id=371284041 groups=["pickable"] instance=ExtResource("6_p70al")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2558513, -0.49472764, -1.1374061)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2558513, 0.5052724, -1.1374061)
 
 [node name="Spatula" parent="." unique_id=508627173 groups=["pickable"] instance=ExtResource("7_y7y61")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6010475, -0.33016232, -0.62946606)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6010475, 0.6698377, -0.62946606)
 
 [node name="pH-paper2" parent="." unique_id=685241084 groups=["hand", "pickable"] instance=ExtResource("2_j0p05")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1606812, -0.50032353, 0.32046473)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1606812, 0.49967647, 0.32046473)
 
 [node name="Beaker" parent="." unique_id=76055100 groups=["pickable"] instance=ExtResource("10_kn06e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7063596, -0.41055113, 0.5426972)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7063596, 0.58944887, 0.5426972)
 script = ExtResource("9_kn06e")
 
 [node name="GlassRod" parent="." unique_id=1332309341 groups=["hand", "pickable"] instance=ExtResource("9_7yo87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7511977, -0.4953425, 1.4013458)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7511977, 0.5046575, 1.4013458)
 
 [node name="Scale" parent="." unique_id=358667536 groups=["pickable"] instance=ExtResource("10_ti1bm")]
-transform = Transform3D(-0.065663785, 0, 0.9978418, 0, 1, 0, -0.9978418, 0, -0.065663785, -1.8586853, -0.46788815, -0.22284868)
+transform = Transform3D(-0.065663785, 0, 0.9978418, 0, 1, 0, -0.9978418, 0, -0.065663785, -1.8586853, 0.5321119, -0.22284868)
+
+[node name="Room" parent="." unique_id=166548899 instance=ExtResource("12_op4cu")]
