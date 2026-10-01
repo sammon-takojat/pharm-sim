@@ -1,13 +1,14 @@
-[gd_scene format=3 uid="uid://ca2dfwd4ovlna"]
+[gd_scene format=3 uid="uid://b8nr38kxiux4a"]
 
-[ext_resource type="PackedScene" uid="uid://dfqidseyo5atc" path="res://Assets/Table.glb" id="1_5ervl"]
+[ext_resource type="PackedScene" uid="uid://dfqidseyo5atc" path="res://Assets/Models/Table.glb" id="1_5ervl"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ab3gw"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7oth3"]
 points = PackedVector3Array(1.1166365, -1.3206999, -2.9183946, -0.77392364, 1.1675999, -3.7292984, -0.8723683, -1.384192, 2.9044366, -0.77392364, 1.1675999, 3.697498, 1.1909, 1.1573563, -3.6988006, 1.1166365, -1.3206999, 2.8865943, 1.2860386, 0.901373, 4.047592, 1.4128983, -0.7488488, -2.3014157, -0.8723683, 0.901373, -4.0793924, -0.8723683, 0.901373, 4.047592, 1.2860386, 0.901373, -4.0793924, 1.0823891, 1.1675999, 3.697498, -0.8723683, -1.384192, -2.9362369, 1.4128983, 0.13969202, 2.7771542, 1.4128983, -0.7488488, 2.2696154, 1.4128983, 0.39341167, -2.8089545, 1.1909, 1.1573563, 3.6670003, 1.4128983, 0.39341167, 2.7771542, 1.0823891, 1.1675999, -3.7292984, 1.4128983, 0.13969202, -2.8089545)
 
-[node name="Table" unique_id=400582641 instance=ExtResource("1_5ervl")]
+[node name="Table" unique_id=1637690427 instance=ExtResource("1_5ervl")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube_002" parent_id_path=PackedInt32Array(1511650700) index="0" unique_id=1983896829]
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_002" parent_id_path=PackedInt32Array(856888715) index="0" unique_id=1930965]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_002/StaticBody3D" index="0" unique_id=1700195744]
-shape = SubResource("ConvexPolygonShape3D_ab3gw")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_002/StaticBody3D" index="0" unique_id=1979762227]
+shape = SubResource("ConvexPolygonShape3D_7oth3")

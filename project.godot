@@ -38,6 +38,10 @@ ui/toolbar/run_overall=true
 settings/test/test_lookup_folder="Test"
 settings/test/flaky_check_enable=true
 
+[global_group]
+
+pickable=""
+
 [input]
 
 Up={
