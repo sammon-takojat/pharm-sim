@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d3nfby5ygi1mj"
-path="res://.godot/imported/mikrolusikka.glb-b44c99e5fe9836c6e39212b730727c08.scn"
+uid="uid://gv1brfosel26"
+path="res://.godot/imported/Spatula.glb-ab290bc9773f556bc2208ef7f727ca5e.scn"
 
 [deps]
 
-source_file="res://Assets/mikrolusikka.glb"
-dest_files=["res://.godot/imported/mikrolusikka.glb-b44c99e5fe9836c6e39212b730727c08.scn"]
+source_file="res://Assets/Models/Spatula.glb"
+dest_files=["res://.godot/imported/Spatula.glb-ab290bc9773f556bc2208ef7f727ca5e.scn"]
 
 [params]
 

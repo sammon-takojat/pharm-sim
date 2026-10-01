@@ -1,15 +1,15 @@
 [remap]
 
-importer="ArrayMesh"
+importer="scene"
 importer_version=1
-type="ArrayMesh"
-uid="uid://djgfno4hqvca1"
-path="res://.godot/imported/Scale.glb-499cf34067459f743d4257f96f7b6018.res"
+type="PackedScene"
+uid="uid://dfqidseyo5atc"
+path="res://.godot/imported/Table.glb-161368c4235e9ddd9081ea5e047df4c9.scn"
 
 [deps]
 
-source_file="res://Assets/Scale.glb"
-dest_files=["res://.godot/imported/Scale.glb-499cf34067459f743d4257f96f7b6018.res"]
+source_file="res://Assets/Models/Table.glb"
+dest_files=["res://.godot/imported/Table.glb-161368c4235e9ddd9081ea5e047df4c9.scn"]
 
 [params]
 
