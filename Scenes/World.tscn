@@ -78,6 +78,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1506395, -0.49472788, -1.4
 [node name="Pasteur-pipette" parent="." unique_id=436470815 instance=ExtResource("5_kwl8l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8984399, -0.3718317, -1.8657277)
 
+[node name="Pasteur-pipette" parent="." unique_id=436470815 groups=["hand", "pickable"] instance=ExtResource("3_5nsto")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0744793, -0.37183145, 0.71221876)
+capacity_ml = 5.0
 [node name="pH-paper" parent="." unique_id=2062769386 instance=ExtResource("6_xiqgv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.323251, -0.5003238, 0.3313284)
 
@@ -93,5 +96,42 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.514356, -0.49094108, -1.06
 [node name="spoon" parent="." unique_id=2005104949 instance=ExtResource("10_r0dna")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4795918, -0.4968188, -0.18133354)
 
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1356270344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5952384, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=28994414]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.124156475, 0, 0)
+mesh = SubResource("BoxMesh_k2oyj")
+surface_material_override/0 = SubResource("ShaderMaterial_yutu1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=2123669811]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0.124156475, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_uo7di")
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="." unique_id=1096406365]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0685263, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2" unique_id=525171415]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("CylinderMesh_1wfn8")
+surface_material_override/0 = SubResource("ShaderMaterial_nt33t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2" unique_id=936134312]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_kn06e")
+
+[node name="Beaker" parent="." unique_id=76055100 groups=["pickable"] instance=ExtResource("10_kn06e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7063596, -0.41055113, 0.5426972)
+script = ExtResource("9_kn06e")
+fill_amount_ml = 150.0
+
+[node name="Beaker2" parent="." unique_id=649671115 groups=["pickable"] instance=ExtResource("10_kn06e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7063596, -0.41055113, -0.2793074)
+script = ExtResource("9_kn06e")
+pH = 1.0
+fill_amount_ml = 125.0
+
+[node name="Scale" parent="." unique_id=358667536 instance=ExtResource("10_7yo87")]
+transform = Transform3D(-0.005625695, 0, 0.9999842, 0, 1, 0, -0.9999842, 0, -0.005625695, -1.7709811, -0.4678881, 0.099152654)
 [node name="Table" parent="." unique_id=1637690427 instance=ExtResource("11_b5aes")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 5, -0.68802786, 2)
