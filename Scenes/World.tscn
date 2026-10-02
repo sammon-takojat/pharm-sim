@@ -184,8 +184,7 @@ fill_amount_ml = 150.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7063596, -0.41055113, -0.2793074)
 script = ExtResource("9_kn06e")
 pH = 1.0
-fill_amount_ml = 50.0
 fill_amount_ml = 125.0
 
 [node name="Scale" parent="." unique_id=358667536 instance=ExtResource("10_7yo87")]
-transform = Transform3D(-0.005625695, 0, 0.9999842, 0, 1, 0, -0.9999842, 0, -0.005625695, -1.7709811, -0.4678881, -0.117649436)
+transform = Transform3D(-0.005625695, 0, 0.9999842, 0, 1, 0, -0.9999842, 0, -0.005625695, -1.7709811, -0.4678881, 0.099152654)
