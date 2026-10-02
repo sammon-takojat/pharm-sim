@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://ui8xi7bokueq"]
 
-[ext_resource type="Script" uid="uid://cxd6r7ifv2hef" path="res://Scripts/Scale/ScaleArea.gd" id="1_17cfx"]
-[ext_resource type="Script" uid="uid://dhe2xv0jw8sax" path="res://Scripts/Scale/ScaleLabel.gd" id="2_n66ht"]
-[ext_resource type="ArrayMesh" uid="uid://djgfno4hqvca1" path="res://Assets/Scale.glb" id="2_x3eyo"]
-[ext_resource type="Script" uid="uid://cabfx5s77j8w4" path="res://Scripts/Button.gd" id="4_x3eyo"]
+[ext_resource type="Script" uid="uid://cxd6r7ifv2hef" path="res://Scripts/Items/Scale/ScaleArea.gd" id="1_17cfx"]
+[ext_resource type="Script" uid="uid://dhe2xv0jw8sax" path="res://Scripts/Items/Scale/ScaleLabel.gd" id="2_n66ht"]
+[ext_resource type="ArrayMesh" uid="uid://djgfno4hqvca1" path="res://Assets/Models/Scale.glb" id="2_x3eyo"]
+[ext_resource type="Script" uid="uid://cabfx5s77j8w4" path="res://Scripts/Universal/Button.gd" id="4_x3eyo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7omye"]
 size = Vector3(0.22563225, 0.07500001, 0.21933596)

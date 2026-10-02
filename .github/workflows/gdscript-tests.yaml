@@ -44,7 +44,8 @@ jobs:
         uses: godot-gdunit-labs/gdUnit4-action@v1.3.2
         with:
           godot-version: "4.7"
-          paths: "res://test"
+          paths: "res://Test"
+          retries: 3
     
   lint:
     name: GDScript Lint
