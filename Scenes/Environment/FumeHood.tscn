@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dehqyao5f42n0"]
+
+[ext_resource type="PackedScene" uid="uid://dgbafgudrvq2i" path="res://Assets/Models/FumeHood.glb" id="1_x24cf"]
+[ext_resource type="Material" uid="uid://dutode6g1obrh" path="res://Assets/Materials/wood.tres" id="2_uhuul"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x24cf"]
+size = Vector3(1.6, 5.3367815, 3.7996655)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnl04"]
+albedo_color = Color(1, 1, 1, 0.15686275)
+roughness = 0.07
+refraction_enabled = true
+refraction_scale = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uajjx"]
+albedo_color = Color(1, 1, 1, 0.15686275)
+roughness = 0.07
+refraction_enabled = true
+refraction_scale = 0.0
+
+[node name="FumeHood" unique_id=2083019472 instance=ExtResource("1_x24cf")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(509427025) index="0" unique_id=402387385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28005284, -0.577472, 0.16707575)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1151531516]
+shape = SubResource("BoxShape3D_x24cf")
+
+[node name="lowerGlass" parent="." index="3" unique_id=1246553766]
+surface_material_override/0 = SubResource("StandardMaterial3D_pnl04")
+
+[node name="table" parent="." index="4" unique_id=800491317]
+surface_material_override/0 = ExtResource("2_uhuul")
+
+[node name="upperGlass" parent="." index="5" unique_id=93074003]
+surface_material_override/0 = SubResource("StandardMaterial3D_uajjx")
