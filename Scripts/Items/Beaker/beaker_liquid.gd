@@ -21,7 +21,7 @@ func _ready():
 	var fill_percent = inverse_lerp(0.0, MAX_FILL_ML, fill_amount_ml)
 	var start_fill_amount = lerp(0.461, 0.538, fill_percent)
 	material.set_shader_parameter("fill_amount", start_fill_amount)
-	mass = lerp(0.0, 0.250, start_fill_amount)
+	self.mass = lerp(0.0, 0.250, fill_percent) + EMPTY_MASS
 	var h_concentration = pow(10.0, -pH)
 	var oh_concentration = pow(10.0, pH - 14.0)
 	
