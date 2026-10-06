@@ -70,9 +70,6 @@ text = "pharm-sim demo v0.0.1"
 [node name="pH-paper" parent="." unique_id=2062769386 groups=["pickable"] instance=ExtResource("2_j0p05")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0400085, -0.42507586, 1.342104)
 
-[node name="Pasteur-pipette" parent="." unique_id=436470815 groups=["pickable"] instance=ExtResource("3_5nsto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0744793, -0.37183145, 0.71221876)
-
 [node name="Beaker" parent="." unique_id=76055100 groups=["pickable"] instance=ExtResource("4_gjpho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.846281, -0.410551, 1.4481254)
 
@@ -84,6 +81,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6208116, -0.49534202, 1.55
 
 [node name="Pasteur-pipette2" parent="." unique_id=351902390 groups=["hand", "pickable"] instance=ExtResource("3_5nsto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0744793, -0.37183145, 0.71221876)
+dispense_amount_ml = 0.002
 
 [node name="Spoon" parent="." unique_id=415315235 groups=["pickable"] instance=ExtResource("5_p70al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7908369, -0.4668528, 1.6530423)
@@ -100,13 +98,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1606812, -0.50032353, 0.32
 [node name="Beaker2" parent="." unique_id=794790815 groups=["pickable"] instance=ExtResource("10_kn06e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7063596, -0.41055113, 0.5426972)
 script = ExtResource("9_kn06e")
+pH = 1.0
 fill_amount_ml = 50.0
 
 [node name="Beaker3" parent="." unique_id=384694663 groups=["pickable"] instance=ExtResource("10_kn06e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7063596, -0.41055113, 0.07685363)
 script = ExtResource("9_kn06e")
-pH = 4.0
-fill_amount_ml = 50.0
 
 [node name="GlassRod3" parent="." unique_id=2038313436 groups=["hand", "pickable"] instance=ExtResource("9_7yo87")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7511977, -0.4953425, 1.4013458)
