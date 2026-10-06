@@ -7,4 +7,5 @@ sky_material = SubResource("PanoramaSkyMaterial_um4qq")
 
 [resource]
 background_mode = 1
+background_color = Color(0.18072194, 0.18072197, 0.18072197, 1)
 sky = SubResource("Sky_763o3")
