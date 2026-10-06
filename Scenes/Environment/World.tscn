@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://b6xgd6wi0srv5" path="res://Scripts/Items/Beaker/beaker_liquid.gd" id="9_kn06e"]
 [ext_resource type="PackedScene" uid="uid://buquofvaax58p" path="res://Scenes/Objects/BeakerLiquid.tscn" id="10_kn06e"]
 [ext_resource type="PackedScene" uid="uid://ui8xi7bokueq" path="res://Scenes/Objects/Scale.tscn" id="10_ti1bm"]
+[ext_resource type="PackedScene" uid="uid://lliiln0k2438" path="res://Scenes/Objects/WaterBottle.tscn" id="12_bwjxt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -112,3 +113,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7511977, -0.4953425, 1.401
 
 [node name="Scale" parent="." unique_id=358667536 groups=["pickable"] instance=ExtResource("10_ti1bm")]
 transform = Transform3D(-0.065663785, 0, 0.9978418, 0, 1, 0, -0.9978418, 0, -0.065663785, -1.8586853, -0.46788815, -0.22284868)
+
+[node name="WaterBottle" parent="." unique_id=1130363050 groups=["hand"] instance=ExtResource("12_bwjxt")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.9182596, -0.22032374, -1.723246)

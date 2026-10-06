@@ -4,9 +4,9 @@ class_name Pipette
 @export var capacity_ml: float = 10.0
 @export var dispense_amount_ml: float = 0.05
 
-var is_filled : bool
-var volume_ml : float
-var net_h_moles: float
+@export var is_filled : bool
+@export var volume_ml : float
+@export var net_h_moles: float
 
 func get_molarity() -> float:
 	if volume_ml <= 0.0:
