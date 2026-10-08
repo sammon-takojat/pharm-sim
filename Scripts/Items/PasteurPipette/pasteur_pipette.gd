@@ -1,12 +1,6 @@
 extends RigidBody3D
 class_name Pipette
 
-<<<<<<< HEAD
-func use(object_in_los):
-	if object_in_los and object_in_los.get("pH"):
-		object_in_los.pH = max(object_in_los.pH - 0.5, 0.1)
-		object_in_los.change_fill_amount(15.0)
-=======
 @export var capacity_ml: float = 10.0
 @export var dispense_amount_ml: float = 0.05
 
@@ -45,4 +39,3 @@ func use(object_in_los):
 			volume_ml = 0.0
 			net_h_moles = 0.0
 			is_filled = false
->>>>>>> dev

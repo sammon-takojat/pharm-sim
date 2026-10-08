@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_3mrcl"]
 size = Vector3(3.2592707, 44.410004, 4.0644274)
 
-[node name="Spatula" unique_id=508627173 instance=ExtResource("1_3mrcl")]
+[node name="Spatula" unique_id=508627173 groups=["hand", "pickable"] instance=ExtResource("1_3mrcl")]
 continuous_cd = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=117853899]

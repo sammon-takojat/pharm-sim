@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ygefg"]
 size = Vector3(0.11100132, 0.008926271, 0.01709413)
 
-[node name="spoon" type="RigidBody3D" unique_id=2005104949]
+[node name="spoon" type="RigidBody3D" unique_id=2005104949 groups=["hand", "pickable"]]
 
 [node name="Spoon" type="MeshInstance3D" parent="." unique_id=1062766935]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009442478, 0, 0.0015021861)
