@@ -6,6 +6,9 @@ resources:
 
 nameSuffix: -staging
 
+commonLabels:
+  environment: staging
+
 images:
   - name: dominicnygard/pharm-sim
     newTag: staging
