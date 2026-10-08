@@ -1,16 +1,4 @@
 extends RigidBody3D
-<<<<<<< HEAD
-
-var pH := 5.0
-
-var fill_amount_ml := 3.25
-
-const MAX_FILL_ML := 250.0
-const EMPTY_MASS := 0.100
-const FULL_LIQUID_MASS := 0.250
-
-@onready var material := $Circle2.get_surface_override_material(0) as ShaderMaterial
-=======
 class_name LiquidContainer
 
 @export var pH := 7.0
@@ -25,16 +13,10 @@ var FULL_LIQUID_MASS := MAX_FILL_ML / 1000.0
 @onready var material := $Circle2.get_surface_override_material(0).duplicate() as ShaderMaterial
 
 signal mass_changed
->>>>>>> dev
 
 #Fill amount clamp (0.462, 0.538)
 
 func _ready():
-<<<<<<< HEAD
-	var start_fill_amount = inverse_lerp(0.461, 0.538, 0.462)
-	material.set_shader_parameter("fill_amount", 0.462)
-	mass = lerp(0.0, 0.250, start_fill_amount)
-=======
 	$Circle2.set_surface_override_material(0, material)
 	var fill_percent = inverse_lerp(0.0, MAX_FILL_ML, fill_amount_ml)
 	var start_fill_amount = lerp(0.461, 0.538, fill_percent)
@@ -45,7 +27,6 @@ func _ready():
 	
 	var net_concentration = h_concentration - oh_concentration
 	net_h_moles = net_concentration * (fill_amount_ml / 1000.0)
->>>>>>> dev
 	
 func change_fill_amount(amount_ml: float):
 	fill_amount_ml = clamp(
@@ -66,8 +47,6 @@ func change_fill_amount(amount_ml: float):
 		EMPTY_MASS + FULL_LIQUID_MASS,
 		fill_percent
 	)
-<<<<<<< HEAD
-=======
 	emit_signal("mass_changed")
 	
 func add_reagent(amount_ml: float, molarity: float, is_base: bool):
@@ -115,4 +94,3 @@ func update_pH():
 	) / 2.0
 	
 	pH = -log(h_concentration) / log(10.0)
->>>>>>> dev
