@@ -74,9 +74,9 @@ shader_parameter/BubbleSpeed = Vector2(3, 3)
 height = 3.002338
 radius = 1.2102966
 
-[node name="Beaker" unique_id=76055100 instance=ExtResource("1_gceea")]
+[node name="Beaker2" unique_id=76055100 instance=ExtResource("1_gceea")]
 
-[node name="Circle" parent="." index="0" unique_id=1612455317]
+[node name="Circle" parent="." index="0" unique_id=1796074912]
 surface_material_override/0 = SubResource("StandardMaterial3D_e7go6")
 
 [node name="Circle2" type="MeshInstance3D" parent="." index="1" unique_id=50160122]
