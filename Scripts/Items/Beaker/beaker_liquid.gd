@@ -1,4 +1,5 @@
 extends RigidBody3D
+<<<<<<< HEAD
 
 var pH := 5.0
 
@@ -9,13 +10,42 @@ const EMPTY_MASS := 0.100
 const FULL_LIQUID_MASS := 0.250
 
 @onready var material := $Circle2.get_surface_override_material(0) as ShaderMaterial
+=======
+class_name LiquidContainer
+
+@export var pH := 7.0
+
+@export var fill_amount_ml : float
+var net_h_moles: float
+
+@export var MAX_FILL_ML := 250.0
+@export var EMPTY_MASS := 0.100
+var FULL_LIQUID_MASS := MAX_FILL_ML / 1000.0
+
+@onready var material := $Circle2.get_surface_override_material(0).duplicate() as ShaderMaterial
+
+signal mass_changed
+>>>>>>> dev
 
 #Fill amount clamp (0.462, 0.538)
 
 func _ready():
+<<<<<<< HEAD
 	var start_fill_amount = inverse_lerp(0.461, 0.538, 0.462)
 	material.set_shader_parameter("fill_amount", 0.462)
 	mass = lerp(0.0, 0.250, start_fill_amount)
+=======
+	$Circle2.set_surface_override_material(0, material)
+	var fill_percent = inverse_lerp(0.0, MAX_FILL_ML, fill_amount_ml)
+	var start_fill_amount = lerp(0.461, 0.538, fill_percent)
+	material.set_shader_parameter("fill_amount", start_fill_amount)
+	mass = lerp(0.0, 0.250, start_fill_amount)
+	var h_concentration = pow(10.0, -pH)
+	var oh_concentration = pow(10.0, pH - 14.0)
+	
+	var net_concentration = h_concentration - oh_concentration
+	net_h_moles = net_concentration * (fill_amount_ml / 1000.0)
+>>>>>>> dev
 	
 func change_fill_amount(amount_ml: float):
 	fill_amount_ml = clamp(
@@ -36,3 +66,53 @@ func change_fill_amount(amount_ml: float):
 		EMPTY_MASS + FULL_LIQUID_MASS,
 		fill_percent
 	)
+<<<<<<< HEAD
+=======
+	emit_signal("mass_changed")
+	
+func add_reagent(amount_ml: float, molarity: float, is_base: bool):
+	var added_moles = (amount_ml / 1000.0) * molarity
+	
+	if is_base:
+		net_h_moles -= added_moles
+	else:
+		net_h_moles += added_moles
+	
+	change_fill_amount(amount_ml)
+	
+	update_pH()
+	change_fill_amount(amount_ml)
+	
+func remove_liquid(amount_ml: float) -> Dictionary:
+	var removed_amount = min(amount_ml, fill_amount_ml)
+	
+	var fraction = removed_amount / fill_amount_ml
+	
+	var removed_moles = net_h_moles * fraction
+	
+	net_h_moles -= removed_moles
+	change_fill_amount(-amount_ml)
+	
+	update_pH()
+	change_fill_amount(-amount_ml)
+	
+	return {
+		"volume_ml": removed_amount,
+		"net_h_moles": removed_moles
+	}	
+
+func update_pH():
+	if fill_amount_ml <= 0.0:
+		pH = 7.0
+		return
+	
+	var volume_l = fill_amount_ml / 1000.0
+	var net_concentration = net_h_moles / volume_l
+	
+	var kw = 1.0e-14
+	var h_concentration = (
+		net_concentration + sqrt(net_concentration * net_concentration + 4.0 * kw)
+	) / 2.0
+	
+	pH = -log(h_concentration) / log(10.0)
+>>>>>>> dev
