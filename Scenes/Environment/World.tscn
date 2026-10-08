@@ -98,4 +98,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4795918, -0.4968188, -0.18
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 5, -0.68802786, 2)
 
 [node name="FumeHood" parent="." unique_id=2083019472 instance=ExtResource("12_bwjxt")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.6190624, -1.2883983, -5.7103457)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.6190624, -1.3026918, -5.7103457)
