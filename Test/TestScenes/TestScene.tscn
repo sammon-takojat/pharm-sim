@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://btbysfbnjei52"]
 
-[ext_resource type="PackedScene" uid="uid://dodpev3657a8c" path="res://Scenes/Player.tscn" id="1_dracy"]
+[ext_resource type="PackedScene" uid="uid://dodpev3657a8c" path="res://Scenes/Player/Player.tscn" id="1_dracy"]
 
 [sub_resource type="Environment" id="Environment_c2evf"]
 
