@@ -41,6 +41,7 @@ settings/test/flaky_check_enable=true
 [global_group]
 
 pickable=""
+hand=""
 
 [input]
 
