@@ -7,11 +7,7 @@ func test_mouse_movement(direction:Vector2, axis:String, increase:bool, _test_pa
 	[Vector2(100, 0), "y", false]
 ]):
 	# Create a scene
-<<<<<<<< HEAD:Test/test_camera_movement.gd
-	var	runner := scene_runner("res://Scenes/Environment/World.tscn")
-========
 	var	runner := scene_runner("res://Test/TestScenes/TestScene.tscn")
->>>>>>>> dev:Test/TestPlayer/test_camera_movement.gd
 	var camera:Camera3D = runner.find_child("Camera3D")
 	var start_dir:Vector3 = camera.global_rotation_degrees
 	

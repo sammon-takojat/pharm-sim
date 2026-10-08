@@ -5,11 +5,7 @@ var player:CharacterBody3D
 
 func before_test():
 	# Setup the scene
-<<<<<<<< HEAD:Test/test_movement.gd
-	runner = scene_runner("res://Scenes/Environment/World.tscn")
-========
 	runner = scene_runner("res://Test/TestScenes/TestScene.tscn")
->>>>>>>> dev:Test/TestPlayer/test_movement.gd
 	player = runner.find_child("Player")
 
 func test_player_movement(key:Key, direction:Vector3, _test_parameters := [

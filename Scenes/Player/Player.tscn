@@ -1,12 +1,7 @@
 [gd_scene format=3 uid="uid://dodpev3657a8c"]
 
-<<<<<<< HEAD
-[ext_resource type="Script" uid="uid://d0d3fb1qnc1wp" path="res://Scripts/Player/player.gd" id="1_kyqiw"]
-[ext_resource type="Script" uid="uid://ddj5qriqvj54" path="res://Scripts/Player/head.gd" id="2_kyqiw"]
-=======
 [ext_resource type="Script" uid="uid://d0d3fb1qnc1wp" path="res://Scripts/Player/player.gd" id="1_ft8w5"]
 [ext_resource type="Script" uid="uid://ddj5qriqvj54" path="res://Scripts/Player/head.gd" id="2_h54ih"]
->>>>>>> dev
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_wkjni"]
 
