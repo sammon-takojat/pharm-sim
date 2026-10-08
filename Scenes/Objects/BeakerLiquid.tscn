@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://buquofvaax58p"]
 
-[ext_resource type="PackedScene" uid="uid://b7j2scs0skx3k" path="res://Assets/Beaker.glb" id="1_gceea"]
+[ext_resource type="PackedScene" uid="uid://b7j2scs0skx3k" path="res://Assets/Models/Beaker.glb" id="1_gceea"]
 [ext_resource type="Shader" uid="uid://c420kic421m2g" path="res://Shaders/liquid.gdshader" id="2_e7go6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7go6"]

@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://ccojhkcos43g1"]
+
+[ext_resource type="Environment" uid="uid://b8euxjply07lx" path="res://Assets/Environments/Indoor_Windowless_Env.tres" id="1_bwjxt"]
+[ext_resource type="PackedScene" uid="uid://dodpev3657a8c" path="res://Scenes/Player/Player.tscn" id="2_3c8se"]
+[ext_resource type="PackedScene" uid="uid://y5m6i88xx7s4" path="res://Scenes/Objects/pH-paper.tscn" id="3_jy0m3"]
+[ext_resource type="PackedScene" uid="uid://bns0g1yp8sxjy" path="res://Scenes/Objects/pasteur-pipette.tscn" id="4_obwj0"]
+[ext_resource type="PackedScene" uid="uid://c1kmairclhic0" path="res://Scenes/Objects/Spoon.tscn" id="5_0vwtw"]
+[ext_resource type="PackedScene" uid="uid://c2becs3fsshs5" path="res://Scenes/Objects/Microspoon.tscn" id="6_hgi6u"]
+[ext_resource type="PackedScene" uid="uid://bjv605u7u5288" path="res://Scenes/Objects/Spatula.tscn" id="7_0xdd7"]
+[ext_resource type="PackedScene" uid="uid://buquofvaax58p" path="res://Scenes/Objects/BeakerLiquid.tscn" id="8_0xsra"]
+[ext_resource type="Script" uid="uid://b6xgd6wi0srv5" path="res://Scripts/Items/Beaker/beaker_liquid.gd" id="9_bxk4y"]
+[ext_resource type="PackedScene" uid="uid://c2ypk0urkfe5w" path="res://Scenes/Objects/Rod.tscn" id="10_wpqp3"]
+[ext_resource type="PackedScene" uid="uid://ui8xi7bokueq" path="res://Scenes/Objects/Scale.tscn" id="11_jv81b"]
+[ext_resource type="PackedScene" uid="uid://b6gjdmiam8olr" path="res://Scenes/Environment/Room.tscn" id="12_lhbct"]
+
+[node name="World" type="Node3D" unique_id=1422076585]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=26450683]
+environment = ExtResource("1_bwjxt")
+
+[node name="Player" parent="." unique_id=1512899030 instance=ExtResource("2_3c8se")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
+
+[node name="Label" type="Label" parent="." unique_id=555306583]
+offset_right = 43.0
+offset_bottom = 23.0
+text = "pharm-sim demo v0.0.1"
+
+[node name="pH-paper" parent="." unique_id=2062769386 groups=["pickable"] instance=ExtResource("3_jy0m3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0400085, 0.5749241, 1.342104)
+
+[node name="Pasteur-pipette" parent="." unique_id=436470815 groups=["hand", "pickable"] instance=ExtResource("4_obwj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0744793, 0.6281686, 0.71221876)
+
+[node name="Spoon" parent="." unique_id=415315235 groups=["pickable"] instance=ExtResource("5_0vwtw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7908369, 0.5331472, 1.6530423)
+
+[node name="Microspoon" parent="." unique_id=371284041 groups=["pickable"] instance=ExtResource("6_hgi6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2558513, 0.5052724, -1.1374061)
+
+[node name="Spatula" parent="." unique_id=508627173 groups=["pickable"] instance=ExtResource("7_0xdd7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6010475, 0.6698377, -0.62946606)
+
+[node name="pH-paper2" parent="." unique_id=685241084 groups=["hand", "pickable"] instance=ExtResource("3_jy0m3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1606812, 0.49967647, 0.32046473)
+
+[node name="Beaker" parent="." unique_id=76055100 groups=["pickable"] instance=ExtResource("8_0xsra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7063596, 0.58944887, 0.5426972)
+script = ExtResource("9_bxk4y")
+
+[node name="GlassRod" parent="." unique_id=1332309341 groups=["hand", "pickable"] instance=ExtResource("10_wpqp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7511977, 0.5046575, 1.4013458)
+
+[node name="Scale" parent="." unique_id=358667536 groups=["pickable"] instance=ExtResource("11_jv81b")]
+transform = Transform3D(-0.065663785, 0, 0.9978418, 0, 1, 0, -0.9978418, 0, -0.065663785, -1.8586853, 0.5321119, -0.22284868)
+
+[node name="Room" parent="." unique_id=166548899 instance=ExtResource("12_lhbct")]

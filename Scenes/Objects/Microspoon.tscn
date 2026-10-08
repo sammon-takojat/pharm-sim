@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c2becs3fsshs5"]
 
-[ext_resource type="PackedScene" uid="uid://d3nfby5ygi1mj" path="res://Assets/mikrolusikka.glb" id="1_exwcx"]
+[ext_resource type="PackedScene" uid="uid://d3nfby5ygi1mj" path="res://Assets/Models/mikrolusikka.glb" id="1_exwcx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_exwcx"]
 size = Vector3(0.37751096, 0.21848641, 4.2346244)
