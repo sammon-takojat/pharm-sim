@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b7j2scs0skx3k" path="res://Assets/Models/Beaker.glb" id="1_gceea"]
 [ext_resource type="Shader" uid="uid://c420kic421m2g" path="res://Shaders/liquid.gdshader" id="2_e7go6"]
+[ext_resource type="Script" uid="uid://b6xgd6wi0srv5" path="res://Scripts/Items/Beaker/beaker_liquid.gd" id="2_tde1r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7go6"]
 transparency = 2
@@ -74,9 +75,10 @@ shader_parameter/BubbleSpeed = Vector2(3, 3)
 height = 3.002338
 radius = 1.2102966
 
-[node name="Beaker2" unique_id=76055100 instance=ExtResource("1_gceea")]
+[node name="Beaker" unique_id=76055100 instance=ExtResource("1_gceea")]
+script = ExtResource("2_tde1r")
 
-[node name="Circle" parent="." index="0" unique_id=1796074912]
+[node name="Circle" parent="." index="0" unique_id=1706655681]
 surface_material_override/0 = SubResource("StandardMaterial3D_e7go6")
 
 [node name="Circle2" type="MeshInstance3D" parent="." index="1" unique_id=50160122]
