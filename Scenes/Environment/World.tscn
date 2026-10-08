@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dodpev3657a8c" path="res://Scenes/Player/Player.tscn" id="1_5cjrv"]
 [ext_resource type="PackedScene" uid="uid://y5m6i88xx7s4" path="res://Scenes/Objects/pH-paper.tscn" id="2_j0p05"]
 [ext_resource type="PackedScene" uid="uid://bns0g1yp8sxjy" path="res://Scenes/Objects/pasteur-pipette.tscn" id="3_5nsto"]
-[ext_resource type="PackedScene" uid="uid://bi485r3ft02em" path="res://Scenes/Objects/Beaker.tscn" id="4_gjpho"]
 [ext_resource type="PackedScene" uid="uid://c1kmairclhic0" path="res://Scenes/Objects/Spoon.tscn" id="5_p70al"]
 [ext_resource type="PackedScene" uid="uid://c2becs3fsshs5" path="res://Scenes/Objects/Microspoon.tscn" id="6_p70al"]
 [ext_resource type="PackedScene" uid="uid://bjv605u7u5288" path="res://Scenes/Objects/Spatula.tscn" id="7_y7y61"]
@@ -67,35 +66,36 @@ text = "pharm-sim demo v0.0.1"
 [node name="Player" parent="." unique_id=230790486 instance=ExtResource("1_5cjrv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5315217, -0.28839874, 4.1862335)
 
-[node name="Beaker" parent="." unique_id=76055100 groups=["pickable"] instance=ExtResource("4_gjpho")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9464614, -0.41055125, -1.1141219)
-
-[node name="Beaker2" parent="." unique_id=1161229107 instance=ExtResource("10_kn06e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3996665, -0.4105515, -1.1468406)
-
-[node name="Microspoon" parent="." unique_id=371284041 instance=ExtResource("6_p70al")]
+[node name="Microspoon" parent="." unique_id=371284041 groups=["pickable"] instance=ExtResource("6_p70al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1506395, -0.49472788, -1.4728081)
 
-[node name="Pasteur-pipette" parent="." unique_id=436470815 instance=ExtResource("3_5nsto")]
+[node name="Pasteur-pipette" parent="." unique_id=436470815 groups=["hand", "pickable"] instance=ExtResource("3_5nsto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8984399, -0.3718317, -1.8657277)
 
-[node name="pH-paper" parent="." unique_id=2062769386 instance=ExtResource("2_j0p05")]
+[node name="pH-paper" parent="." unique_id=2062769386 groups=["pickable"] instance=ExtResource("2_j0p05")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.323251, -0.5003238, 0.3313284)
 
-[node name="GlassRod" parent="." unique_id=1332309341 instance=ExtResource("9_7yo87")]
+[node name="GlassRod" parent="." unique_id=1332309341 groups=["pickable"] instance=ExtResource("9_7yo87")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1141977, -0.4953425, -0.15165854)
 
 [node name="Scale" parent="." unique_id=358667536 instance=ExtResource("10_ti1bm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.717872, -0.46788785, -2.4368958)
 
-[node name="Spatula" parent="." unique_id=508627173 instance=ExtResource("7_y7y61")]
+[node name="Spatula" parent="." unique_id=508627173 groups=["pickable"] instance=ExtResource("7_y7y61")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.514356, -0.49094108, -1.0610354)
 
-[node name="spoon" parent="." unique_id=2005104949 instance=ExtResource("5_p70al")]
+[node name="spoon" parent="." unique_id=2005104949 groups=["pickable"] instance=ExtResource("5_p70al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4795918, -0.4968188, -0.18133354)
 
 [node name="Table" parent="." unique_id=1637690427 instance=ExtResource("11_w5xhi")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 5, -0.68802786, 2)
 
 [node name="FumeHood" parent="." unique_id=2083019472 instance=ExtResource("12_bwjxt")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.6190624, -1.3026918, -5.7103457)
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.4583683, -1.2883989, -5.8005357)
+
+[node name="Beaker" parent="." unique_id=76055100 instance=ExtResource("10_kn06e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8889577, -0.41055113, -0.7262998)
+fill_amount_ml = 200.0
+
+[node name="Beaker2" parent="." unique_id=663471881 instance=ExtResource("10_kn06e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7101693, -0.41055113, 0.43008322)
