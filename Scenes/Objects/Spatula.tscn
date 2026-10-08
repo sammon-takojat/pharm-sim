@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjv605u7u5288"]
 
-[ext_resource type="PackedScene" uid="uid://gv1brfosel26" path="res://Assets/Spatula.glb" id="1_3mrcl"]
+[ext_resource type="PackedScene" uid="uid://gv1brfosel26" path="res://Assets/Models/Spatula.glb" id="1_3mrcl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3mrcl"]
 size = Vector3(3.2592707, 44.410004, 4.0644274)

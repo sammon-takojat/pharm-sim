@@ -1,0 +1,200 @@
+[gd_scene format=3 uid="uid://b6gjdmiam8olr"]
+
+[ext_resource type="PackedScene" uid="uid://c2m2umc05w1sl" path="res://Assets/Models/ceilingLight.glb" id="1_5hpqs"]
+[ext_resource type="Material" uid="uid://dvbfsqg0maofm" path="res://Assets/Materials/floor.tres" id="1_nn86p"]
+[ext_resource type="Material" uid="uid://cdwcwyjw4ughu" path="res://Assets/Materials/ceiling.tres" id="3_a2si3"]
+[ext_resource type="Material" uid="uid://cd8qhl70f7njt" path="res://Assets/Materials/wall.tres" id="3_uj218"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j464w"]
+size = Vector3(15, 2, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5hpqs"]
+size = Vector3(15, 2, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nn86p"]
+size = Vector3(19, 2, 24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uj218"]
+size = Vector3(19, 2, 24)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a2si3"]
+size = Vector3(15, 7, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_aaq88"]
+size = Vector3(15, 7, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7gm67"]
+size = Vector3(2, 7, 24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xebr5"]
+size = Vector3(2, 7, 24)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_si31g"]
+size = Vector3(15, 7, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mimag"]
+size = Vector3(15, 7, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ijr7e"]
+size = Vector3(2, 7, 24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_khqja"]
+size = Vector3(2, 7, 24)
+
+[node name="Room" type="Node3D" unique_id=166548899]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1540810820]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1192984715]
+shape = SubResource("BoxShape3D_j464w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=417062425]
+material_override = ExtResource("1_nn86p")
+mesh = SubResource("BoxMesh_5hpqs")
+
+[node name="Ceiling" type="StaticBody3D" parent="." unique_id=1513545240]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.973442, 0)
+
+[node name="ceilingLight6" parent="Ceiling" unique_id=829056591 instance=ExtResource("1_5hpqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.0512857, 2.312961)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight6" unique_id=100568267]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.06563568, -2.8690277e-09)
+area_range = 7.0
+area_size = Vector2(0.4, 1.996027)
+
+[node name="ceilingLight5" parent="Ceiling" unique_id=1446099969 instance=ExtResource("1_5hpqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.0512857, 3)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight5" unique_id=1914090188]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.11862469, -5.1852496e-09)
+area_range = 7.0
+area_size = Vector2(0.4, 1.996027)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling" unique_id=606540891]
+shape = SubResource("BoxShape3D_nn86p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ceiling" unique_id=1579646296]
+material_override = ExtResource("3_a2si3")
+mesh = SubResource("BoxMesh_uj218")
+
+[node name="ceilingLight" parent="Ceiling" unique_id=396697011 instance=ExtResource("1_5hpqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0512857, -7)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight" unique_id=1465043206]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.05801201, -2.5357854e-09)
+area_range = 7.0
+area_size = Vector2(0.4, 1.996027)
+
+[node name="ceilingLight2" parent="Ceiling" unique_id=2085555063 instance=ExtResource("1_5hpqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0512857, -2.3759203)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight2" unique_id=986795123]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.07888889, -3.448343e-09)
+area_range = 7.0
+area_size = Vector2(0.4, 1.996027)
+
+[node name="ceilingLight3" parent="Ceiling" unique_id=2074084430 instance=ExtResource("1_5hpqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0512857, 2.2929378)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight3" unique_id=1979903602]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.05758524, -2.517131e-09)
+area_range = 7.0
+area_size = Vector2(0.4, 1.996027)
+
+[node name="ceilingLight4" parent="Ceiling" unique_id=1820073520 instance=ExtResource("1_5hpqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0512857, 7)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight4" unique_id=1051369741]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.06386471, -2.791615e-09)
+area_range = 7.0
+area_size = Vector2(0.4, 1.996027)
+
+[node name="ceilingLight7" parent="Ceiling" unique_id=1077304842 instance=ExtResource("1_5hpqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.0512857, -2.3612938)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight7" unique_id=350248455]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.102665424, -4.487648e-09)
+area_range = 7.0
+area_size = Vector2(0.4, 1.996027)
+
+[node name="ceilingLight8" parent="Ceiling" unique_id=1971026331 instance=ExtResource("1_5hpqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.0512857, 7)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight8" unique_id=775234760]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.08606721, -3.762119e-09)
+area_range = 7.0
+area_size = Vector2(0.4, 1.996027)
+
+[node name="ceilingLight9" parent="Ceiling" unique_id=1261811206 instance=ExtResource("1_5hpqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.0512857, -7)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight9" unique_id=97617924]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.09987402, -4.365632e-09)
+area_range = 7.0
+area_size = Vector2(0.4, 1.996027)
+
+[node name="ceilingLight10" parent="Ceiling" unique_id=1192039279 instance=ExtResource("1_5hpqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.0512857, -7)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight10" unique_id=1131455976]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.05196476, -2.271452e-09)
+area_range = 7.0
+area_size = Vector2(0.4, 1.996027)
+
+[node name="ceilingLight11" parent="Ceiling" unique_id=1252752131 instance=ExtResource("1_5hpqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.0512857, -2)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight11" unique_id=1316411378]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.05865431, -2.5638611e-09)
+area_range = 7.0
+area_size = Vector2(0.4, 1.996027)
+
+[node name="ceilingLight12" parent="Ceiling" unique_id=1023484153 instance=ExtResource("1_5hpqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.0512857, 7)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight12" unique_id=1039711042]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.055383686, 0.08232689)
+area_range = 7.0
+area_size = Vector2(0.4, 1.996027)
+
+[node name="WallNorth" type="StaticBody3D" parent="." unique_id=15250668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5009327, 11)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallNorth" unique_id=828052923]
+shape = SubResource("BoxShape3D_a2si3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WallNorth" unique_id=774034079]
+material_override = ExtResource("3_uj218")
+mesh = SubResource("BoxMesh_aaq88")
+
+[node name="EastWall" type="StaticBody3D" parent="." unique_id=1663030959]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.488283, 1.5018082, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EastWall" unique_id=1548622282]
+shape = SubResource("BoxShape3D_7gm67")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EastWall" unique_id=84500617]
+material_override = ExtResource("3_uj218")
+mesh = SubResource("BoxMesh_xebr5")
+
+[node name="SouthWall" type="StaticBody3D" parent="." unique_id=1397857524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4761553, -10.998499)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SouthWall" unique_id=669664603]
+shape = SubResource("BoxShape3D_si31g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SouthWall" unique_id=1718586276]
+material_override = ExtResource("3_uj218")
+mesh = SubResource("BoxMesh_mimag")
+
+[node name="WestWall" type="StaticBody3D" parent="." unique_id=195211474]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.511717, 1.4813328, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WestWall" unique_id=451446498]
+shape = SubResource("BoxShape3D_ijr7e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WestWall" unique_id=1108866679]
+material_override = ExtResource("3_uj218")
+mesh = SubResource("BoxMesh_khqja")

@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="pharm-sim"
-run/main_scene="uid://ccojhkcos43g1"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -37,10 +36,6 @@ settings/test/test_discovery=true
 ui/toolbar/run_overall=true
 settings/test/test_lookup_folder="Test"
 settings/test/flaky_check_enable=true
-
-[global_group]
-
-pickable=""
 
 [input]
 
