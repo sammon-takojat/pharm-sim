@@ -60,7 +60,6 @@ func add_reagent(amount_ml: float, molarity: float, is_base: bool):
 	change_fill_amount(amount_ml)
 	
 	update_pH()
-	change_fill_amount(amount_ml)
 	
 func remove_liquid(amount_ml: float) -> Dictionary:
 	var removed_amount = min(amount_ml, fill_amount_ml)
@@ -73,7 +72,6 @@ func remove_liquid(amount_ml: float) -> Dictionary:
 	change_fill_amount(-amount_ml)
 	
 	update_pH()
-	change_fill_amount(-amount_ml)
 	
 	return {
 		"volume_ml": removed_amount,
