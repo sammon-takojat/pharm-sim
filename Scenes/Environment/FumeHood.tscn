@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://dehqyao5f42n0"]
+
+[ext_resource type="PackedScene" uid="uid://dgbafgudrvq2i" path="res://Assets/Models/FumeHood.glb" id="1_x24cf"]
+[ext_resource type="Material" uid="uid://dutode6g1obrh" path="res://Assets/Materials/wood.tres" id="2_uhuul"]
+[ext_resource type="Script" uid="uid://bt2ovimx8le7n" path="res://Scripts/Items/FumeHood/fume_hood.gd" id="2_wjqph"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x24cf"]
+size = Vector3(1.6, 5.3367815, 3.7996655)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnl04"]
+albedo_color = Color(1, 1, 1, 0.15686275)
+roughness = 0.07
+refraction_enabled = true
+refraction_scale = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uajjx"]
+albedo_color = Color(1, 1, 1, 0.15686275)
+roughness = 0.07
+refraction_enabled = true
+refraction_scale = 0.0
+
+[sub_resource type="Animation" id="Animation_uhuul"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lowerGlass:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.40779608, 2.794509, 0.0016668439)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("handle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.77156115, 1.8432798, 0.0014626955)]
+}
+
+[sub_resource type="Animation" id="Animation_wjqph"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("handle:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.5749315, 3.3590493, 0.0014626953), Vector3(0.772, 1.843, 0.001)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("lowerGlass:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.2111665, 4.310278, 0.0016668438), Vector3(0.40779608, 2.794509, 0.0016668439)]
+}
+
+[sub_resource type="Animation" id="Animation_x24cf"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lowerGlass:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.40779608, 2.794509, 0.0016668439), Vector3(0.2111665, 4.310278, 0.0016668438)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("handle:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.77156115, 1.8432798, 0.0014626955), Vector3(0.5749315, 3.3590493, 0.0014626953)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uhuul"]
+_data = {
+&"RESET": SubResource("Animation_uhuul"),
+&"close": SubResource("Animation_wjqph"),
+&"open": SubResource("Animation_x24cf")
+}
+
+[node name="FumeHood" unique_id=2083019472 instance=ExtResource("1_x24cf")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+script = ExtResource("2_wjqph")
+
+[node name="FumeHoodStatic" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(509427025) index="0" unique_id=402387385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28005284, -0.577472, 0.16707575)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/FumeHoodStatic" index="0" unique_id=1151531516]
+shape = SubResource("BoxShape3D_x24cf")
+
+[node name="handle" parent="." index="2" unique_id=551292057]
+transform = Transform3D(0.07661248, 7.49145e-10, 0.010597631, 0.010597631, -1.08829985e-08, -0.07661248, 3.188752e-11, 1.8170236, -4.6323714e-10, 0.77156115, 1.8432798, 0.0014626955)
+
+[node name="lowerGlass" parent="." index="3" unique_id=1246553766]
+transform = Transform3D(-4.04685e-08, 0.03565245, 0, -0.92581135, -1.5584181e-09, 0, 0, 0, 1.8033179, 0.40779608, 2.794509, 0.0016668439)
+surface_material_override/0 = SubResource("StandardMaterial3D_pnl04")
+
+[node name="table" parent="." index="4" unique_id=800491317]
+surface_material_override/0 = ExtResource("2_uhuul")
+
+[node name="upperGlass" parent="." index="5" unique_id=93074003]
+surface_material_override/0 = SubResource("StandardMaterial3D_uajjx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6" unique_id=1246951923]
+libraries/ = SubResource("AnimationLibrary_uhuul")

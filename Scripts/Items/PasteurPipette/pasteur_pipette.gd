@@ -20,7 +20,6 @@ func use(object_in_los):
 		net_h_moles += res["net_h_moles"]
 		volume_ml += res["volume_ml"]
 		is_filled = true
-		print("Added volume: ", volume_ml)
 	elif object_in_los and object_in_los.has_method("add_reagent"):
 		var amount_ml = min(dispense_amount_ml, volume_ml)
 		amount_ml = min(amount_ml, volume_ml)
@@ -35,8 +34,6 @@ func use(object_in_los):
 		
 		net_h_moles -= transferred_moles
 		volume_ml -= amount_ml
-		
-		print("Removed volume: ", volume_ml)
 		
 		if volume_ml <= 0.0001:
 			volume_ml = 0.0

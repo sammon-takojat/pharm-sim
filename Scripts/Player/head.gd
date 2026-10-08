@@ -83,6 +83,8 @@ func handle_interactions(body):
 		body.press()
 	elif body is RigidBody3D && body.is_in_group("pickable"):
 		held_object = body
+	elif body.name == "FumeHoodStatic":
+		body.get_parent().get_parent().toggle_window()
 
 func handle_ui():
 	if held_object != null:
