@@ -94,5 +94,3 @@ func update_pH():
 	) / 2.0
 	
 	pH = -log(h_concentration) / log(10.0)
-	
-	print("pH: ", pH)
