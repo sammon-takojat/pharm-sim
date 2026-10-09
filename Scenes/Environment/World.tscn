@@ -64,7 +64,7 @@ offset_bottom = 23.0
 text = "pharm-sim demo v0.0.1"
 
 [node name="Player" parent="." unique_id=230790486 instance=ExtResource("1_5cjrv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5315217, -0.28839874, 4.1862335)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5315217, -0.28839874, 3.0805779)
 
 [node name="Table" parent="." unique_id=1637690427 instance=ExtResource("11_w5xhi")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 4.928993, -0.68802804, 5.088378)
@@ -73,7 +73,9 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 4.928993, -0.68802804, 
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 4.818545, -1.3026695, 8.483308)
 
 [node name="Beaker" parent="." unique_id=76055100 instance=ExtResource("10_kn06e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.900804, -0.111606136, 6.6372223)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.948952, -0.04770316, 5.328665)
+pH = 1.0
+fill_amount_ml = 50.0
 
 [node name="Microspoon" parent="." unique_id=371284041 instance=ExtResource("6_p70al")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0385437, -0.19578277, 6.1454897)
@@ -95,3 +97,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.803299, -0.19787338, 3.5583
 
 [node name="Scale" parent="." unique_id=358667536 instance=ExtResource("10_ti1bm")]
 transform = Transform3D(0.024610732, 0, 0.9996971, 0, 1, 0, -0.9996971, 0, 0.024610732, 5.1467094, -0.16894314, 4.4928894)
+
+[node name="Beaker2" parent="." unique_id=1437915329 instance=ExtResource("10_kn06e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1270742, -0.111606196, 4.9047956)
+fill_amount_ml = 150.0
