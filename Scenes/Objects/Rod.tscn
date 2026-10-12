@@ -6,7 +6,7 @@
 height = 0.20084211
 radius = 0.0049812766
 
-[node name="GlassRod" type="RigidBody3D" unique_id=1332309341]
+[node name="GlassRod" type="RigidBody3D" unique_id=1332309341 groups=["hand", "pickable"]]
 continuous_cd = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=761944837]

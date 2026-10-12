@@ -1,0 +1,12 @@
+[gd_resource type="Environment" format=3 uid="uid://b8euxjply07lx"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_um4qq"]
+
+[sub_resource type="Sky" id="Sky_763o3"]
+sky_material = SubResource("PanoramaSkyMaterial_um4qq")
+
+[resource]
+background_mode = 1
+sky = SubResource("Sky_763o3")
+ambient_light_source = 2
+ambient_light_color = Color(0.81240565, 0.8124055, 0.8124055, 1)

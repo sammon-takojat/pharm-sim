@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://y5m6i88xx7s4"]
 
-[ext_resource type="Script" uid="uid://iiy7xq4wnqk" path="res://Scripts/pH_paper.gd" id="1_oe6p4"]
+[ext_resource type="Script" uid="uid://iiy7xq4wnqk" path="res://Scripts/Items/PHPaper/pH_paper.gd" id="1_oe6p4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_wkjni"]
 size = Vector3(0.22956085, 0.001, 0.074279785)
@@ -11,7 +11,7 @@ albedo_color = Color(1, 0.57254905, 0, 1)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_oe6p4"]
 points = PackedVector3Array(0.116622224, 0.0013222224, 0.037611112, -0.116622224, -0.002322222, -0.03892222, -0.116622224, 0.0013222224, -0.03892222, 0.116622224, -0.002322222, -0.03892222, -0.116622224, -0.002322222, 0.037611112, -0.116622224, 0.0013222224, 0.037611112, 0.116622224, 0.0013222224, -0.03892222, 0.116622224, -0.002322222, 0.037611112)
 
-[node name="pH-paper" type="RigidBody3D" unique_id=2062769386]
+[node name="pH-paper" type="RigidBody3D" unique_id=2062769386 groups=["pickable"]]
 continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 4

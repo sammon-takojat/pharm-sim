@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bns0g1yp8sxjy"]
 
-[ext_resource type="ArrayMesh" uid="uid://ca2qtmo1ss0as" path="res://Assets/pasteur-pipette.glb" id="1_cvwdy"]
-[ext_resource type="Script" uid="uid://b6dub8xby0c5v" path="res://Scripts/Items/pasteur_pipette.gd" id="1_sak04"]
+[ext_resource type="ArrayMesh" uid="uid://ca2qtmo1ss0as" path="res://Assets/Models/pasteur-pipette.glb" id="1_cvwdy"]
+[ext_resource type="Script" uid="uid://b6dub8xby0c5v" path="res://Scripts/Items/PasteurPipette/pasteur_pipette.gd" id="1_sak04"]
 [ext_resource type="Shader" uid="uid://c420kic421m2g" path="res://Shaders/liquid.gdshader" id="3_injpa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ij1eh"]
@@ -27,7 +27,7 @@ shader_parameter/BubbleSpeed = Vector2(3, 3)
 height = 0.15
 radius = 0.0048828125
 
-[node name="Pasteur-pipette" type="RigidBody3D" unique_id=436470815]
+[node name="Pasteur-pipette" type="RigidBody3D" unique_id=436470815 groups=["hand", "pickable"]]
 mass = 0.01
 continuous_cd = true
 script = ExtResource("1_sak04")

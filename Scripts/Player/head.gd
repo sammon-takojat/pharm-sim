@@ -34,6 +34,7 @@ func _process(_delta):
 
 func _physics_process(delta):
 	handle_object_holding()
+	handle_inputs()
 
 
 func _input(event):
@@ -83,6 +84,8 @@ func handle_interactions(body):
 		body.press()
 	elif body is RigidBody3D && body.is_in_group("pickable"):
 		held_object = body
+	elif body.name == "FumeHoodStatic":
+		body.get_parent().get_parent().toggle_window()
 
 func handle_ui():
 	if held_object != null:
@@ -109,3 +112,12 @@ func use_held_object():
 	var object_in_los = raycast.get_collider()
 	if held_object.has_method("use"):
 		held_object.use(object_in_los)
+
+func handle_inputs():
+	if Input.is_action_just_pressed("Use"):
+		if raycast.is_colliding():
+			handle_use(raycast.get_collider())
+
+func handle_use(body):
+	if body.name == "FumeHoodStatic":
+		body.get_parent().get_parent().toggle_use_mode()
