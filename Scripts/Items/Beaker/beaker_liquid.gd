@@ -1,5 +1,5 @@
-extends RigidBody3D
-class_name LiquidContainer
+class_name LiquidContainer extends RigidBody3D
+
 
 @export var pH := 7.0
 
@@ -21,7 +21,7 @@ func _ready():
 	var fill_percent = inverse_lerp(0.0, MAX_FILL_ML, fill_amount_ml)
 	var start_fill_amount = lerp(0.461, 0.538, fill_percent)
 	material.set_shader_parameter("fill_amount", start_fill_amount)
-	mass = lerp(0.0, 0.250, start_fill_amount)
+	self.mass = lerp(0.0, 0.250, fill_percent) + EMPTY_MASS
 	var h_concentration = pow(10.0, -pH)
 	var oh_concentration = pow(10.0, pH - 14.0)
 	
@@ -34,9 +34,11 @@ func change_fill_amount(amount_ml: float):
 		0.0,
 		MAX_FILL_ML
 	)
-
 	var fill_percent = fill_amount_ml / MAX_FILL_ML
-
+	
+	print(fill_percent)
+	print(fill_amount_ml)
+	
 	material.set_shader_parameter(
 		"fill_amount",
 		lerp(0.462, 0.538, fill_percent)
@@ -60,7 +62,6 @@ func add_reagent(amount_ml: float, molarity: float, is_base: bool):
 	change_fill_amount(amount_ml)
 	
 	update_pH()
-	change_fill_amount(amount_ml)
 	
 func remove_liquid(amount_ml: float) -> Dictionary:
 	var removed_amount = min(amount_ml, fill_amount_ml)
@@ -73,7 +74,6 @@ func remove_liquid(amount_ml: float) -> Dictionary:
 	change_fill_amount(-amount_ml)
 	
 	update_pH()
-	change_fill_amount(-amount_ml)
 	
 	return {
 		"volume_ml": removed_amount,
