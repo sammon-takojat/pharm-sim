@@ -45,7 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4149265, 0.9764575, 0.19412
 
 [node name="Beaker" parent="." unique_id=76055100 instance=ExtResource("10_kn06e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.201499, 1.1883261, -4.018691)
-pH = 3.0
+pH = 1.0
 fill_amount_ml = 200.0
 
 [node name="Microspoon" parent="." unique_id=371284041 instance=ExtResource("6_p70al")]
@@ -76,3 +76,6 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.9
 
 [node name="WaterBottle" parent="." unique_id=1130363050 instance=ExtResource("11_w5xhi")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.58779764, 1.3811461, -3.9754343)
+
+[node name="Beaker3" parent="." unique_id=1311886783 instance=ExtResource("10_kn06e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8062146, 1.1764216, -3.9341354)
