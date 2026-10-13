@@ -9,8 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c2ypk0urkfe5w" path="res://Scenes/Objects/Rod.tscn" id="9_7yo87"]
 [ext_resource type="PackedScene" uid="uid://buquofvaax58p" path="res://Scenes/Objects/BeakerLiquid.tscn" id="10_kn06e"]
 [ext_resource type="PackedScene" uid="uid://ui8xi7bokueq" path="res://Scenes/Objects/Scale.tscn" id="10_ti1bm"]
-[ext_resource type="PackedScene" uid="uid://b8nr38kxiux4a" path="res://Scenes/Environment/Table.tscn" id="11_w5xhi"]
-[ext_resource type="PackedScene" uid="uid://dehqyao5f42n0" path="res://Scenes/Environment/FumeHood.tscn" id="12_bwjxt"]
+[ext_resource type="PackedScene" uid="uid://b6gjdmiam8olr" path="res://Scenes/Environment/Room.tscn" id="12_3c8se"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -33,71 +32,39 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=26450683]
 environment = SubResource("Environment_5nsto")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2016720015]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9848778, -1.2888976, 1.4952312)
-use_collision = true
-size = Vector3(39, 0.001, 30)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=203243849]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.70302, 0, 14.988045)
-size = Vector3(20, 1, 0.001)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=518288519]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.70302, 0, 14.988045)
-size = Vector3(20, 1, 0.001)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D" unique_id=772164403]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2030201, 2.5, 14.488544)
-size = Vector3(39, 6, 1)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D" unique_id=1918264401]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.40604, 2.7445679, -0.5239105)
-size = Vector3(1, 5.4891357, 30)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D" unique_id=1528275740]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9785156, 0.14428711, -1.9145508)
-size = Vector3(2.9570313, 1.2885742, 4.8291016)
-
 [node name="Label" type="Label" parent="." unique_id=555306583]
 offset_right = 43.0
 offset_bottom = 23.0
 text = "pharm-sim demo v0.0.1"
 
+[node name="Room" parent="." unique_id=166548899 instance=ExtResource("12_3c8se")]
+
 [node name="Player" parent="." unique_id=230790486 instance=ExtResource("1_5cjrv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5315217, -0.28839874, 3.0805779)
-
-[node name="Table" parent="." unique_id=1637690427 instance=ExtResource("11_w5xhi")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 4.928993, -0.68802804, 5.088378)
-
-[node name="FumeHood" parent="." unique_id=2083019472 instance=ExtResource("12_bwjxt")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 4.818545, -1.3026695, 8.483308)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4149265, 0.9764575, 0.19412482)
 
 [node name="Beaker" parent="." unique_id=76055100 instance=ExtResource("10_kn06e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.948952, -0.04770316, 5.328665)
-pH = 1.0
-fill_amount_ml = 50.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.201499, 1.1883261, -4.018691)
 
 [node name="Microspoon" parent="." unique_id=371284041 instance=ExtResource("6_p70al")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0385437, -0.19578277, 6.1454897)
-
-[node name="Pasteur-pipette" parent="." unique_id=436470815 instance=ExtResource("3_5nsto")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.281872, -0.07288656, 5.4419928)
-
-[node name="pH-paper" parent="." unique_id=2062769386 instance=ExtResource("2_j0p05")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1043077, -0.20137864, 5.1421423)
-
-[node name="GlassRod" parent="." unique_id=1332309341 instance=ExtResource("9_7yo87")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6786556, -0.19639736, 4.712679)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8322325, 1.0995927, -3.6953464)
 
 [node name="Spatula" parent="." unique_id=508627173 instance=ExtResource("7_y7y61")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0654325, -0.19199577, 3.9178314)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.009652, 1.1039392, -3.8928788)
 
 [node name="spoon" parent="." unique_id=2005104949 instance=ExtResource("5_p70al")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.803299, -0.19787338, 3.5583065)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.2076735, 1.0901548, -3.8772936)
+
+[node name="Beaker2" parent="." unique_id=1685037594 instance=ExtResource("10_kn06e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3807697, 1.1883262, -3.9367328)
+
+[node name="Pasteur-pipette" parent="." unique_id=436470815 instance=ExtResource("3_5nsto")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -3.9715767, 1.0964148, -4.1782722)
+
+[node name="pH-paper" parent="." unique_id=2062769386 instance=ExtResource("2_j0p05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8257456, 1.0824978, -4.204327)
+
+[node name="GlassRod" parent="." unique_id=1332309341 instance=ExtResource("9_7yo87")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.581128, 1.0916306, -3.9488103)
 
 [node name="Scale" parent="." unique_id=358667536 instance=ExtResource("10_ti1bm")]
-transform = Transform3D(0.024610732, 0, 0.9996971, 0, 1, 0, -0.9996971, 0, 0.024610732, 5.1467094, -0.16894314, 4.4928894)
-
-[node name="Beaker2" parent="." unique_id=1437915329 instance=ExtResource("10_kn06e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1270742, -0.111606196, 4.9047956)
-fill_amount_ml = 150.0
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.9024556, 1.119085, -4.16649)
