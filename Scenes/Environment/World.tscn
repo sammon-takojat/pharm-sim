@@ -74,7 +74,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.5
 [node name="Scale" parent="." unique_id=358667536 instance=ExtResource("10_ti1bm")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.9024556, 1.119085, -4.16649)
 
-[node name="WaterBottle" parent="." unique_id=1130363050 instance=ExtResource("11_w5xhi")]
+[node name="WaterBottle" parent="." unique_id=1130363050 groups=["hand"] instance=ExtResource("11_w5xhi")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.58779764, 1.3811461, -3.9754343)
 
 [node name="Beaker3" parent="." unique_id=1311886783 instance=ExtResource("10_kn06e")]
