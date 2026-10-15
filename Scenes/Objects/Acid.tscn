@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dmu2gt6alevob"]
+
+[ext_resource type="Script" uid="uid://b6xgd6wi0srv5" path="res://Scripts/Items/Beaker/beaker_liquid.gd" id="1_afkli"]
+[ext_resource type="ArrayMesh" uid="uid://dk5lqtbburqfo" path="res://Assets/Models/acidbottle.glb" id="2_2wasj"]
+[ext_resource type="Shader" uid="uid://68k7ucqlwj6r" path="res://Shaders/water.gdshader" id="3_2wasj"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5cb0x"]
+points = PackedVector3Array(0.01983374, -0.023862662, 0.0016210348, -0.01953121, -0.023985077, -0.004137639, -0.019428566, -0.023824852, 0.004492224, -0.004351294, 0.03910476, -0.015456548, 0.0017016971, 0.03910476, 0.015833449, 0.0044958345, -0.02382322, -0.019427521, 0.018721431, 0.024853678, -0.006935055, 0.0016248509, -0.02386205, 0.019833349, -0.018543819, 0.025051776, 0.007390337, 0.015823307, 0.024797639, 0.012032032, -0.015388454, 0.024735583, -0.012553854, 0.008767572, 0.03910476, -0.013434832, -0.010728724, 0.02483813, 0.016807478, -0.00790457, -0.023689158, -0.018385682, -0.015452498, 0.03910476, 0.004728194, 0.014824615, 0.03910476, 0.0067458577, 0.0044958345, 0.024977291, -0.019427521, 0.016807478, -0.023588778, -0.010728723, -0.010728724, -0.023588777, 0.016807478, 0.015823307, -0.023520561, 0.012032032, 0.00641624, 0.024999991, 0.018871615, -0.0041300748, 0.025041426, -0.019496739, -0.019496752, 0.025041439, -0.0041300766, 0.011179908, 0.024954155, -0.016533408, 0.018872185, 0.02500055, 0.0064125857, -0.0012493035, 0.025020046, 0.019854616, -0.014443665, 0.03910476, -0.0073777894, -0.017346885, -0.023539232, -0.00976347, 0.00917128, -0.023452695, 0.017677814, -0.016535474, -0.02378802, 0.01117743, -0.008386622, 0.03910476, 0.013811733, 0.015833449, 0.03910476, -0.0023295782)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_afkli"]
+render_priority = 0
+shader = ExtResource("3_2wasj")
+shader_parameter/coeff = Vector2(0, 0)
+shader_parameter/vel = 0.0
+shader_parameter/liquid_color = Color(0.4, 0.4, 0.4, 1)
+shader_parameter/foam_color = Color(0.9, 0.9, 0.9, 1)
+shader_parameter/foam_line = 0.2
+shader_parameter/fill_amount = 0.5
+shader_parameter/size = Vector2(1, 1)
+shader_parameter/glass_thickness = 0.0
+shader_parameter/scale = 1.0
+shader_parameter/wave_intensity = 0.05
+shader_parameter/HasBubbles = true
+shader_parameter/AlwaysBubbles = false
+shader_parameter/BubbleStrength = 0.5
+shader_parameter/BubbleMask = 0.5
+shader_parameter/BubbleSpeed = Vector2(3, 3)
+
+[node name="Acid" type="RigidBody3D" unique_id=269525380 node_paths=PackedStringArray("liquid_mesh")]
+mass = 0.03
+script = ExtResource("1_afkli")
+pH = 3.0
+fill_amount_ml = 20.0
+MAX_FILL_ML = 50.0
+EMPTY_MASS = 0.03
+liquid_mesh = NodePath("MeshInstance3D2")
+metadata/_custom_type_script = "uid://b6xgd6wi0srv5"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=758722937]
+mesh = ExtResource("2_2wasj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=437129098]
+shape = SubResource("ConvexPolygonShape3D_5cb0x")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=407168110]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+mesh = ExtResource("2_2wasj")
+surface_material_override/0 = SubResource("ShaderMaterial_afkli")

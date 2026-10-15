@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://buquofvaax58p" path="res://Scenes/Objects/BeakerLiquid.tscn" id="10_kn06e"]
 [ext_resource type="PackedScene" uid="uid://ui8xi7bokueq" path="res://Scenes/Objects/Scale.tscn" id="10_ti1bm"]
 [ext_resource type="PackedScene" uid="uid://b8nr38kxiux4a" path="res://Scenes/Environment/Table.tscn" id="11_w5xhi"]
+[ext_resource type="PackedScene" uid="uid://dmu2gt6alevob" path="res://Scenes/Objects/Acid.tscn" id="12_3c8se"]
 [ext_resource type="PackedScene" uid="uid://dehqyao5f42n0" path="res://Scenes/Environment/FumeHood.tscn" id="12_bwjxt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
@@ -101,3 +102,6 @@ transform = Transform3D(0.024610732, 0, 0.9996971, 0, 1, 0, -0.9996971, 0, 0.024
 [node name="Beaker2" parent="." unique_id=1437915329 instance=ExtResource("10_kn06e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1270742, -0.111606196, 4.9047956)
 fill_amount_ml = 150.0
+
+[node name="Acid" parent="." unique_id=269525380 groups=["pickable"] instance=ExtResource("12_3c8se")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.177449, -0.17637876, 5.4360485)
