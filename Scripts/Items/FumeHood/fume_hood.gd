@@ -3,23 +3,25 @@ extends Node3D
 var opened = false
 var up = false
 
+@export var animation_player : AnimationPlayer
+
 func toggle_window():
-	if $AnimationPlayer.current_animation != "open" and $AnimationPlayer.current_animation != "halfwaydown":
+	if animation_player.current_animation != "open" and animation_player.current_animation != "halfwaydown":
 		if !opened:
-			$AnimationPlayer.play("open")
+			animation_player.play("open")
 			opened = !opened
 			up = !up
 		elif opened:
 			if up:
-				$AnimationPlayer.play_backwards("open")
+				animation_player.play_backwards("open")
 				opened = !opened
 				up = !up
 
 func toggle_use_mode():
 	if opened:
-		if $AnimationPlayer.current_animation != "open" and $AnimationPlayer.current_animation != "halfwaydown":
+		if animation_player.current_animation != "open" and animation_player.current_animation != "halfwaydown":
 			if up:
-				$AnimationPlayer.play("halfwaydown")
+				animation_player.play("halfwaydown")
 			elif !up:
-				$AnimationPlayer.play_backwards("halfwaydown")
+				animation_player.play_backwards("halfwaydown")
 			up = !up
