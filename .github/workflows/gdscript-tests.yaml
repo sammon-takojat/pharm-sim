@@ -69,4 +69,4 @@ jobs:
 
       - name: Run Code Analysis
         run: |
-          godot --headless --path . --script res://addons/gdscript-linter/analyzer/analyze-cli.gd -- --format github
+          godot --headless --path . --script res://addons/gdscript-linter/analyzer/analyze-cli.gd -- --clickable
