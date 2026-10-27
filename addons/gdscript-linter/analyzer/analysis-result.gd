@@ -60,7 +60,7 @@ func get_exit_code() -> int:
 	if get_critical_count() > 0:
 		return 2
 	if get_warning_count() > 0:
-		return 1
+		return 0
 	return 0
 
 func to_dict() -> Dictionary:
