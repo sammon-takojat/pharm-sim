@@ -13,6 +13,15 @@ var pipettes: Array[Pipette] = []
 var containers: Array[LiquidContainer] = []
 var pipette: Pipette
 var container: LiquidContainer
+var shader_code = """
+		shader_type spatial;
+
+		uniform float fill_amount;
+
+		void fragment() {
+			ALBEDO = vec3(fill_amount);
+		}
+	"""
 
 
 func after_test() -> void:
@@ -52,15 +61,7 @@ func create_container(
 	circle.mesh = mesh
 
 	var shader := Shader.new()
-	shader.code = """
-		shader_type spatial;
-
-		uniform float fill_amount;
-
-		void fragment() {
-			ALBEDO = vec3(fill_amount);
-		}
-	"""
+	shader.code = shader_code
 
 	var shader_material := ShaderMaterial.new()
 	shader_material.shader = shader
