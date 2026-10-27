@@ -14,23 +14,23 @@ func get_molarity() -> float:
 
 	return abs(net_h_moles) / (volume_ml / 1000.0)
 
-func use(object_in_los):
+func use(object_in_los) -> void:
 	if object_in_los and object_in_los.has_method("remove_liquid") and not is_filled:
-		var res = object_in_los.remove_liquid(capacity_ml)
+		var res : Dictionary = object_in_los.remove_liquid(capacity_ml)
 		net_h_moles += res["net_h_moles"]
 		volume_ml += res["volume_ml"]
 		is_filled = true
 	elif object_in_los and object_in_los.has_method("add_reagent"):
-		var amount_ml = min(dispense_amount_ml, volume_ml)
+		var amount_ml : float = min(dispense_amount_ml, volume_ml)
 		amount_ml = min(amount_ml, volume_ml)
 		
-		var molarity = get_molarity()
-		var is_base = net_h_moles < 0.0
+		var molarity : float = get_molarity()
+		var is_base : bool = net_h_moles < 0.0
 		
 		object_in_los.add_reagent(amount_ml, molarity, is_base)
 		
-		var fraction = amount_ml / volume_ml
-		var transferred_moles = net_h_moles * fraction
+		var fraction : float = amount_ml / volume_ml
+		var transferred_moles : float = net_h_moles * fraction
 		
 		net_h_moles -= transferred_moles
 		volume_ml -= amount_ml
