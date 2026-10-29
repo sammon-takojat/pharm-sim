@@ -32,7 +32,7 @@ func _process(_delta):
 	
 	handle_ui()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	handle_object_holding()
 	handle_inputs()
 

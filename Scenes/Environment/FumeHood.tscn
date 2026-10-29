@@ -127,17 +127,17 @@ _data = {
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 script = ExtResource("2_wjqph")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(886148386) index="0" unique_id=1022512576]
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(2009769200) index="0" unique_id=1022512576]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1224805769]
 shape = SubResource("ConcavePolygonShape3D_uhuul")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="drawer" parent_id_path=PackedInt32Array(485075231) index="0" unique_id=1080305158]
+[node name="StaticBody3D" type="StaticBody3D" parent="drawer" parent_id_path=PackedInt32Array(532261842) index="0" unique_id=1080305158]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="drawer/StaticBody3D" index="0" unique_id=1160808908]
 shape = SubResource("ConcavePolygonShape3D_wjqph")
 
-[node name="handle" parent="." index="2" unique_id=645193938]
+[node name="handle" parent="." index="2" unique_id=1969278774]
 transform = Transform3D(0.07661248, 7.49145e-10, 0.010597631, 0.010597631, -1.08829985e-08, -0.07661248, 3.188752e-11, 1.8170236, -4.6323714e-10, 0.77156115, 1.8432798, 0.0014626955)
 
 [node name="FumeHoodStatic" type="StaticBody3D" parent="handle" index="0" unique_id=1445137324]
@@ -145,7 +145,7 @@ transform = Transform3D(0.07661248, 7.49145e-10, 0.010597631, 0.010597631, -1.08
 [node name="CollisionShape3D" type="CollisionShape3D" parent="handle/FumeHoodStatic" index="0" unique_id=781234103]
 shape = SubResource("ConvexPolygonShape3D_15olh")
 
-[node name="lowerGlass" parent="." index="3" unique_id=1152168857]
+[node name="lowerGlass" parent="." index="3" unique_id=1587474298]
 transform = Transform3D(-4.04685e-08, 0.03565245, 0, -0.92581135, -1.5584181e-09, 0, 0, 0, 1.8033179, 0.40779608, 2.794509, 0.0016668439)
 surface_material_override/0 = SubResource("StandardMaterial3D_pnl04")
 
@@ -154,7 +154,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_pnl04")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="lowerGlass/FumeHoodStatic" index="0" unique_id=789567746]
 shape = SubResource("ConvexPolygonShape3D_stlov")
 
-[node name="table" parent="." index="4" unique_id=339877433]
+[node name="table" parent="." index="4" unique_id=1808528173]
 surface_material_override/0 = ExtResource("2_uhuul")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="table" index="0" unique_id=1058492441]
@@ -162,7 +162,7 @@ surface_material_override/0 = ExtResource("2_uhuul")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="table/StaticBody3D" index="0" unique_id=572854097]
 shape = SubResource("ConcavePolygonShape3D_c0pbl")
 
-[node name="upperGlass" parent="." index="5" unique_id=1930249397]
+[node name="upperGlass" parent="." index="5" unique_id=678965710]
 surface_material_override/0 = SubResource("StandardMaterial3D_uajjx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="upperGlass" index="0" unique_id=2010610917]
