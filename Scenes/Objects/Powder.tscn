@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://h85dvsckdlsl"]
+
+[ext_resource type="Shader" uid="uid://6fvfuwd3y3cw" path="res://Shaders/powder.gdshader" id="1_1qv3v"]
+[ext_resource type="Script" uid="uid://bx5hsp0jblfjm" path="res://Scripts/Resources/powder.gd" id="1_2tmsf"]
+[ext_resource type="Script" uid="uid://jlivs13oarw6" path="res://Scripts/Resources/powder_data.gd" id="2_666tc"]
+
+[sub_resource type="Resource" id="Resource_1qv3v"]
+script = ExtResource("2_666tc")
+metadata/_custom_type_script = "uid://jlivs13oarw6"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0bofi"]
+render_priority = 0
+shader = ExtResource("1_1qv3v")
+shader_parameter/powder_amount = 1.0
+shader_parameter/max_height = 0.4
+shader_parameter/powder_color = Color(0.85, 0.8, 0.68, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_70v8j"]
+subdivide_width = 32
+subdivide_depth = 32
+
+[node name="Powder" type="Node3D" unique_id=486057364 node_paths=PackedStringArray("mesh")]
+script = ExtResource("1_2tmsf")
+powder_data = SubResource("Resource_1qv3v")
+mesh = NodePath("MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2049892070]
+material_override = SubResource("ShaderMaterial_0bofi")
+mesh = SubResource("PlaneMesh_70v8j")
