@@ -35,7 +35,7 @@ func test_pick_up_object():
 	player_head.look_at(cube.global_position)
 	await await_idle_frame()
 	runner.simulate_key_pressed(KEY_E)
-	await await_millis(500)
+	await await_idle_frame()
 	assert_that(player_head.held_object).is_equal(cube)
 
 func test_set_down_object():
