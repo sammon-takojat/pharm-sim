@@ -33,6 +33,7 @@ func test_jump():
 	await await_millis(500)
 	runner.simulate_action_pressed("Jump")
 	await runner.await_input_processed()
+	runner.simulate_frames(10)
 
 	# Player jumps
 	assert_float(player.velocity.y).is_equal_approx(4.0, 1.0)
