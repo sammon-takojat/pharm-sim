@@ -30,12 +30,12 @@ func before_test():
 	cube = runner.find_child("Cube")
 
 func test_pick_up_object():
-	cube.global_position = player.global_position + Vector3(0, -0.5, -2)
+	cube.scale = Vector3(1, 2, 1)
 	await await_millis(500)
-	player_head.look_at(cube.global_position)
+	player.look_at(cube.global_position)
 	await await_idle_frame()
 	runner.simulate_key_pressed(KEY_E)
-	await await_millis(10000)
+	await await_millis(500)
 	assert_that(player_head.held_object).is_equal(cube)
 
 func test_set_down_object():
