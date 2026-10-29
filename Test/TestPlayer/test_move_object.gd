@@ -1,6 +1,7 @@
 extends GdUnitTestSuite
 
 var runner:GdUnitSceneRunner
+var player:CharacterBody3D
 var player_head:Node3D
 var cube:RigidBody3D
 var cube_hand_pos:Vector3
@@ -18,18 +19,20 @@ func before_test():
 	
 	var scene = auto_free(load("res://Test/TestScenes/TestScene.tscn").instantiate())
 	scene.add_child(cube_init)
-	var player = scene.find_child("Player")
+	player = scene.find_child("Player")
 	cube_init.transform.origin = player.global_position + Vector3(0, 1, -2)
 	cube_init.add_to_group("pickable")
 	
 	runner = scene_runner(scene)
 	
-	player_head = runner.find_child("Player").find_child("Head")
+	player = runner.find_child("Player")
+	player_head = player.find_child("Head")
 	cube = runner.find_child("Cube")
 
 func test_pick_up_object():
+	cube.scale = Vector3(1, 2, 1)
 	await await_millis(500)
-	player_head.look_at(cube.global_position)
+	player.look_at(cube.global_position)
 	await await_idle_frame()
 	runner.simulate_key_pressed(KEY_E)
 	await await_millis(500)
