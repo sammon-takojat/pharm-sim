@@ -1,5 +1,9 @@
 # Pharm-sim (placeholder name)
 
+## Demo
+
+[Välidemo syksy 2026](https://drive.proton.me/urls/S0JM6DAFCR#1HIL3JEMqxJp)
+
 ## Kuvaus
 
 Pharm-sim tulee olemaan opetuspeli Helsingin yliopiston farmasian tiedekunnan laboratoriotyön opetuksen tueksi. Ohjelma tulee simuloimaan kahden eri liuoksen valmistusprosessin, sekä valmiista yhdisteistä tehtävät johtopäätökset pakohuonepelin muodossa. Peli tulee pyörimään verkossa, jolloin se on mahdollisimman monen saatavilla ja helposti käytettävissä opiskelijoille.
