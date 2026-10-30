@@ -10,7 +10,7 @@ Pharm-sim tulee olemaan opetuspeli Helsingin yliopiston farmasian tiedekunnan la
 
 ## Linkkejä
 
-[Koepelattava peli staging-palvelimella](https://excaperoom-ohtu-s2026-pharm-sim.ext.okd-cs-test-0.k8s.cs.helsinki.fi/)
+[Koepelattava peli staging-palvelimella](https://excaperoom-ohtu-s2026-pharm-sim.ext.okd-cs-test-0.k8s.cs.helsinki.fi/)  
 [Backlog](https://drive.proton.me/urls/ZQD2XHHWKC#GbkSLRRsKr5N)  
 [OneNote muistiinpanot](https://helsinkifi-my.sharepoint.com/:o:/g/personal/pisapisa_ad_helsinki_fi/IgCs2YqwUDaNQbAolsbqtTVbAeoCNj4NVOvTqRNLHykcqyU)  
 [Definition of Done](Docs/DoD.md)  
