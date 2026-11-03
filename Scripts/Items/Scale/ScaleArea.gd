@@ -8,12 +8,12 @@ signal weight_changed(new_weight: float)
 
 @onready var button = $"../../Button"
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_monitoring(true)
 	body_entered.connect(add_weight)
 	body_exited.connect(lose_weight)
 	button.pressed.connect(tare)
+
 
 func add_weight(body: Node3D) -> void:
 	if body is RigidBody3D:
@@ -26,6 +26,7 @@ func add_weight(body: Node3D) -> void:
 			calculate_weight()
 			weight_changed.emit(weight)
 
+
 func lose_weight(body: Node3D) -> void:
 	if body is RigidBody3D:
 		if objects_on_scale.has(body):
@@ -35,6 +36,7 @@ func lose_weight(body: Node3D) -> void:
 			calculate_weight()
 			weight_changed.emit(weight)
 
+
 func tare() -> void:
 	base_weight = 0
 	for object in objects_on_scale:
@@ -42,10 +44,12 @@ func tare() -> void:
 	calculate_weight()
 	weight_changed.emit(weight)
 
+
 func calculate_weight() -> void:
 	weight = base_weight
 	for object in objects_on_scale:
 		weight += object.mass
+
 
 func on_body_weight_changed() -> void:
 	calculate_weight()

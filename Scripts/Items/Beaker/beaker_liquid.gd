@@ -15,6 +15,7 @@ var FULL_LIQUID_MASS := MAX_FILL_ML / 1000.0
 signal mass_changed
 
 #Fill amount clamp (0.462, 0.538)
+#these values because for some reason it's the minimum and maximum values
 
 func _ready():
 	$Circle2.set_surface_override_material(0, material)
