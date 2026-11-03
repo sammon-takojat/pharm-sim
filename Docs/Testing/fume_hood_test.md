@@ -4,7 +4,7 @@ User story: Käyttäjänä pystyn avaamaan, sulkemaan ja puoliavaamaan vetokaapi
 
 Hyväksymiskriteerit: Vetokaapin lasin pystyy avaamaan, sulkemaan ja puoliavaamaan.
 
-Testasin ominaisuuden staging-palvelimella:
+Testasin ominaisuutta manuaalisesti staging-palvelimella:
 
 1. Avasin suljetun suojalasin asettamalla kohdistimen hiirellä suojalasin palkkiin ja painamalla E-näppäintä.
 2. Laskin suojalasin käyttöasentoon painamalla F-näppäintä.
