@@ -88,7 +88,9 @@ func handle_interactions(body):
 		held_object.collision_layer = (1 << 1)
 		print(held_object.collision_layer)
 	elif body.name == "FumeHoodStatic":
-		body.get_parent().get_parent().toggle_window()
+		var target = body.get_parent().get_parent()
+		if target.has_method("toggle_window"):
+			target.toggle_window()
 
 func handle_ui():
 	if held_object != null:
@@ -123,4 +125,6 @@ func handle_inputs():
 
 func handle_use(body):
 	if body.name == "FumeHoodStatic":
-		body.get_parent().get_parent().toggle_use_mode()
+		var target = body.get_parent().get_parent()
+		if target.has_method("toggle_use_mode"):
+			target.toggle_use_mode()
