@@ -123,10 +123,9 @@ _data = {
 &"open": SubResource("Animation_x24cf")
 }
 
-[node name="FumeHood" unique_id=2083019472 node_paths=PackedStringArray("animation_player") instance=ExtResource("1_x24cf")]
+[node name="FumeHood" unique_id=2083019472 instance=ExtResource("1_x24cf")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 script = ExtResource("2_wjqph")
-animation_player = NodePath("AnimationPlayer")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(886148386) index="0" unique_id=1022512576]
 
