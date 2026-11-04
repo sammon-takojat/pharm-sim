@@ -123,4 +123,4 @@ func handle_inputs():
 
 func handle_use(body):
 	if body.name == "FumeHoodStatic":
-		body.get_parent().get_parent().toggle_use_mode()
+		body.parent.toggle_use_mode()
