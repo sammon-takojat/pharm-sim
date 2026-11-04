@@ -36,9 +36,6 @@ func change_fill_amount(amount_ml: float):
 	)
 	var fill_percent = fill_amount_ml / MAX_FILL_ML
 	
-	print(fill_percent)
-	print(fill_amount_ml)
-	
 	material.set_shader_parameter(
 		"fill_amount",
 		lerp(0.462, 0.538, fill_percent)

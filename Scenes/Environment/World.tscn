@@ -39,6 +39,7 @@ offset_bottom = 23.0
 text = "pharm-sim demo v0.0.1"
 
 [node name="Room" parent="." unique_id=166548899 instance=ExtResource("12_3c8se")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56105113, -2.0943983, 10.48706)
 
 [node name="Player" parent="." unique_id=230790486 instance=ExtResource("1_5cjrv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4149265, 0.9764575, 0.19412482)
