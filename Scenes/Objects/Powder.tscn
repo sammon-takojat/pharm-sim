@@ -11,8 +11,8 @@ metadata/_custom_type_script = "uid://jlivs13oarw6"
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0bofi"]
 render_priority = 0
 shader = ExtResource("1_1qv3v")
-shader_parameter/powder_amount = 1.0
-shader_parameter/max_height = 0.4
+shader_parameter/powder_amount = 0.3850000182875
+shader_parameter/max_height = 1.0
 shader_parameter/powder_color = Color(0.85, 0.8, 0.68, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_70v8j"]
