@@ -39,44 +39,44 @@ offset_bottom = 23.0
 text = "pharm-sim demo v0.0.1"
 
 [node name="Room" parent="." unique_id=166548899 instance=ExtResource("12_3c8se")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56105113, -2.0943983, 10.48706)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56105113, -0.06857276, -0.13939571)
 
 [node name="Player" parent="." unique_id=230790486 instance=ExtResource("1_5cjrv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4149265, 0.9764575, 0.19412482)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4149265, 0.90788496, 0.19412482)
 
 [node name="Beaker" parent="." unique_id=76055100 instance=ExtResource("10_kn06e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.201499, 1.1883261, -4.018691)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.201499, 1.1248764, -4.018691)
 pH = 1.0
 fill_amount_ml = 200.0
 
 [node name="Microspoon" parent="." unique_id=371284041 instance=ExtResource("6_p70al")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8322325, 1.0995927, -3.6953464)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8322325, 1.0287955, -3.6953464)
 
 [node name="Spatula" parent="." unique_id=508627173 instance=ExtResource("7_y7y61")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.009652, 1.1039392, -3.8928788)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.009652, 1.0404894, -3.8928788)
 
 [node name="spoon" parent="." unique_id=2005104949 instance=ExtResource("5_p70al")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.2076735, 1.0901548, -3.8772936)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.2076735, 1.026705, -3.8772936)
 
 [node name="Beaker2" parent="." unique_id=1685037594 instance=ExtResource("10_kn06e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3807697, 1.1883262, -3.9367328)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3807697, 1.1248763, -3.9367328)
 pH = 11.0
 fill_amount_ml = 200.0
 
 [node name="Pasteur-pipette" parent="." unique_id=436470815 instance=ExtResource("3_5nsto")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -3.9715767, 1.0964148, -4.1782722)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -3.9715767, 1.0291997, -4.1782722)
 
 [node name="pH-paper" parent="." unique_id=2062769386 instance=ExtResource("2_j0p05")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8257456, 1.0824978, -4.204327)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8257456, 1.0190481, -4.204327)
 
 [node name="GlassRod" parent="." unique_id=1332309341 instance=ExtResource("9_7yo87")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.581128, 1.0916306, -3.9488103)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.581128, 1.028181, -3.9488103)
 
 [node name="Scale" parent="." unique_id=358667536 instance=ExtResource("10_ti1bm")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.9024556, 1.119085, -4.16649)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.9024556, 1.0555997, -4.16649)
 
 [node name="WaterBottle" parent="." unique_id=1130363050 groups=["hand"] instance=ExtResource("11_w5xhi")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.58779764, 1.3811461, -3.9754343)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.58779764, 1.1050766, -3.9754343)
 
 [node name="Beaker3" parent="." unique_id=1311886783 instance=ExtResource("10_kn06e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8062146, 1.1764216, -3.9341354)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8062146, 1.1248763, -3.9341354)
