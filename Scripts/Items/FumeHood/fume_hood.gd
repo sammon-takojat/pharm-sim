@@ -4,8 +4,8 @@ extends Node3D
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 
-var opened = false ## State of the windows' current position (opened or closed)
-var up = false ## Variant to track windows' use mode off or on
+var opened = false ## State of the windows current position (opened or closed)
+var up = false ## Variant to track windows use mode off or on
 
 ## Toggles the fume hood window between opened and closed
 ## positions.
