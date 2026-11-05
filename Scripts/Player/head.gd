@@ -89,7 +89,9 @@ func handle_interactions(body):
 		held_object.collision_layer = (1 << 1)
 		print(held_object.collision_layer)
 	elif body.name == "FumeHoodStatic":
-		body.get_parent().get_parent().toggle_window()
+		var target = body.get_parent().get_parent()
+		if target.has_method("toggle_window"):
+			target.toggle_window()
 
 func handle_ui():
 	use_ui.visible = false
@@ -122,11 +124,17 @@ func use_held_object():
 	if held_object.has_method("use"):
 		held_object.use(object_in_los)
 
+## Processes inputs and calls the appropriate handler function.
 func handle_inputs():
 	if Input.is_action_just_pressed("Use"):
 		if raycast.is_colliding():
 			handle_use(raycast.get_collider())
 
+## Handler for environment interactions.
+## If player interacts with fume hood the function calls the appropriate
+## function in fume hoods script.
 func handle_use(body):
 	if body.name == "FumeHoodStatic":
-		body.get_parent().get_parent().toggle_use_mode()
+		var target = body.get_parent().get_parent()
+		if target.has_method("toggle_use_mode"):
+			target.toggle_use_mode()
