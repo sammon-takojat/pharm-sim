@@ -16,6 +16,7 @@ const object_rotation_damping = 100.0
 @onready var reticle : ColorRect = $"../Reticle"
 @onready var pickup_ui : Label = $"../PickUpUi"
 @onready var use_ui : Label = $"../UseUi"
+@onready var fume_hood_labels : GridContainer = $"../FumeHoodLabels"
 
 
 
@@ -32,7 +33,7 @@ func _process(_delta):
 	
 	handle_ui()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	handle_object_holding()
 	handle_inputs()
 
@@ -92,26 +93,34 @@ func handle_interactions(body):
 		if target.has_method("toggle_window"):
 			target.toggle_window()
 
+## Function shows prompts and instructions for player.
+##
+## When player centers the screen on an interactable object,
+## the recticle and a prompt will show up.
 func handle_ui():
+	use_ui.visible = false
+	reticle.visible = false
+	pickup_ui.visible = false
+	fume_hood_labels.visible = false
 	if held_object != null:
 		if raycast.is_colliding():
 			use_ui.visible = true
 			reticle.visible = true
-		else:
-			use_ui.visible = false
-			reticle.visible = false
-		pickup_ui.visible = false	
 	elif raycast.is_colliding():
 		reticle.visible = true
-		use_ui.visible = false
 		if raycast.get_collider().is_in_group("pickable"):
 			pickup_ui.visible = true
-		else:
-			pickup_ui.visible = false
-	else:
-		use_ui.visible = false
-		reticle.visible = false
-		pickup_ui.visible = false
+		elif raycast.get_collider().name == "FumeHoodStatic":
+			fume_hood_labels.visible = true
+			if raycast.get_collider().get_parent().get_parent().opened == true:
+				fume_hood_labels.find_child("ToggleFumeHoodUse").visible = true
+				if raycast.get_collider().get_parent().get_parent().up == true:
+					fume_hood_labels.find_child("OpenCloseFumeHood").visible = true
+				else:
+					fume_hood_labels.find_child("OpenCloseFumeHood").visible = false
+			else:
+				fume_hood_labels.find_child("OpenCloseFumeHood").visible = true
+				fume_hood_labels.find_child("ToggleFumeHoodUse").visible = false
 
 func use_held_object():
 	var object_in_los = raycast.get_collider()
