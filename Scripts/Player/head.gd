@@ -33,7 +33,7 @@ func _process(_delta):
 	
 	handle_ui()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	handle_object_holding()
 	handle_inputs()
 
@@ -93,6 +93,10 @@ func handle_interactions(body):
 		if target.has_method("toggle_window"):
 			target.toggle_window()
 
+## Function shows prompts and instructions for player.
+##
+## When player centers the screen on an interactable object,
+## the recticle and a prompt will show up.
 func handle_ui():
 	use_ui.visible = false
 	reticle.visible = false
@@ -104,7 +108,6 @@ func handle_ui():
 			reticle.visible = true
 	elif raycast.is_colliding():
 		reticle.visible = true
-		use_ui.visible = false
 		if raycast.get_collider().is_in_group("pickable"):
 			pickup_ui.visible = true
 		elif raycast.get_collider().name == "FumeHoodStatic":
