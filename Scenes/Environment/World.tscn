@@ -82,4 +82,5 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.58779764, 1.3811461,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8062146, 1.1764216, -3.9341354)
 
 [node name="MeasuringCylinder" parent="." unique_id=1479036736 instance=ExtResource("12_bwjxt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8299825, 1.0876644, -4.2097225)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8299825, 1.0935394, -4.2097225)
+fill_amount_ml = 70.0
