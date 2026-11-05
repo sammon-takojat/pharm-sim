@@ -6,41 +6,54 @@
 [ext_resource type="Material" uid="uid://cdwcwyjw4ughu" path="res://Assets/Materials/ceiling.tres" id="3_a2si3"]
 [ext_resource type="PackedScene" uid="uid://dehqyao5f42n0" path="res://Scenes/Environment/FumeHood.tscn" id="3_qjn7t"]
 [ext_resource type="Material" uid="uid://cd8qhl70f7njt" path="res://Assets/Materials/wall.tres" id="3_uj218"]
+[ext_resource type="LightmapGIData" uid="uid://6o4slj2rc6pe" path="res://Scenes/Environment/Room.lmbake" id="7_qjn7t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j464w"]
 size = Vector3(15, 2, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_5hpqs"]
+lightmap_size_hint = Vector2i(179, 126)
+add_uv2 = true
 size = Vector3(15, 2, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nn86p"]
 size = Vector3(19, 2, 24)
 
 [sub_resource type="BoxMesh" id="BoxMesh_uj218"]
+lightmap_size_hint = Vector2i(219, 146)
+add_uv2 = true
 size = Vector3(19, 2, 24)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a2si3"]
 size = Vector3(15, 7, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_aaq88"]
+lightmap_size_hint = Vector2i(89, 151)
+add_uv2 = true
 size = Vector3(15, 7, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7gm67"]
 size = Vector3(2, 7, 24)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xebr5"]
+lightmap_size_hint = Vector2i(134, 196)
+add_uv2 = true
 size = Vector3(2, 7, 24)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_si31g"]
 size = Vector3(15, 7, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_mimag"]
+lightmap_size_hint = Vector2i(89, 151)
+add_uv2 = true
 size = Vector3(15, 7, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ijr7e"]
 size = Vector3(2, 7, 24)
 
 [sub_resource type="BoxMesh" id="BoxMesh_khqja"]
+lightmap_size_hint = Vector2i(134, 196)
+add_uv2 = true
 size = Vector3(2, 7, 24)
 
 [node name="Room" type="Node3D" unique_id=166548899]
@@ -73,8 +86,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.973442, 0)
 [node name="ceilingLight6" parent="Ceiling" unique_id=829056591 instance=ExtResource("1_5hpqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.0512857, 2.312961)
 
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight6" unique_id=1267745796]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.31303406, 0)
+light_energy = 2.0
+light_bake_mode = 1
+area_range = 7.0
+
 [node name="ceilingLight5" parent="Ceiling" unique_id=1446099969 instance=ExtResource("1_5hpqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.0512857, 3)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight5" unique_id=1665250268]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.31303406, 0)
+light_energy = 2.0
+light_bake_mode = 1
+area_range = 7.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling" unique_id=606540891]
 shape = SubResource("BoxShape3D_nn86p")
@@ -86,38 +111,92 @@ mesh = SubResource("BoxMesh_uj218")
 [node name="ceilingLight" parent="Ceiling" unique_id=396697011 instance=ExtResource("1_5hpqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0512857, -7)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Ceiling/ceilingLight" unique_id=1609790005]
-transform = Transform3D(0.9883021, -0.15245779, -0.0039644595, 0.010822721, 0.044181157, 0.99896497, -0.15212482, -0.98732203, 0.045314334, 0, 0.58970356, 6.730903)
-spot_range = 4096.0
-spot_attenuation = 0.08
-spot_angle = 90.0
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight" unique_id=1303652570]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.31303406, 0)
+light_energy = 2.0
+light_bake_mode = 1
+area_range = 7.0
 
 [node name="ceilingLight2" parent="Ceiling" unique_id=2085555063 instance=ExtResource("1_5hpqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0512857, -2.3759203)
 
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight2" unique_id=16612332]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.31303406, 0)
+light_energy = 2.0
+light_bake_mode = 1
+area_range = 7.0
+
 [node name="ceilingLight3" parent="Ceiling" unique_id=2074084430 instance=ExtResource("1_5hpqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0512857, 2.2929378)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight3" unique_id=205705411]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.31303406, 0)
+light_energy = 2.0
+light_bake_mode = 1
+area_range = 7.0
 
 [node name="ceilingLight4" parent="Ceiling" unique_id=1820073520 instance=ExtResource("1_5hpqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0512857, 7)
 
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight4" unique_id=1794693050]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.31303406, 0)
+light_energy = 2.0
+light_bake_mode = 1
+area_range = 7.0
+
 [node name="ceilingLight7" parent="Ceiling" unique_id=1077304842 instance=ExtResource("1_5hpqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.0512857, -2.3612938)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight7" unique_id=1954752001]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.31303406, 0)
+light_energy = 2.0
+light_bake_mode = 1
+area_range = 7.0
 
 [node name="ceilingLight8" parent="Ceiling" unique_id=1971026331 instance=ExtResource("1_5hpqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.0512857, 7)
 
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight8" unique_id=2126719725]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.31303406, 0)
+light_energy = 2.0
+light_bake_mode = 1
+area_range = 7.0
+
 [node name="ceilingLight9" parent="Ceiling" unique_id=1261811206 instance=ExtResource("1_5hpqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1.0512857, -7)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight9" unique_id=2011261914]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.31303406, 0)
+light_energy = 2.0
+light_bake_mode = 1
+area_range = 7.0
 
 [node name="ceilingLight10" parent="Ceiling" unique_id=1192039279 instance=ExtResource("1_5hpqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.0512857, -7)
 
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight10" unique_id=1037257329]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.31303406, 0)
+light_energy = 2.0
+light_bake_mode = 1
+area_range = 7.0
+
 [node name="ceilingLight11" parent="Ceiling" unique_id=1252752131 instance=ExtResource("1_5hpqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.0512857, -2)
 
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight11" unique_id=50477774]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.31303406, 0)
+light_energy = 2.0
+light_bake_mode = 1
+area_range = 7.0
+
 [node name="ceilingLight12" parent="Ceiling" unique_id=1023484153 instance=ExtResource("1_5hpqs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -1.0512857, 7)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Ceiling/ceilingLight12" unique_id=2067443808]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.31303406, 0)
+light_energy = 2.0
+light_bake_mode = 1
+area_range = 7.0
 
 [node name="WallNorth" type="StaticBody3D" parent="." unique_id=15250668]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5009327, 11)
@@ -206,3 +285,6 @@ transform = Transform3D(-2.6226834e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -2.6226834e-
 
 [node name="FumeHood6" parent="." unique_id=2138782195 instance=ExtResource("3_qjn7t")]
 transform = Transform3D(-2.6226834e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -2.6226834e-08, -5.042225, -0.0142707825, -9.5)
+
+[node name="LightmapGI" type="LightmapGI" parent="." unique_id=255711914]
+light_data = ExtResource("7_qjn7t")
