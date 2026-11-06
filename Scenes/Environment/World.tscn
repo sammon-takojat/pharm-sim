@@ -90,5 +90,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8536426, 1.0876646, -3.691
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8299825, 1.0935394, -4.2097225)
 fill_amount_ml = 70.0
 
-[node name="Stand" parent="." unique_id=794466604 instance=ExtResource("14_jy0m3")]
-transform = Transform3D(-6.5567085e-09, 0, -0.15, 0, 0.15, 0, 0.15, 0, -6.5567085e-09, -2.6082735, 1.0936913, -9.604268)
+[node name="Stand" parent="." unique_id=2068621740 instance=ExtResource("14_jy0m3")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.5663867, 1.093265, -9.460416)
