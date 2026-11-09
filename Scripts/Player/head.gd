@@ -54,6 +54,7 @@ func _input(event):
 
 func drop_held_object():
 	if held_object.is_in_group("hand"):
+		held_object.freeze = false
 		held_object.global_position = drop_point.global_position
 		held_object.linear_velocity = Vector3.ZERO
 	held_object.collision_layer = (1)
@@ -73,6 +74,8 @@ func handle_object_holding():
 		if held_object.is_in_group("hand"):
 			if Input.is_action_just_pressed("Use"):
 				use_held_object()
+			if held_object == null:
+				return
 			held_object.global_position = hand.global_position
 			held_object.global_rotation = hand.global_rotation
 		else:
@@ -88,6 +91,10 @@ func handle_interactions(body):
 		held_object = body
 		held_object.collision_layer = (1 << 1)
 		print(held_object.collision_layer)
+
+		if held_object.has_signal("drop_object"):
+			held_object.drop_object.connect(_on_drop_object, CONNECT_ONE_SHOT)
+
 	elif body.name == "FumeHoodStatic":
 		var target = body.get_parent().get_parent()
 		if target.has_method("toggle_window"):
@@ -141,3 +148,6 @@ func handle_use(body):
 		var target = body.get_parent().get_parent()
 		if target.has_method("toggle_use_mode"):
 			target.toggle_use_mode()
+			
+func _on_drop_object():
+	held_object = null
