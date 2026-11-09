@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b6gjdmiam8olr" path="res://Scenes/Environment/Room.tscn" id="12_3c8se"]
 [ext_resource type="PackedScene" uid="uid://cmi3mgufo3psc" path="res://Scenes/Objects/Suppilo.tscn" id="12_bwjxt"]
 [ext_resource type="PackedScene" uid="uid://cdirtdw8j4ap7" path="res://Scenes/Objects/MeasuringCylinder.scn" id="13_bwjtt"]
+[ext_resource type="PackedScene" uid="uid://d0hx8maqo7hrt" path="res://Scenes/Objects/Stand.tscn" id="14_jy0m3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -82,9 +83,12 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.58779764, 1.3811461,
 [node name="Beaker3" parent="." unique_id=1311886783 instance=ExtResource("10_kn06e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8062146, 1.1764216, -3.9341354)
 
-[node name="Suppilo" parent="." unique_id=828524975 groups=["hand", "pickable"] instance=ExtResource("12_bwjxt")]
+[node name="Suppilo" parent="." unique_id=828524975 groups=["hand"] instance=ExtResource("12_bwjxt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8536426, 1.0876646, -3.6912425)
 
 [node name="MeasuringCylinder" parent="." unique_id=1479036736 instance=ExtResource("13_bwjtt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8299825, 1.0935394, -4.2097225)
 fill_amount_ml = 70.0
+
+[node name="Stand" parent="." unique_id=2068621740 instance=ExtResource("14_jy0m3")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.5663867, 1.093265, -9.460416)
