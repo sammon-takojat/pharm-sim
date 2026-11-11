@@ -21,3 +21,18 @@ Pharm-sim tulee olemaan opetuspeli Helsingin yliopiston farmasian tiedekunnan la
 Käytämme pelin kehitykseen [Godot](https://godotengine.org/) pelimoottoria ja kehitysympäristöä, ohjelmointikielenä käytämme Godotin GDScriptiä.  
 Testaukseen käytämme Godotin [GdUnit4](https://github.com/godot-gdunit-labs/gdUnit4) lisäosaa.  
 Mallinnukseen käytämme [Blenderiä](https://www.blender.org/)
+
+
+## Pelaamisen ohjeet
+
+Kun pelin avaa netissä, selaimen näkymää pitää painaa hiiren vasemmalla napilla, jotta se lukittuu pelin ruutuun. Lukituksen saa pois ESC-napilla.
+
+Hiiri - Kameran liikutus
+WASD - Liikkuminen
+E - Nostaminen/Laskeminen/Interact
+F - Kädessä olevan esineen käyttö
+
+Vetokaapin saa auki ja suljettua painamalla E-näppäintä. Kun se on auki sen saa puoliksi kiinni ja takaisin F-nappia painamalla.
+Vaa'an voi taarata osoittamalla isoa sinistä näppäintä ja painamalla E-näppäintä
+Pipetin voi nostaa E-näppäimellä. Siihen saa nestettä osoittamalla astiaa, jossa on vettä ja painamalla F-näppäintä. Samoin pipetillä voi lisätä nestettä astiaan F-näppäimellä.
+pH-arvon näkee kun tökkäsee pH-paperilla dekkaa, jossa on nestettä.
