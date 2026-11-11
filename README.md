@@ -31,5 +31,5 @@ F - Kun kädessä on esine niin käyttää sitä
 
 Vetokaapin saa auki ja suljettua painamalla E-näppäintä. Kun se on auki sen saa puoliksi kiinni ja takaisin F-nappia painamalla.
 Vaa'an voi taarata osoittamalla isoa sinistä näppäintä ja painamalla E-näppäintä
-Pipetin voi nostaa E-näppäimellä. Siihen saa nestettä osoittamalla astiaa, jossa en vettä ja painamalla F-näppäintä. Samoin pipetillä voi lisätä nestettä astiaan F-näppäimellä.
+Pipetin voi nostaa E-näppäimellä. Siihen saa nestettä osoittamalla astiaa, jossa on vettä ja painamalla F-näppäintä. Samoin pipetillä voi lisätä nestettä astiaan F-näppäimellä.
 pH-arvon näkee kun tökkäsee pH-paperilla dekkaa, jossa on nestettä.
