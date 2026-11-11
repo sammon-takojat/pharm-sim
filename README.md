@@ -27,7 +27,7 @@ Mallinnukseen käytämme [Blenderiä](https://www.blender.org/)
 
 WASD - Liikkuminen
 E - Nostaminen/Laskeminen/Interact
-F - Kun kädessä on esine niin käyttää sitä
+F - Kädessä olevan esineen käyttö
 
 Vetokaapin saa auki ja suljettua painamalla E-näppäintä. Kun se on auki sen saa puoliksi kiinni ja takaisin F-nappia painamalla.
 Vaa'an voi taarata osoittamalla isoa sinistä näppäintä ja painamalla E-näppäintä
