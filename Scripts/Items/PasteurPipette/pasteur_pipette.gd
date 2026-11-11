@@ -7,7 +7,7 @@ class_name Pipette
 var liquid: Liquid
 
 func use(object_in_los) -> void:
-	if object_in_los and "reagent" in object_in_los and liquid == null:
+	if object_in_los and "reagent" in object_in_los and !liquid:
 		liquid = object_in_los.reagent.remove_liquid(capacity_ml)
 		liquid._mesh = mesh
 	elif object_in_los and "reagent" in object_in_los:
@@ -19,3 +19,7 @@ func use(object_in_los) -> void:
 		object_in_los.reagent.add_liquid(sample)
 		if liquid._fill_amount_ml <= 0.0001:
 			liquid = null
+	elif object_in_los is PH_Paper:
+		if !liquid:
+			return
+		object_in_los.changeColor(liquid._pH)
