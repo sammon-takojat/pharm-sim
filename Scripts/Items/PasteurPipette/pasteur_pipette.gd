@@ -3,39 +3,19 @@ class_name Pipette
 
 @export var capacity_ml: float = 10.0
 @export var dispense_amount_ml: float = 0.05
-
-@export var is_filled : bool
-@export var volume_ml : float
-@export var net_h_moles: float
-
-func get_molarity() -> float:
-	if volume_ml <= 0.0:
-		return 0.0
-
-	return abs(net_h_moles) / (volume_ml / 1000.0)
+@export var mesh: MeshInstance3D
+var liquid: Liquid
 
 func use(object_in_los) -> void:
-	if object_in_los and object_in_los.has_method("remove_liquid") and not is_filled:
-		var res : Dictionary = object_in_los.remove_liquid(capacity_ml)
-		net_h_moles += res["net_h_moles"]
-		volume_ml += res["volume_ml"]
-		is_filled = true
-	elif object_in_los and object_in_los.has_method("add_reagent"):
-		var amount_ml : float = min(dispense_amount_ml, volume_ml)
-		amount_ml = min(amount_ml, volume_ml)
+	if object_in_los and "reagent" in object_in_los and liquid == null:
+		liquid = object_in_los.reagent.remove_liquid(capacity_ml)
+		liquid._mesh = mesh
+	elif object_in_los and "reagent" in object_in_los:
+		if liquid == null:
+			return
 		
-		var molarity : float = get_molarity()
-		var is_base : bool = net_h_moles < 0.0
-		
-		object_in_los.add_reagent(amount_ml, molarity, is_base)
-		
-		var fraction : float = amount_ml / volume_ml
-		var transferred_moles : float = net_h_moles * fraction
-		
-		net_h_moles -= transferred_moles
-		volume_ml -= amount_ml
-		
-		if volume_ml <= 0.0001:
-			volume_ml = 0.0
-			net_h_moles = 0.0
-			is_filled = false
+		var sample = liquid.remove_liquid(dispense_amount_ml)
+
+		object_in_los.reagent.add_liquid(sample)
+		if liquid._fill_amount_ml <= 0.0001:
+			liquid = null

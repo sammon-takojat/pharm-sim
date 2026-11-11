@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://h85dvsckdlsl"]
 
-[ext_resource type="Shader" uid="uid://6fvfuwd3y3cw" path="res://Shaders/powder.gdshader" id="1_1qv3v"]
+[ext_resource type="Shader" uid="uid://6fvfuwd3y3cw" path="res://Shaders/powder_pile.gdshader" id="1_1qv3v"]
 [ext_resource type="Script" uid="uid://bx5hsp0jblfjm" path="res://Scripts/Resources/powder.gd" id="1_2tmsf"]
 [ext_resource type="Script" uid="uid://jlivs13oarw6" path="res://Scripts/Resources/powder_data.gd" id="2_666tc"]
 

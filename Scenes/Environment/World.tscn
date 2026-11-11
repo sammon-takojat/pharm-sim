@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ui8xi7bokueq" path="res://Scenes/Objects/Scale.tscn" id="10_ti1bm"]
 [ext_resource type="PackedScene" uid="uid://lliiln0k2438" path="res://Scenes/Objects/WaterBottle.tscn" id="11_w5xhi"]
 [ext_resource type="PackedScene" uid="uid://b6gjdmiam8olr" path="res://Scenes/Environment/Room.tscn" id="12_3c8se"]
+[ext_resource type="PackedScene" uid="uid://dqjebp0rip0hc" path="res://Scenes/Objects/dekstrometorfaanihydrobromidi.tscn" id="12_bwjxt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -81,3 +82,6 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.58779764, 1.1050766,
 [node name="Beaker3" parent="." unique_id=1311886783 instance=ExtResource("10_kn06e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9588037, 1.1248763, -4.2324805)
 fill_amount_ml = 100.0
+
+[node name="Node3D" parent="." unique_id=455590915 instance=ExtResource("12_bwjxt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.352067, 1.0481995, -4.3713408)
