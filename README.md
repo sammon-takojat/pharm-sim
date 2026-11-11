@@ -25,6 +25,9 @@ Mallinnukseen käytämme [Blenderiä](https://www.blender.org/)
 
 ## Pelaamisen ohjeet
 
+Kun pelin avaa netissä, siitä pitää painaa hiiren vasemmalla napilla että se lukittuu pelin ruutuun. Lukon saa pois ESC-napilla.
+
+Hiiri - Kameran liikutus
 WASD - Liikkuminen
 E - Nostaminen/Laskeminen/Interact
 F - Kädessä olevan esineen käyttö
