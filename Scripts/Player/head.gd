@@ -93,7 +93,8 @@ func handle_interactions(body):
 		print(held_object.collision_layer)
 
 		if held_object.has_signal("drop_object"):
-			held_object.drop_object.connect(_on_drop_object, CONNECT_ONE_SHOT)
+			if not held_object.is_connected("drop_object", _on_drop_object):
+				held_object.drop_object.connect(_on_drop_object, CONNECT_ONE_SHOT)
 
 	elif body.name == "FumeHoodStatic":
 		var target = body.get_parent().get_parent()
