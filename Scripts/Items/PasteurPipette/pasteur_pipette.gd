@@ -6,7 +6,7 @@ class_name Pipette
 @export var mesh: MeshInstance3D
 var liquid: Liquid
 
-func use(object_in_los) -> void:
+func use(object_in_los, collision_point : Vector3) -> void:
 	if object_in_los and "reagent" in object_in_los and !liquid:
 		liquid = object_in_los.reagent.remove_liquid(capacity_ml)
 		liquid._mesh = mesh
@@ -22,4 +22,4 @@ func use(object_in_los) -> void:
 	elif object_in_los is PH_Paper:
 		if !liquid:
 			return
-		object_in_los.changeColor(liquid._pH)
+		object_in_los.changeColor(liquid._pH, collision_point)

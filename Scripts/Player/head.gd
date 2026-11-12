@@ -113,7 +113,7 @@ func handle_ui():
 func use_held_object():
 	var object_in_los = raycast.get_collider()
 	if held_object.has_method("use"):
-		held_object.use(object_in_los)
+		held_object.use(object_in_los, raycast.get_collision_point())
 
 func handle_inputs():
 	if Input.is_action_just_pressed("Use"):
