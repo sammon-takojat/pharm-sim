@@ -287,4 +287,6 @@ transform = Transform3D(-2.6226834e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -2.6226834e-
 transform = Transform3D(-2.6226834e-08, 0, -0.6, 0, 0.6, 0, 0.6, 0, -2.6226834e-08, -5.042225, -0.0142707825, -9.5)
 
 [node name="LightmapGI" type="LightmapGI" parent="." unique_id=255711914]
+bounce_indirect_energy = 0.72
+interior = true
 light_data = ExtResource("7_qjn7t")
