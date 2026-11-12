@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cmi3mgufo3psc"]
 
-[ext_resource type="Script" uid="uid://cegtdhc4o2qdb" path="res://Scripts/Items/Suppilo/suppilo.gd" id="1_5g3su"]
+[ext_resource type="Script" uid="uid://cegtdhc4o2qdb" path="res://Scripts/Items/Funnel/funnel.gd" id="1_5g3su"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vuu4m"]
 resource_name = "Material.001"

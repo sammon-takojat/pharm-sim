@@ -1,6 +1,8 @@
 extends Node3D
+## Script for player head functions i.e. mouse movement, object interactions,
+## environment interactions and ui handling.
 
-
+## Assign the needed nodes to variables
 @onready var head = $"."
 @onready var player = $".."
 @onready var raycast = $Camera3D/RayCast3D
@@ -8,20 +10,19 @@ extends Node3D
 @onready var hand = $Camera3D/Hand
 @onready var drop_point = $Camera3D/DropPoint
 
-var held_object : RigidBody3D
-var follow_distance = 1.3
-var follow_speed = 8.0
+var held_object : RigidBody3D ## Picked up object
+var follow_distance = 1.3 ## Distance between the picked up object and the player
+var follow_speed = 8.0 ## Speed that the picked up object follows the mouse movement at
 const object_rotation_damping = 100.0
 
+## Assign ui elements to variables
 @onready var reticle : ColorRect = $"../Reticle"
 @onready var pickup_ui : Label = $"../PickUpUi"
 @onready var use_ui : Label = $"../UseUi"
 @onready var fume_hood_labels : GridContainer = $"../FumeHoodLabels"
 
-
-
-var rotation_vector = Vector3()
-var sens = 0.12
+var rotation_vector = Vector3() ## Rotation vector of the head
+var sens = 0.12 ## Sensitivity of mouse movement
 
 
 func _ready():
@@ -37,7 +38,9 @@ func _physics_process(_delta):
 	handle_object_holding()
 	handle_inputs()
 
-
+## Handles mouse movement and scroll wheel actions. Changes the rotation
+## vector of the head according to mouse movement. Changes the follow distance
+## of the picked up object according to scroll wheel actions.
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -51,7 +54,7 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			follow_distance = max(follow_distance - 0.1, 0.7)
 		
-
+## Function for dropping the picked up object.
 func drop_held_object():
 	if held_object.is_in_group("hand"):
 		held_object.freeze = false
@@ -60,6 +63,9 @@ func drop_held_object():
 	held_object.collision_layer = (1)
 	held_object = null
 
+## Handler for object functions. Check the state of object holding and
+## calls the appropriate function depending on inputs. Also updates the position
+## of the picked up object.
 func handle_object_holding():
 	if Input.is_action_just_pressed("Interact"):
 		if held_object != null:
@@ -84,13 +90,13 @@ func handle_object_holding():
 			held_object.linear_velocity = (target_pos - object_pos) * follow_speed
 			held_object.global_rotation = Vector3(0, head.global_rotation.y, 0)
 
+## Handles interactions with the object given as a parameter.
 func handle_interactions(body):
 	if body is Button3D:
 		body.press()
 	elif body is RigidBody3D && body.is_in_group("pickable"):
 		held_object = body
 		held_object.collision_layer = (1 << 1)
-		print(held_object.collision_layer)
 
 		if held_object.has_signal("drop_object"):
 			if not held_object.is_connected("drop_object", _on_drop_object):
@@ -130,6 +136,8 @@ func handle_ui():
 				fume_hood_labels.find_child("OpenCloseFumeHood").visible = true
 				fume_hood_labels.find_child("ToggleFumeHoodUse").visible = false
 
+## Calls the method "use" in the held object with the object that the player
+## is looking at as a parameter.
 func use_held_object():
 	var object_in_los = raycast.get_collider()
 	if held_object.has_method("use"):
@@ -150,5 +158,6 @@ func handle_use(body):
 		if target.has_method("toggle_use_mode"):
 			target.toggle_use_mode()
 			
+## A helper function that removes the held object from the hand.
 func _on_drop_object():
 	held_object = null
