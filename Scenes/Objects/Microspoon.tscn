@@ -1,13 +1,29 @@
 [gd_scene format=3 uid="uid://c2becs3fsshs5"]
 
 [ext_resource type="PackedScene" uid="uid://d3nfby5ygi1mj" path="res://Assets/Models/mikrolusikka.glb" id="1_exwcx"]
+[ext_resource type="PackedScene" uid="uid://h85dvsckdlsl" path="res://Scenes/Objects/Powder.tscn" id="2_fhsvr"]
+[ext_resource type="Script" uid="uid://jlivs13oarw6" path="res://Scripts/Resources/powder_data.gd" id="3_7kvae"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_exwcx"]
-size = Vector3(0.37751096, 0.21848641, 4.2346244)
+[sub_resource type="BoxShape3D" id="BoxShape3D_7kvae"]
+size = Vector3(0.17215326, 0.08293004, 3.928732)
+
+[sub_resource type="Resource" id="Resource_ly0sh"]
+script = ExtResource("3_7kvae")
+weight = 100.0
+metadata/_custom_type_script = "uid://jlivs13oarw6"
 
 [node name="Microspoon" unique_id=371284041 groups=["hand", "pickable"] instance=ExtResource("1_exwcx")]
+transform = Transform3D(0.95105654, 0, 0.309017, 0, 1, 0, -0.309017, 0, 0.95105654, 0, 0, 0)
 continuous_cd = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=1325226976]
-transform = Transform3D(0.109771974, 0, 0, 0, 0.109771974, 0, 0, 0, 0.10977192, -0.00018377928, -0.00095145404, -0.18378149)
-shape = SubResource("BoxShape3D_exwcx")
+[node name="Roundcube_001" parent="." index="0" unique_id=568281893]
+transform = Transform3D(-0.109771974, 0, -9.596566e-09, 0, 0.109771974, 0, 9.596571e-09, 0, -0.10977192, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=1747107896]
+transform = Transform3D(-0.109771974, 0, -9.596566e-09, 0, 0.109771974, 0, 9.596571e-09, 0, -0.10977192, 1.6149837e-08, -0.0010441865, 0.1847326)
+shape = SubResource("BoxShape3D_7kvae")
+
+[node name="Powder" parent="." index="2" unique_id=486057364 instance=ExtResource("2_fhsvr")]
+transform = Transform3D(0.0070000007, 0, 0, 0, 0.007, 0, 0, 0, 0.0070000007, 0.0004631658, 0.0025994591, -0.014613005)
+powder_data = SubResource("Resource_ly0sh")
+max_powder = 10.0

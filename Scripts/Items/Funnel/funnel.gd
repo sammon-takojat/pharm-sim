@@ -8,7 +8,7 @@ signal drop_object ## Signal for removing the funnel from the players hand
 ## The function looks for get_hold_position method in the target object and
 ## calls it if found. Then sets the position of the funnel to the returned
 ## position and freezes it.
-func use(object_in_los) -> void:
+func use(object_in_los: Node3D, _collision_point: Vector3) -> void:
 	if object_in_los == null:
 		return
 	
