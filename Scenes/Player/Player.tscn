@@ -89,7 +89,11 @@ text = "Press F to toggle the fume hood's use mode."
 label_settings = SubResource("LabelSettings_d0i6x")
 horizontal_alignment = 1
 
-[node name="Oraaliliuosohje" type="Sprite2D" parent="." unique_id=1452621912]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1408809027]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Oraaliliuosohje" type="Sprite2D" parent="CenterContainer" unique_id=1452621912]
 position = Vector2(960, 537.84375)
 scale = Vector2(0.905, 0.902)
 texture = ExtResource("3_h54ih")
