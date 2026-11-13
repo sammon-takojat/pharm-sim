@@ -1,4 +1,4 @@
-# Pharm-sim (placeholder name)
+# Sekoita ja selvitä 
 
 ## Demo
 
@@ -6,7 +6,7 @@
 
 ## Kuvaus
 
-Pharm-sim tulee olemaan opetuspeli Helsingin yliopiston farmasian tiedekunnan laboratoriotyön opetuksen tueksi. Ohjelma tulee simuloimaan kahden eri liuoksen valmistusprosessin, sekä valmiista yhdisteistä tehtävät johtopäätökset pakohuonepelin muodossa. Peli tulee pyörimään verkossa, jolloin se on mahdollisimman monen saatavilla ja helposti käytettävissä opiskelijoille.
+Sekoita ja selvitä tulee olemaan opetuspeli Helsingin yliopiston farmasian tiedekunnan laboratoriotyön opetuksen tueksi. Ohjelma tulee simuloimaan kahden eri liuoksen valmistusprosessin, sekä valmiista yhdisteistä tehtävät johtopäätökset pakohuonepelin muodossa. Peli tulee pyörimään verkossa, jolloin se on mahdollisimman monen saatavilla ja helposti käytettävissä opiskelijoille.
 
 ## Linkkejä
 
