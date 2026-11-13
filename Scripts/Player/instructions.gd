@@ -1,4 +1,4 @@
-extends Sprite2D
+extends TextureRect
 ## Script for showing instructions
 
 var default_pos : Vector2 = self.global_position ## Default position that it resets to when closing
@@ -7,8 +7,8 @@ var zoom := Vector2(0.05, 0.05) ## Zoom sensitivity
 var max_scale := Vector2(2, 2) ## Maximum zoom
 var min_scale := Vector2(0.8, 0.8) ## Minimum zoom
 var sens := 0.5 ## Sensitivity for moving document
-var max_pos := 1300 ## Maximum value for y so that the document always stays on screen
-var min_pos := -300 ## Minimum value for y so that the document always stays on screen
+var max_pos := 1000 ## Maximum value for y so that the document always stays on screen
+var min_pos := -700 ## Minimum value for y so that the document always stays on screen
 
 ## Initialize instructions to be processed always so it works when
 ## the scene is paused.
