@@ -12,12 +12,13 @@ render_priority = 0
 shader = ExtResource("3_injpa")
 shader_parameter/coeff = Vector2(0, 0)
 shader_parameter/vel = 0.0
+shader_parameter/bounds_center = Vector3(0, 0, 0)
+shader_parameter/bounds_half_extent = Vector3(0, 0, 0)
 shader_parameter/liquid_color = Color(0.4, 0.4, 0.4, 1)
 shader_parameter/foam_color = Color(0.9, 0.9, 0.9, 1)
 shader_parameter/foam_line = 0.2
 shader_parameter/fill_amount = 0.5550000263625
 shader_parameter/size = Vector2(1, 1)
-shader_parameter/glass_thickness = 0.0
 shader_parameter/scale = 1.0
 shader_parameter/wave_intensity = 0.05
 shader_parameter/HasBubbles = true
@@ -26,10 +27,11 @@ shader_parameter/BubbleStrength = 0.5
 shader_parameter/BubbleMask = 0.5
 shader_parameter/BubbleSpeed = Vector2(3, 3)
 
-[node name="Pasteur-pipette" type="RigidBody3D" unique_id=436470815 groups=["hand", "pickable"]]
+[node name="Pasteur-pipette" type="RigidBody3D" unique_id=436470815 node_paths=PackedStringArray("mesh") groups=["hand", "pickable"]]
 mass = 0.01
 continuous_cd = true
 script = ExtResource("1_sak04")
+mesh = NodePath("MeshInstance3D2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=719203356]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

@@ -1,15 +1,23 @@
 [gd_scene format=3 uid="uid://y5m6i88xx7s4"]
 
 [ext_resource type="Script" uid="uid://iiy7xq4wnqk" path="res://Scripts/Items/PHPaper/pH_paper.gd" id="1_oe6p4"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_wkjni"]
-size = Vector3(0.22956085, 0.001, 0.074279785)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blby1"]
-albedo_color = Color(1, 0.57254905, 0, 1)
+[ext_resource type="Shader" uid="uid://br3hgr3nf8f80" path="res://Shaders/pH.gdshader" id="2_0x16l"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_oe6p4"]
 points = PackedVector3Array(0.116622224, 0.0013222224, 0.037611112, -0.116622224, -0.002322222, -0.03892222, -0.116622224, 0.0013222224, -0.03892222, 0.116622224, -0.002322222, -0.03892222, -0.116622224, -0.002322222, 0.037611112, -0.116622224, 0.0013222224, 0.037611112, 0.116622224, 0.0013222224, -0.03892222, 0.116622224, -0.002322222, 0.037611112)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jy0m3"]
+render_priority = 0
+shader = ExtResource("2_0x16l")
+shader_parameter/hit_position = Vector3(0, 0, 0)
+shader_parameter/set_color = Vector4(0, 0, 0, 0)
+shader_parameter/base_color = Vector4(0, 0, 0, 0)
+shader_parameter/radius = 0.02
+shader_parameter/fade = 0.01
+
+[sub_resource type="BoxMesh" id="BoxMesh_3c8se"]
+material = SubResource("ShaderMaterial_jy0m3")
+size = Vector3(0.25, 0.002, 0.1)
 
 [node name="pH-paper" type="RigidBody3D" unique_id=2062769386 groups=["pickable"]]
 continuous_cd = true
@@ -17,11 +25,10 @@ contact_monitor = true
 max_contacts_reported = 4
 script = ExtResource("1_oe6p4")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2102747571]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0738945, 0.0064738095, 0.017425537)
-mesh = SubResource("BoxMesh_wkjni")
-surface_material_override/0 = SubResource("StandardMaterial3D_blby1")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=260854586]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0738945, 0.0064738095, 0.017425537)
 shape = SubResource("ConvexPolygonShape3D_oe6p4")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1533401152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.075062215, 0, 0.01499559)
+mesh = SubResource("BoxMesh_3c8se")

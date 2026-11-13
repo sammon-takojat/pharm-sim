@@ -97,15 +97,11 @@ func handle_interactions(body):
 	elif body is RigidBody3D && body.is_in_group("pickable"):
 		held_object = body
 		held_object.collision_layer = (1 << 1)
-
-		if held_object.has_signal("drop_object"):
-			if not held_object.is_connected("drop_object", _on_drop_object):
-				held_object.drop_object.connect(_on_drop_object, CONNECT_ONE_SHOT)
-
 	elif body.name == "FumeHoodStatic":
-		var target = body.get_parent().get_parent()
-		if target.has_method("toggle_window"):
-			target.toggle_window()
+		body.get_parent().get_parent().toggle_window()
+	if held_object and held_object.has_signal("drop_object"):
+		if not held_object.is_connected("drop_object", _on_drop_object):
+			held_object.drop_object.connect(_on_drop_object, CONNECT_ONE_SHOT)
 
 ## Function shows prompts and instructions for player.
 ##
@@ -141,7 +137,7 @@ func handle_ui():
 func use_held_object():
 	var object_in_los = raycast.get_collider()
 	if held_object.has_method("use"):
-		held_object.use(object_in_los)
+		held_object.use(object_in_los, raycast.get_collision_point())
 
 ## Processes inputs and calls the appropriate handler function.
 func handle_inputs():
@@ -154,6 +150,7 @@ func handle_inputs():
 ## function in fume hoods script.
 func handle_use(body):
 	if body.name == "FumeHoodStatic":
+		body.parent.toggle_use_mode()
 		var target = body.get_parent().get_parent()
 		if target.has_method("toggle_use_mode"):
 			target.toggle_use_mode()

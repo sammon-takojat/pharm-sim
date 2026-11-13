@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b7j2scs0skx3k" path="res://Assets/Models/Beaker.glb" id="1_gceea"]
 [ext_resource type="Shader" uid="uid://c420kic421m2g" path="res://Shaders/liquid.gdshader" id="2_e7go6"]
-[ext_resource type="Script" uid="uid://b6xgd6wi0srv5" path="res://Scripts/Items/Beaker/beaker_liquid.gd" id="2_tde1r"]
+[ext_resource type="Script" uid="uid://b6xgd6wi0srv5" path="res://Scripts/Resources/liquid_container.gd" id="2_tde1r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7go6"]
 transparency = 2
@@ -11,6 +11,7 @@ alpha_antialiasing_mode = 0
 blend_mode = 1
 cull_mode = 2
 albedo_color = Color(0.20875, 0.20875, 0.20875, 0.5019608)
+roughness = 0.05
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8owyr"]
 resource_name = "glass"
@@ -57,15 +58,16 @@ render_priority = 0
 shader = ExtResource("2_e7go6")
 shader_parameter/coeff = Vector2(0, 0)
 shader_parameter/vel = 0.0
+shader_parameter/bounds_center = Vector3(0, 0, 0)
+shader_parameter/bounds_half_extent = Vector3(0, 0, 0)
 shader_parameter/liquid_color = Color(0.4, 0.4, 0.4, 1)
 shader_parameter/foam_color = Color(0.9, 0.9, 0.9, 1)
-shader_parameter/foam_line = 0.2
-shader_parameter/fill_amount = 0.538000025555
+shader_parameter/foam_line = 0.0
+shader_parameter/fill_amount = 0.0
 shader_parameter/size = Vector2(1, 1)
-shader_parameter/glass_thickness = 0.0
 shader_parameter/scale = 1.0
 shader_parameter/wave_intensity = 0.05
-shader_parameter/HasBubbles = true
+shader_parameter/HasBubbles = false
 shader_parameter/AlwaysBubbles = false
 shader_parameter/BubbleStrength = 0.5
 shader_parameter/BubbleMask = 0.5
@@ -75,10 +77,13 @@ shader_parameter/BubbleSpeed = Vector2(3, 3)
 height = 3.002338
 radius = 1.2102966
 
-[node name="Beaker" unique_id=76055100 groups=["pickable"] instance=ExtResource("1_gceea")]
+[node name="Beaker" unique_id=76055100 node_paths=PackedStringArray("mesh") groups=["pickable"] instance=ExtResource("1_gceea")]
 script = ExtResource("2_tde1r")
+pH = 3.0
+fill_amount_ml = 25.0
+mesh = NodePath("Circle2")
 
-[node name="Circle" parent="." index="0" unique_id=1706655681]
+[node name="Circle" parent="." index="0" unique_id=825033561]
 surface_material_override/0 = SubResource("StandardMaterial3D_e7go6")
 
 [node name="Circle2" type="MeshInstance3D" parent="." index="1" unique_id=50160122]
@@ -90,3 +95,5 @@ surface_material_override/0 = SubResource("ShaderMaterial_gceea")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2" unique_id=81304776]
 transform = Transform3D(0.069, 0, 0, 0, 0.069, 0, 0, 0, 0.069, -0.004692914, 0.0019040508, -0.0007451481)
 shape = SubResource("CylinderShape3D_gceea")
+
+[node name="Node" type="Node" parent="." index="4" unique_id=470951001]

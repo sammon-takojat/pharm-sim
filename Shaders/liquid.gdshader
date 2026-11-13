@@ -5,13 +5,15 @@ group_uniforms PhysicsSetByScript;
 uniform vec2 coeff; // Coefficients of the linear function for the surface.
 uniform float vel; // Rate of change of the coefficients.
 
+uniform vec3 bounds_center;
+uniform vec3 bounds_half_extent;
+
 group_uniforms Visuals;
 uniform vec4 liquid_color     : source_color = vec4(0.4, 0.4, 0.4, 1.0);
 uniform vec4 foam_color       : source_color = vec4(0.9f, 0.9, 0.9, 1.0);
 uniform float foam_line       : hint_range(0.0, 1.0, 0.001) = 0.2;
 uniform float fill_amount     : hint_range(0.0, 1.0, 0.001) = 0.5;
 uniform vec2 size             = vec2(1.0, 1.0);
-uniform float glass_thickness = 0.00;
 uniform float scale           = 1.0;
 uniform float wave_intensity  = 0.05f;
 uniform sampler2D waves_noise;
@@ -30,13 +32,14 @@ varying lowp vec3 world_vec_up_to_model;
 varying lowp vec3 weights;
 
 void vertex() {
-	VERTEX                -= glass_thickness * NORMAL;
 	/* Position inside container rotated to world. */
 	pos                   = mat3(MODEL_MATRIX)*VERTEX;
 	/* Lerp between height and width depending on world orientation of z axis. */
 	world_vec_up_to_model = vec3(0.0f, 1.0f, 0.0f)* mat3(MODEL_MATRIX);
 	rot_scale             = mix(size.x, size.y, abs(dot(world_vec_up_to_model, vec3(0.0f, 1.0f, 0.0f))));
-	weights               = mat3(MODEL_MATRIX)*NORMAL; weights*=weights;
+	weights               = mat3(MODEL_MATRIX)*NORMAL; 
+	weights*=weights;
+	vec3 color = vec3(1.0f, 1.0f, 1.0f);
 }
 
 void fragment() {
@@ -45,9 +48,18 @@ void fragment() {
 	lowp float wave_noise_2 = texture(waves_noise, (2.0 * pos.xz - 0.5 * TIME * vec2(1.0, 1.0)) * scale).g;
 	lowp float wave = wave_intensity * length(coeff) * (wave_noise_1 - 0.5f + wave_noise_2 - 0.5f) + dot(pos.xz, coeff);
 	wave *= smoothstep(0.05, 0.25, fill_amount);
-	lowp float liquid_line = (fill_amount * 2.0 - 1.0 + wave) * rot_scale;
+	
+	mat3 model = mat3(MODEL_MATRIX);
+	
+	float center_y = (model * bounds_center).y;
+	
+	float vertical_half_extent =
+		abs(model[0].y) * bounds_half_extent.x +
+		abs(model[1].y) * bounds_half_extent.y +
+		abs(model[2].y) * bounds_half_extent.z;
+	
+	lowp float liquid_line = center_y + (fill_amount * 2.0 - 1.0 + wave) * vertical_half_extent;
 	if (pos.y > liquid_line) discard;// Discard all vertices above the liquid line. */
-
 	if (HasBubbles){
 		float bubble_weight = vel;
 		if (AlwaysBubbles) {

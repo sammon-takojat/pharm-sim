@@ -6,7 +6,7 @@ var pipette_script = preload(
 )
 
 var liquid_container_script = preload(
-	"res://Scripts/Items/Beaker/beaker_liquid.gd"
+	"uid://b6xgd6wi0srv5"
 )
 
 var pipettes: Array[Pipette] = []
@@ -83,7 +83,7 @@ func before_test():
 
 func test_fill_pipette_from_container() -> void:
 
-	pipette.use(container_100)
+	pipette.use(container_100, Vector3.ZERO)
 
 	assert_bool(pipette.is_filled).is_true()
 	assert_float(pipette.volume_ml).is_equal(10.0)
@@ -98,7 +98,7 @@ func test_fill_pipette_from_container() -> void:
 func test_fill_pipette_takes_only_available_liquid() -> void:
 	var container := create_container(5.0)
 
-	pipette.use(container)
+	pipette.use(container, Vector3.ZERO)
 
 	assert_bool(pipette.is_filled).is_true()
 	assert_float(pipette.volume_ml).is_equal(5.0)
@@ -111,7 +111,7 @@ func test_dispensing_acid_transfers_correct_amount() -> void:
 	pipette.net_h_moles = 0.01
 	pipette.is_filled = true
 
-	pipette.use(container_100)
+	pipette.use(container_100, Vector3.ZERO)
 
 	# dispense_amount_ml = 0.05 ml
 	# 1 M => 0.00005 mol transferred
@@ -141,7 +141,7 @@ func test_dispensing_last_amount_empties_pipette() -> void:
 	pipette.net_h_moles = 0.00005
 	pipette.is_filled = true
 
-	pipette.use(container_100)
+	pipette.use(container_100, Vector3.ZERO)
 
 	assert_float(pipette.volume_ml).is_equal(0.0)
 	assert_float(pipette.net_h_moles).is_equal(0.0)

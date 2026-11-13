@@ -1,27 +1,26 @@
 extends RigidBody3D
+class_name PH_Paper
 
-@onready var ownMesh: MeshInstance3D = $MeshInstance3D
+@onready var mesh: MeshInstance3D = $MeshInstance3D3
+
+var shader : ShaderMaterial
 
 func _ready() -> void:
-	var material := ownMesh.get_active_material(0)
-	if material:
-		ownMesh.set_surface_override_material(0, material.duplicate())
-	self.body_entered.connect(changeColor)
+	shader = mesh.mesh.surface_get_material(0) as ShaderMaterial
+	shader.set_shader_parameter("base_color", Color.DARK_ORANGE)
 
-func changeColor(body: Node3D) -> void:
-	var material := ownMesh.get_active_material(0) as StandardMaterial3D
-	
-	if material and body.get("pH") != null:
-		var pH: float = body.pH
-		if pH <= 4.0:
-			var t := inverse_lerp(0.0, 4.0, pH)
-			material.albedo_color = Color.RED.lerp(Color.YELLOW, t)
-		elif pH <= 7.0:
-			var t := inverse_lerp(4.0, 7.0, pH)
-			material.albedo_color = Color.YELLOW.lerp(Color.GREEN, t)
-		elif pH <= 10.0:
-			var t := inverse_lerp(7.0, 10.0, pH)
-			material.albedo_color = Color.GREEN.lerp(Color.BLUE, t)
-		else:
-			var t := inverse_lerp(10.0, 14.0, pH)
-			material.albedo_color = Color.BLUE.lerp(Color.PURPLE, t)
+func changeColor(pH : float, position: Vector3) -> void:
+	if pH <= 4.0:
+		var t := inverse_lerp(0.0, 4.0, pH)
+		shader.set_shader_parameter("set_color", Color.RED.lerp(Color.YELLOW, t))
+	elif pH <= 7.0:
+		var t := inverse_lerp(4.0, 7.0, pH)
+		shader.set_shader_parameter("set_color", Color.YELLOW.lerp(Color.GREEN, t))
+	elif pH <= 10.0:
+		var t := inverse_lerp(7.0, 10.0, pH)
+		shader.set_shader_parameter("set_color", Color.GREEN.lerp(Color.BLUE, t))
+	else:
+		var t := inverse_lerp(10.0, 14.0, pH)
+		shader.set_shader_parameter("set_color", Color.BLUE.lerp(Color.PURPLE, t))
+	print(position)
+	shader.set_shader_parameter("hit_position", position)

@@ -1,0 +1,29 @@
+[remap]
+
+importer="2d_array_texture"
+type="CompressedTexture2DArray"
+uid="uid://b2k02ilimgv04"
+path.bptc="res://.godot/imported/Room.exr-13b44bccea47fc62b268cc945f9427fe.bptc.ctexarray"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://Scenes/Environment/Room.exr"
+dest_files=["res://.godot/imported/Room.exr-13b44bccea47fc62b268cc945f9427fe.bptc.ctexarray"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/channel_pack=1
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/horizontal=1
+slices/vertical=16
