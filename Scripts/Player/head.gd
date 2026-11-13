@@ -8,7 +8,6 @@ extends Node3D
 @onready var raycast = $Camera3D/RayCast3D
 @onready var camera = $Camera3D
 @onready var hand = $Camera3D/Hand
-@onready var drop_point = $Camera3D/DropPoint
 
 var held_object : RigidBody3D ## Picked up object
 var follow_distance = 1.3 ## Distance between the picked up object and the player
@@ -58,7 +57,16 @@ func _input(event):
 func drop_held_object():
 	if held_object.is_in_group("hand"):
 		held_object.freeze = false
-		held_object.global_position = drop_point.global_position
+		
+		var drop_point = -camera.global_basis.z * 2.0 + camera.global_position
+		
+		var space_state = get_world_3d().direct_space_state
+		var query = PhysicsRayQueryParameters3D.create(camera.global_position, drop_point)
+		var result = space_state.intersect_ray(query)
+
+		if result:
+			drop_point = result.position
+		held_object.global_position = drop_point
 		held_object.linear_velocity = Vector3.ZERO
 	held_object.collision_layer = (1)
 	held_object = null
