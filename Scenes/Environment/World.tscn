@@ -99,5 +99,5 @@ transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -3.47324, 1.0531999,
 [node name="Stand" parent="." unique_id=2068621740 instance=ExtResource("14_jy0m3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5843823, 1.0231998, -9.781689)
 
-[node name="Suppilo" parent="." unique_id=828524975 instance=ExtResource("12_bwjft")]
+[node name="Suppilo" parent="." unique_id=828524975 groups=["hand"] instance=ExtResource("12_bwjft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6988263, 1.0231997, -4.045908)
