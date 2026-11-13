@@ -30,6 +30,10 @@ project/assembly_name="pharm-sim"
 
 enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg", "res://addons/gdscript-linter/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [gdunit4]
 
 settings/common/update_notification_enabled=false

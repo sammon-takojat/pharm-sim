@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://caeetgi4b0qh8"]
+
+[ext_resource type="PackedScene" uid="uid://cle70ing4nchk" path="res://Assets/Models/filterPaper.glb" id="1_lngrr"]
+
+[node name="FilterPaper" unique_id=990385639 instance=ExtResource("1_lngrr")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+
+[node name="Cone" parent="." index="0" unique_id=1717466956 groups=["pickable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Cone" parent="Cone" index="0" unique_id=509318146]
+transform = Transform3D(1.3, 0, 0, 0, 1, 0, 0, 0, 1.3, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="Cone" index="1" unique_id=189741285]
+transform = Transform3D(1.3, 0, 0, 0, 1, 0, 0, 0, 1.3, 0, 0, 0)
+
+[node name="CollisionShape3D2" parent="Cone" index="2" unique_id=1209062916]
+transform = Transform3D(1.3, 0, 0, 0, 1, 0, 0, 0, 1.3, 0, 0, 0)

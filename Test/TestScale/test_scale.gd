@@ -25,7 +25,7 @@ func create_body(mass: float) -> RigidBody3D:
 
 
 func test_initial_weight_is_zero() -> void:
-	var scale = create_scale()
+	var scale = auto_free(create_scale())
 
 	assert_float(scale.weight).is_equal(0.0)
 	assert_float(scale.base_weight).is_equal(0.0)
@@ -33,8 +33,8 @@ func test_initial_weight_is_zero() -> void:
 
 
 func test_add_body_adds_its_mass() -> void:
-	var scale = create_scale()
-	var body := create_body(5.0)
+	var scale = auto_free(create_scale())
+	var body = auto_free(create_body(5.0))
 
 	scale.add_weight(body)
 
@@ -43,9 +43,9 @@ func test_add_body_adds_its_mass() -> void:
 
 
 func test_add_multiple_bodies_adds_all_masses() -> void:
-	var scale = create_scale()
-	var body_a := create_body(5.0)
-	var body_b := create_body(3.0)
+	var scale = auto_free(create_scale())
+	var body_a = auto_free(create_body(5.0))
+	var body_b = auto_free(create_body(3.0))
 
 	scale.add_weight(body_a)
 	scale.add_weight(body_b)
@@ -54,8 +54,8 @@ func test_add_multiple_bodies_adds_all_masses() -> void:
 
 
 func test_same_body_is_not_counted_twice() -> void:
-	var scale = create_scale()
-	var body := create_body(5.0)
+	var scale = auto_free(create_scale())
+	var body = auto_free(create_body(5.0))
 
 	scale.add_weight(body)
 	scale.add_weight(body)
@@ -65,9 +65,9 @@ func test_same_body_is_not_counted_twice() -> void:
 
 
 func test_remove_body_removes_its_mass() -> void:
-	var scale = create_scale()
-	var body_a := create_body(5.0)
-	var body_b := create_body(3.0)
+	var scale = auto_free(create_scale())
+	var body_a = auto_free(create_body(5.0))
+	var body_b = auto_free(create_body(3.0))
 
 	scale.add_weight(body_a)
 	scale.add_weight(body_b)
@@ -79,9 +79,9 @@ func test_remove_body_removes_its_mass() -> void:
 
 
 func test_remove_body_that_is_not_on_scale_does_nothing() -> void:
-	var scale = create_scale()
-	var body_a := create_body(5.0)
-	var body_b := create_body(3.0)
+	var scale = auto_free(create_scale())
+	var body_a = auto_free(create_body(5.0))
+	var body_b = auto_free(create_body(3.0))
 
 	scale.add_weight(body_a)
 	scale.lose_weight(body_b)
@@ -91,9 +91,9 @@ func test_remove_body_that_is_not_on_scale_does_nothing() -> void:
 
 
 func test_tare_sets_current_weight_to_zero() -> void:
-	var scale = create_scale()
-	var body_a := create_body(5.0)
-	var body_b := create_body(3.0)
+	var scale = auto_free(create_scale())
+	var body_a = auto_free(create_body(5.0))
+	var body_b = auto_free(create_body(3.0))
 
 	scale.add_weight(body_a)
 	scale.add_weight(body_b)
@@ -105,9 +105,9 @@ func test_tare_sets_current_weight_to_zero() -> void:
 
 
 func test_weight_after_tare_only_counts_new_weight() -> void:
-	var scale = create_scale()
-	var old_body := create_body(8.0)
-	var new_body := create_body(3.0)
+	var scale = auto_free(create_scale())
+	var old_body = auto_free(create_body(8.0))
+	var new_body = auto_free(create_body(3.0))
 
 	scale.add_weight(old_body)
 	scale.tare()
@@ -118,9 +118,9 @@ func test_weight_after_tare_only_counts_new_weight() -> void:
 
 
 func test_removing_object_after_tare_updates_weight() -> void:
-	var scale = create_scale()
-	var body_a := create_body(5.0)
-	var body_b := create_body(3.0)
+	var scale = auto_free(create_scale())
+	var body_a = auto_free(create_body(5.0))
+	var body_b = auto_free(create_body(3.0))
 
 	scale.add_weight(body_a)
 	scale.add_weight(body_b)
@@ -132,8 +132,8 @@ func test_removing_object_after_tare_updates_weight() -> void:
 
 
 func test_calculate_weight_uses_base_weight() -> void:
-	var scale = create_scale()
-	var body := create_body(5.0)
+	var scale = auto_free(create_scale())
+	var body = auto_free(create_body(5.0))
 
 	scale.base_weight = -2.0
 	scale.objects_on_scale.append(body)
@@ -144,7 +144,7 @@ func test_calculate_weight_uses_base_weight() -> void:
 
 
 func test_weight_changed_signal_is_emitted_when_adding() -> void:
-	var body := create_body(5.0)
+	var body = auto_free(create_body(5.0))
 
 	monitor_signals(scale)
 
@@ -157,7 +157,7 @@ func test_weight_changed_signal_is_emitted_when_adding() -> void:
 
 
 func test_weight_changed_signal_is_emitted_when_removing() -> void:
-	var body := create_body(5.0)
+	var body = auto_free(create_body(5.0))
 
 	scale.add_weight(body)
 
@@ -172,7 +172,7 @@ func test_weight_changed_signal_is_emitted_when_removing() -> void:
 
 
 func test_weight_changed_signal_when_taring() -> void:
-	var body := create_body(5.0)
+	var body = auto_free(create_body(5.0))
 
 	scale.add_weight(body)
 

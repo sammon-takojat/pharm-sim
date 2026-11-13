@@ -1,12 +1,15 @@
 extends GdUnitTestSuite
+## Script for testing object moving and picking up
 
 var runner:GdUnitSceneRunner
+var player:CharacterBody3D
 var player_head:Node3D
 var cube:RigidBody3D
 var cube_hand_pos:Vector3
 
+## Load the test scene template and place the needed objects
+## to the environment. Assign the initialized variables.
 func before_test():
-	
 	var cube_init:RigidBody3D = auto_free(RigidBody3D.new())
 	cube_init.name = "Cube"
 	var coll:CollisionShape3D = auto_free(CollisionShape3D.new())
@@ -18,29 +21,38 @@ func before_test():
 	
 	var scene = auto_free(load("res://Test/TestScenes/TestScene.tscn").instantiate())
 	scene.add_child(cube_init)
-	var player = scene.find_child("Player")
+	player = scene.find_child("Player")
 	cube_init.transform.origin = player.global_position + Vector3(0, 1, -2)
 	cube_init.add_to_group("pickable")
 	
 	runner = scene_runner(scene)
 	
-	player_head = runner.find_child("Player").find_child("Head")
+	player = runner.find_child("Player")
+	player_head = player.find_child("Head")
 	cube = runner.find_child("Cube")
 
+## The function tests picking up an object
+## and checks that it gets added to the held objects list.
 func test_pick_up_object():
+	cube.scale = Vector3(1, 2, 1)
 	await await_millis(500)
-	player_head.look_at(cube.global_position)
+	player.look_at(cube.global_position)
 	await await_idle_frame()
 	runner.simulate_key_pressed(KEY_E)
 	await await_millis(500)
 	assert_that(player_head.held_object).is_equal(cube)
 
+## This function tests that the object gets removed from
+## the held objects list once dropped from players hand.
 func test_set_down_object():
 	player_head.held_object = cube
 	runner.simulate_key_pressed(KEY_E)
 	await await_millis(500)
 	assert_that(player_head.held_object).is_equal(null)
 
+## Test for moving the picked up object upwards. Mouse movement upwards
+## is simulated while an object is picked up. In the end there is a check
+## that the position of the cube has changed appropriately.
 func test_move_object_up():
 	player_head.held_object = cube
 	await await_millis(500)
@@ -49,6 +61,9 @@ func test_move_object_up():
 	await await_millis(500)
 	assert_that(cube.global_position.y).is_greater(cube_hand_pos.y)
 
+## Test for moving the picked up object downward. Mouse movement downward
+## is simulated while an object is picked up. In the end there is a check
+## that the position of the cube has changed appropriately.
 func test_move_object_down():
 	player_head.held_object = cube
 	await await_millis(500)
@@ -57,6 +72,9 @@ func test_move_object_down():
 	await await_millis(500)
 	assert_that(cube.global_position.y).is_less(cube_hand_pos.y)
 
+## Test for moving the picked up object to the left. Mouse movement to the left
+## is simulated while an object is picked up. In the end there is a check
+## that the position of the cube has changed appropriately.
 func test_move_object_left():
 	player_head.held_object = cube
 	await await_millis(500)
@@ -65,6 +83,9 @@ func test_move_object_left():
 	await await_millis(500)
 	assert_that(cube.global_position.x).is_less(cube_hand_pos.x)
 
+## Test for moving the picked up object to the right. Mouse movement to the
+## right is simulated while an object is picked up. In the end there is
+## a check that the position of the cube has changed appropriately.
 func test_move_object_right():
 	player_head.held_object = cube
 	await await_millis(500)
@@ -73,6 +94,8 @@ func test_move_object_right():
 	await await_millis(500)
 	assert_that(cube.global_position.x).is_greater(cube_hand_pos.x)
 
+## Test for moving the picked up object further away from the player using
+## the scrollwheel.
 func test_move_object_forward():
 	player_head.held_object = cube
 	await await_millis(500)
@@ -83,6 +106,8 @@ func test_move_object_forward():
 		runner.simulate_mouse_button_release(MOUSE_BUTTON_WHEEL_UP)
 	assert_that(cube.global_position.z).is_less(cube_hand_pos.z)
 
+## Test for moving the picked up object closer towards the player using the
+## scrollwheel.
 func test_move_object_back():
 	player_head.held_object = cube
 	await await_millis(500)
@@ -93,6 +118,7 @@ func test_move_object_back():
 		runner.simulate_mouse_button_release(MOUSE_BUTTON_WHEEL_DOWN)
 	assert_that(cube.global_position.z).is_greater(cube_hand_pos.z)
 
+## Test for moving to the right with an object picked up.
 func test_move_object_with_player_right():
 	player_head.held_object = cube
 	await await_millis(500)
@@ -102,6 +128,7 @@ func test_move_object_with_player_right():
 	runner.simulate_key_release(KEY_D)
 	assert_that(cube.global_position.x).is_greater(cube_hand_pos.x)
 
+## Test for moving to the left with an object picked up
 func test_move_object_with_player_left():
 	player_head.held_object = cube
 	await await_millis(500)
@@ -111,6 +138,7 @@ func test_move_object_with_player_left():
 	runner.simulate_key_release(KEY_A)
 	assert_that(cube.global_position.x).is_less(cube_hand_pos.x)
 
+## Test for moving forward with an object picked up
 func test_move_object_with_player_forward():
 	player_head.held_object = cube
 	await await_millis(500)
@@ -120,6 +148,7 @@ func test_move_object_with_player_forward():
 	runner.simulate_key_release(KEY_W)
 	assert_that(cube.global_position.z).is_less(cube_hand_pos.z)
 
+## Test for moving backwards with an object picked up
 func test_move_object_with_player_back():
 	player_head.held_object = cube
 	await await_millis(500)

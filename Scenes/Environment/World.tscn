@@ -11,7 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://ui8xi7bokueq" path="res://Scenes/Objects/Scale.tscn" id="10_ti1bm"]
 [ext_resource type="PackedScene" uid="uid://lliiln0k2438" path="res://Scenes/Objects/WaterBottle.tscn" id="11_w5xhi"]
 [ext_resource type="PackedScene" uid="uid://b6gjdmiam8olr" path="res://Scenes/Environment/Room.tscn" id="12_3c8se"]
+[ext_resource type="PackedScene" uid="uid://cmi3mgufo3psc" path="res://Scenes/Objects/Suppilo.tscn" id="12_bwjft"]
 [ext_resource type="PackedScene" uid="uid://dqjebp0rip0hc" path="res://Scenes/Objects/dekstrometorfaanihydrobromidi.tscn" id="12_bwjxt"]
+[ext_resource type="PackedScene" uid="uid://cdirtdw8j4ap7" path="res://Scenes/Objects/MeasuringCylinder.scn" id="13_bwjtt"]
+[ext_resource type="PackedScene" uid="uid://d0hx8maqo7hrt" path="res://Scenes/Objects/Stand.tscn" id="14_jy0m3"]
+[ext_resource type="PackedScene" uid="uid://caeetgi4b0qh8" path="res://Scenes/Objects/FilterPaper.tscn" id="15_obwj0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5cjrv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -37,7 +41,7 @@ environment = SubResource("Environment_5nsto")
 [node name="Label" type="Label" parent="." unique_id=555306583]
 offset_right = 43.0
 offset_bottom = 23.0
-text = "pharm-sim demo v0.0.1"
+text = "Sekoita ja selvitä demo v0.0.1"
 
 [node name="Room" parent="." unique_id=166548899 instance=ExtResource("12_3c8se")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56105113, -0.06857276, -0.13939571)
@@ -85,3 +89,15 @@ fill_amount_ml = 100.0
 
 [node name="Node3D" parent="." unique_id=455590915 instance=ExtResource("12_bwjxt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.352067, 1.0481995, -4.3713408)
+
+[node name="MeasuringCylinder" parent="." unique_id=1479036736 instance=ExtResource("13_bwjtt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.650722, 1.0231998, -4.0603285)
+
+[node name="FilterPaper" parent="." unique_id=990385639 instance=ExtResource("15_obwj0")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -3.47324, 1.0531999, -3.8510764)
+
+[node name="Stand" parent="." unique_id=2068621740 instance=ExtResource("14_jy0m3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5843823, 1.0231998, -9.781689)
+
+[node name="Suppilo" parent="." unique_id=828524975 instance=ExtResource("12_bwjft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6988263, 1.0231997, -4.045908)

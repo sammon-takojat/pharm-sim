@@ -141,7 +141,6 @@ size = Vector3(1.5249023, 0.18115234, 3.9118652)
 [node name="FumeHood" unique_id=2083019472 node_paths=PackedStringArray("animation_player") instance=ExtResource("1_x24cf")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 script = ExtResource("2_wjqph")
-animation_player = NodePath("AnimationPlayer")
 
 [node name="handle" parent="." index="2" unique_id=662729341]
 transform = Transform3D(0.07661248, 7.49145e-10, 0.010597631, 0.010597631, -1.08829985e-08, -0.07661248, 3.188752e-11, 1.8170236, -4.6323714e-10, 0.77156115, 1.8432798, 0.0014626955)
