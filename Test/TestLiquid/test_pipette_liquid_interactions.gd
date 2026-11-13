@@ -6,7 +6,7 @@ var pipette_script = preload(
 )
 
 var liquid_container_script = preload(
-	"res://Scripts/Items/Beaker/beaker_liquid.gd"
+	"uid://b6xgd6wi0srv5"
 )
 
 var pipettes: Array[Pipette] = []
@@ -108,7 +108,7 @@ func test_fill_pipette_with_acid_preserves_moles() -> void:
 	# 1 M acid, 100 ml = 0.1 mol
 	container.net_h_moles = 0.1
 
-	pipette.use(container)
+	pipette.use(container, Vector3.ZERO)
 
 	assert_float(pipette.volume_ml).is_equal(10.0)
 	assert_float(pipette.net_h_moles).is_equal_approx(
@@ -130,7 +130,7 @@ func test_dispensing_base_transfers_negative_moles() -> void:
 	pipette.net_h_moles = -0.01
 	pipette.is_filled = true
 
-	pipette.use(container)
+	pipette.use(container, Vector3.ZERO)
 
 	assert_float(pipette.net_h_moles).is_equal_approx(
 		-0.00995,
@@ -149,7 +149,7 @@ func test_dispensing_acid_lowers_target_ph() -> void:
 	pipette.net_h_moles = 0.01
 	pipette.is_filled = true
 
-	pipette.use(container)
+	pipette.use(container, Vector3.ZERO)
 
 	assert_float(container.pH).is_less(7.0)
 	assert_float(container.pH).is_equal_approx(
@@ -164,6 +164,6 @@ func test_dispensing_base_raises_target_ph() -> void:
 	pipette.net_h_moles = -0.01
 	pipette.is_filled = true
 
-	pipette.use(container)
+	pipette.use(container, Vector3.ZERO)
 
 	assert_float(container.pH).is_greater(7.0)

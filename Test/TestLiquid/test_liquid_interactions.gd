@@ -2,7 +2,7 @@ extends GdUnitTestSuite
 
 
 var liquid_container_script = preload(
-	"res://Scripts/Items/Beaker/beaker_liquid.gd"
+	"uid://b6xgd6wi0srv5"
 )
 
 var containers: Array[LiquidContainer] = []
