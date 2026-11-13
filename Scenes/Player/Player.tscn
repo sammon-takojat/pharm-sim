@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://d0d3fb1qnc1wp" path="res://Scripts/Player/player.gd" id="1_ft8w5"]
 [ext_resource type="Script" uid="uid://ddj5qriqvj54" path="res://Scripts/Player/head.gd" id="2_h54ih"]
+[ext_resource type="Texture2D" uid="uid://4fy8npx5n2ki" path="res://Assets/Images/Oraaliliuosohje.png" id="3_h54ih"]
+[ext_resource type="Script" uid="uid://ddavlamcsdx1m" path="res://Scripts/Player/instructions.gd" id="4_ude3g"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_wkjni"]
 
@@ -86,3 +88,9 @@ layout_mode = 2
 text = "Press F to toggle the fume hood's use mode."
 label_settings = SubResource("LabelSettings_d0i6x")
 horizontal_alignment = 1
+
+[node name="Oraaliliuosohje" type="Sprite2D" parent="." unique_id=1452621912]
+position = Vector2(960, 537.84375)
+scale = Vector2(0.905, 0.902)
+texture = ExtResource("3_h54ih")
+script = ExtResource("4_ude3g")
